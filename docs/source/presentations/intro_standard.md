@@ -5,9 +5,13 @@ paginate: true
 title: "3-ID-C BITS: introduction"
 description: "Standard 15-minute introduction to the 3-ID-C Bluesky instrument"
 style: |
-  section { font-size: 28px; }
-  section h1 { font-size: 44px; }
-  section h2 { font-size: 34px; }
+  /* Halve the top padding (default ~70px) and zero the heading's
+     top margin to recover ~50px of vertical room.  Bottom and
+     side padding intentionally unchanged. */
+  section { padding-top: 35px; font-size: 28px; }
+  section > *:first-child { margin-top: 0; }
+  section h1 { font-size: 44px; margin-top: 0; }
+  section h2 { font-size: 34px; margin-top: 0; }
   section pre, section code { font-size: 22px; }
   section table { font-size: 24px; }
 ---
