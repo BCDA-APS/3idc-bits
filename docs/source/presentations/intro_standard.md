@@ -4,6 +4,12 @@ theme: default
 paginate: true
 title: "3-ID-C BITS: introduction"
 description: "Standard 15-minute introduction to the 3-ID-C Bluesky instrument"
+style: |
+  section { font-size: 28px; }
+  section h1 { font-size: 44px; }
+  section h2 { font-size: 34px; }
+  section pre, section code { font-size: 22px; }
+  section table { font-size: 24px; }
 ---
 
 # 3-ID-C BITS
@@ -29,7 +35,7 @@ Bluesky Instrument for beamline 3-ID-C
 
 - **Bluesky Instrument** -- a deployable Python package built on
   the [`apsbits`](https://github.com/BCDA-APS/apsbits) framework
-- Replaces SPEC as the **command-line scanning environment**
+- Provides a **command-line scanning environment**
 - Each beamline gets its own BITS package; ours is `id3c`
 - Repo: <https://github.com/BCDA-APS/3idc-bits>
 
@@ -145,21 +151,19 @@ future improvement.
 ## A first session
 
 ```bash
-conda activate <env>
-ipython
+conda activate <env> && ipython
 ```
 
 ```python
 from id3c.startup import *
 %wa motors
 
-RE(bps.mv(sample_stage.x, 0))        # move
-RE(bp.count([sim_det], num=5))       # count
+RE(bps.mv(sample_stage.x, 0))                 # move
+RE(bp.count([sim_det], num=5))                # count
 RE(bp.scan([sim_det], sim_motor, -5, 5, 11))  # scan
 
-run = cat[-1]                        # most recent run
-run.metadata["start"]["scan_id"]
-run.primary.read()                   # xarray Dataset
+run = cat[-1]                                 # most recent run
+run.primary.read()                            # xarray Dataset
 ```
 
 ---

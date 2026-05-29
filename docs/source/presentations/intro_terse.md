@@ -4,6 +4,12 @@ theme: default
 paginate: true
 title: "3-ID-C BITS: 5-minute intro"
 description: "Terse introduction to the 3-ID-C Bluesky instrument"
+style: |
+  section { font-size: 28px; }
+  section h1 { font-size: 44px; }
+  section h2 { font-size: 34px; }
+  section pre, section code { font-size: 22px; }
+  section table { font-size: 24px; }
 ---
 
 # 3-ID-C BITS

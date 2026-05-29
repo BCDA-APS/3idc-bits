@@ -4,6 +4,12 @@ theme: default
 paginate: true
 title: "3-ID-C BITS: tutorial walkthrough"
 description: "Self-paced tutorial-style introduction to the 3-ID-C Bluesky instrument"
+style: |
+  section { font-size: 28px; }
+  section h1 { font-size: 44px; }
+  section h2 { font-size: 34px; }
+  section pre, section code { font-size: 22px; }
+  section table { font-size: 24px; }
 ---
 
 # 3-ID-C BITS
@@ -67,7 +73,7 @@ That `from ... import *` triggers:
 
 ---
 
-## Part 1: what's bound at the prompt
+## Part 1: what's bound at the prompt (1/2) -- machinery
 
 ```python
 RE                       # the RunEngine
@@ -77,7 +83,13 @@ bec                      # BestEffortCallback (live plots/tables)
 
 bps                      # bluesky.plan_stubs (mv, sleep, ...)
 bp                       # bluesky.plans (count, scan, ...)
+```
 
+---
+
+## Part 1: what's bound at the prompt (2/2) -- devices
+
+```python
 sample_stage             # a MotorBundle
 laser_optics             # our custom LaserOptics
 shutter                  # ApsPssShutter
@@ -89,7 +101,7 @@ sim_motor, sim_det       # simulators
 
 ---
 
-## Part 2: SPEC -> Bluesky
+## Part 2: SPEC -> Bluesky (1/2) -- motion and inspection
 
 | SPEC | Bluesky |
 |------|---------|
@@ -97,10 +109,17 @@ sim_motor, sim_det       # simulators
 | `mvr samx 0.1` | `RE(bps.mvr(sample_stage.x, 0.1))` |
 | `wm samx` | `sample_stage.x.position` (no `RE`!) |
 | `wa` | `%wa` |
+| `shopen` | `RE(bps.mv(shutter, "open"))` |
+
+---
+
+## Part 2: SPEC -> Bluesky (2/2) -- counts and scans
+
+| SPEC | Bluesky |
+|------|---------|
 | `ct 1` | `RE(bp.count([scaler]))` |
 | `ascan samx 0 10 10 1` | `RE(bp.scan([scaler], sample_stage.x, 0, 10, 11))` |
 | `mesh ...` | `RE(bp.grid_scan([scaler], mot1, ..., mot2, ...))` |
-| `shopen` | `RE(bps.mv(shutter, "open"))` |
 
 **Note SPEC's "10 intervals" vs. Bluesky's "11 points".**
 
@@ -113,9 +132,6 @@ Being honest:
 - **Compactness.** `ascan samx 0 10 10 1` is shorter than the
   Bluesky equivalent.  We can alias common commands, but bare
   commands are longer.
-- **Inline command editing.** SPEC lets you edit and rerun the
-  last scan from the prompt easily.  IPython history is close
-  but not the same.
 - **Macros.** `do.mac` is faster to write than authoring a
   Python plan.
 - **One command -> one file.** SPEC files are human-readable text.
@@ -317,19 +333,17 @@ You can add your own: `RE.subscribe(my_callback)`.
 
 ## Part 6: what's installed today
 
-```python
-%wa baseline      # devices with the 'baseline' label
-                  # (recorded once at start and end of every run)
-```
+| device | notes |
+|--------|-------|
+| `sample_stage` | x / y / z / **omega** (interlocked) |
+| `detector_stage` | x / y / z |
+| `laser_optics` | us / ds (interlocked with omega) |
+| `shutter` | A-station PSS shutter |
+| `eiger2` | Eiger2 500k; HDF5 file plugin still FIXME |
+| `sim_motor`, `sim_det` | simulators for verification |
 
-| device | kind | comment |
-|--------|------|---------|
-| `sample_stage` | MotorBundle (x/y/z/omega) | `omega` is `InterlockedEpicsMotor` |
-| `detector_stage` | MotorBundle (x/y/z) | |
-| `laser_optics` | custom (us/ds + state) | interlocked with omega |
-| `shutter` | `ApsPssShutter` | A-station; PVs `3ida:shutterC:Open/Close` |
-| `eiger2` | area detector | HDF5 file plugin still FIXME |
-| `sim_motor`, `sim_det` | simulators | for verification |
+`%wa` lists everything by label; `%wa baseline` shows the devices
+recorded at the start and end of every run.
 
 ---
 
@@ -379,16 +393,13 @@ server (3-ID-C uses <http://sn.xray.aps.anl.gov:8000>).  The
 session-level client is `cat`:
 
 ```python
-cat                          # /raw on the Tiled server
-len(cat)                     # number of runs available
-cat[-1]                      # most recent run
-cat["<uid>"]                 # by UID
+cat[-1]                       # most recent run
+cat["<uid>"]                  # by UID
 
 run = cat[-1]
-run.metadata["start"]        # plan args, scan_id, plan_name, ...
-run.metadata["stop"]         # exit_status, num_events, ...
-run.primary.read()           # xarray Dataset of the main stream
-run.baseline.read()          # snapshot of baseline-labeled devices
+run.metadata["start"]         # plan args, scan_id, plan_name, ...
+run.primary.read()            # xarray Dataset of the main stream
+run.baseline.read()           # baseline-labeled devices
 ```
 
 ---
