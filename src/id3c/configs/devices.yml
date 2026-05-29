@@ -17,6 +17,14 @@
 #       - roi1
 #       - stats1
 
+apstools.devices.ApsPssShutter:
+- name: shutter
+  prefix: "3ida:shutterC:"
+  labels: ["shutters", "baseline"]
+  # PVs: 3ida:shutterC:Open and 3ida:shutterC:Close
+  # ApsPssShutter has no status readback; state is reported as "unknown".
+  # Use ApsPssShutterWithStatus if/when a status PV is identified.
+
 apstools.devices.motor_factory.mb_creator:
 - name: sample_stage
   labels: [ "baseline" ]
@@ -42,6 +50,12 @@ apstools.devices.motor_factory.mb_creator:
   motors:
     us: m1
     ds: m2
+    # interlock sample_stage.omega
+    # motion prevented when laser_optics is not OUT
+    # OUT is-75 mm +/- 1
+    # IN is 75 mm +/- 1
+    # TODO: which axis?
+    # Needs custom class for IN & OUT states
 
 apsbits.utils.sim_creator.predefined_device:
 - { creator: ophyd.sim.motor, name: sim_motor }
