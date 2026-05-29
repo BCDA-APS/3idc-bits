@@ -4,18 +4,6 @@
 for APS beamline 3-ID-C.  Built on the
 [`apsbits`](https://github.com/BCDA-APS/apsbits) framework.
 
-## Documentation
-
-Full documentation: <https://bcda-aps.github.io/3idc-bits/>
-
-Build locally:
-
-```bash
-pip install -e .[doc]
-cd docs && make html
-xdg-open build/html/index.html
-```
-
 Where to start:
 
 - **New to Bluesky?**  Read
@@ -42,9 +30,6 @@ from id3c.startup import *
 RE(sim_print_plan())
 ```
 
-For first-time installation, see
-[the developer setup section in CONTRIBUTING](docs/source/contributing.md#developer-setup).
-
 ## Contributing
 
 Repository conventions live in
@@ -55,3 +40,8 @@ Repository conventions live in
 ## Issue tracker
 
 <https://github.com/BCDA-APS/3idc-bits/issues>
+
+## Initial installation
+
+For first-time installation, see
+[the developer setup section in CONTRIBUTING](docs/source/contributing.md#developer-setup).
