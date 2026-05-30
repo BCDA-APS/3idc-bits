@@ -1,0 +1,78 @@
+id3c.devices.area_detector
+==========================
+
+.. py:module:: id3c.devices.area_detector
+
+.. autoapi-nested-parse::
+
+   EPICS area_detector definitions for ID8.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   id3c.devices.area_detector.EigerDetectorCam_V34
+
+
+Module Contents
+---------------
+
+.. py:class:: EigerDetectorCam_V34(prefix='', *, name, kind=None, read_attrs=None, configuration_attrs=None, parent=None, child_name_separator='_', connection_timeout=DEFAULT_CONNECTION_TIMEOUT, **kwargs)
+
+   Bases: :py:obj:`apstools.devices.CamMixin_V34`, :py:obj:`ophyd.areadetector.EigerDetectorCam`
+
+
+   Revise EigerDetectorCam for ADCore revisions.
+
+
+   .. py:attribute:: initialize
+
+
+   .. py:attribute:: file_number_sync
+      :value: None
+
+
+
+   .. py:attribute:: file_number_write
+      :value: None
+
+
+
+   .. py:attribute:: fw_clear
+      :value: None
+
+
+
+   .. py:attribute:: link_0
+      :value: None
+
+
+
+   .. py:attribute:: link_1
+      :value: None
+
+
+
+   .. py:attribute:: link_2
+      :value: None
+
+
+
+   .. py:attribute:: link_3
+      :value: None
+
+
+
+   .. py:attribute:: dcu_buff_free
+      :value: None
+
+
+
+   .. py:attribute:: offset
+      :value: None
+
+
+

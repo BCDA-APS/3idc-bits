@@ -1,0 +1,39 @@
+id3c.callbacks.demo_nexus_callback
+==================================
+
+.. py:module:: id3c.callbacks.demo_nexus_callback
+
+.. autoapi-nested-parse::
+
+   Nexus data file writer callback.
+
+   This module provides callbacks for writing data to Nexus data files.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.callbacks.demo_nexus_callback.logger
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.callbacks.demo_nexus_callback.nxwriter_init
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:function:: nxwriter_init(RE: Any, iconfig: dict[str, Any]) -> Any
+
+   Initialize the Nexus data file writer callback.
+
+

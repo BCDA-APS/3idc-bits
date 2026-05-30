@@ -1,0 +1,56 @@
+id3c.startup
+============
+
+.. py:module:: id3c.startup
+
+.. autoapi-nested-parse::
+
+   Start Bluesky Data Acquisition sessions of all kinds.
+
+   Includes:
+
+   * Python script
+   * IPython console
+   * Jupyter notebook
+   * Bluesky queueserver
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.startup.instrument_path
+   id3c.startup.iconfig_path
+   id3c.startup.iconfig
+   id3c.startup.extra_logging_configs_path
+   id3c.startup.logger
+   id3c.startup.cat
+   id3c.startup.nxwriter
+   id3c.startup.specwriter
+
+
+Module Contents
+---------------
+
+.. py:data:: instrument_path
+
+.. py:data:: iconfig_path
+
+.. py:data:: iconfig
+
+.. py:data:: extra_logging_configs_path
+
+.. py:data:: logger
+
+.. py:data:: cat
+   :value: None
+
+
+.. py:data:: nxwriter
+
+.. py:data:: specwriter
+   :value: None
+
+

@@ -1,0 +1,120 @@
+id3c.devices.laser_optics
+=========================
+
+.. py:module:: id3c.devices.laser_optics
+
+.. autoapi-nested-parse::
+
+   Laser pickoff optics bundle (us / ds axes) with IN/OUT state.
+
+   The ``us`` and ``ds`` axes are upstream and downstream halves of a
+   retractable laser pickoff.  At nominal positions they are either
+   fully ``IN`` (in the beam path) or fully ``OUT`` (retracted).
+
+   This device declares its two axes as
+   :class:`~id3c.devices.interlocked_motor.InterlockedEpicsMotor`.  The
+   actual interlock callable (against ``sample_stage.omega``) is wired
+   late, in ``id3c.startup``.
+
+   Configuration Components (plain :class:`ophyd.Signal`, ``kind="config"``):
+
+   * ``in_position``   -- nominal IN location (mm), applied to both axes
+   * ``out_position``  -- nominal OUT location (mm), applied to both axes
+   * ``tolerance``     -- +/- window (mm) for IN/OUT comparison
+   * ``settle_time``   -- post-move delay (s) in ``move_in``/``move_out``
+
+   Derived Components (:class:`ophyd.signal.AttributeSignal`, ``kind="omitted"``):
+
+   * ``in_status``  -- mirrors :attr:`is_in`
+   * ``out_status`` -- mirrors :attr:`is_out`
+
+   These derived signals are subscribable, which is what the mid-motion
+   interlock watcher on ``sample_stage.omega`` uses.  Note however that
+   ``AttributeSignal`` itself does not emit on EPICS updates; the
+   watcher should subscribe to the underlying ``us.user_readback`` and
+   ``ds.user_readback`` signals (which it does, by wiring in
+   ``startup.py``).  ``in_status`` / ``out_status`` are exposed for
+   manual ``.get()`` queries and for any code that just wants the
+   boolean.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.devices.laser_optics.logger
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   id3c.devices.laser_optics.LaserOptics
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:class:: LaserOptics(prefix='', *, name, kind=None, read_attrs=None, configuration_attrs=None, parent=None, child_name_separator='_', connection_timeout=DEFAULT_CONNECTION_TIMEOUT, **kwargs)
+
+   Bases: :py:obj:`ophyd.MotorBundle`
+
+
+   Retractable laser pickoff with IN/OUT state and motion plans.
+
+
+   .. py:attribute:: us
+
+
+   .. py:attribute:: ds
+
+
+   .. py:attribute:: in_position
+
+
+   .. py:attribute:: out_position
+
+
+   .. py:attribute:: tolerance
+
+
+   .. py:attribute:: settle_time
+
+
+   .. py:attribute:: in_status
+
+
+   .. py:attribute:: out_status
+
+
+   .. py:property:: is_in
+      :type: bool
+
+
+      True iff both axes are within tolerance of ``in_position``.
+
+
+   .. py:property:: is_out
+      :type: bool
+
+
+      True iff both axes are within tolerance of ``out_position``.
+
+
+   .. py:method:: move_out()
+
+      Move both axes to ``out_position`` and verify.
+
+
+
+   .. py:method:: move_in()
+
+      Move both axes to ``in_position`` and verify.
+
+
+

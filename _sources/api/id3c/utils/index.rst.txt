@@ -1,0 +1,11 @@
+id3c.utils
+==========
+
+.. py:module:: id3c.utils
+
+.. autoapi-nested-parse::
+
+   Package containing utility functions and classes for the instrument.
+
+
+

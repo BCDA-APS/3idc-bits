@@ -1,0 +1,20 @@
+id3c.plans
+==========
+
+.. py:module:: id3c.plans
+
+.. autoapi-nested-parse::
+
+   Bluesky plans.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/id3c/plans/sim_plans/index
+
+

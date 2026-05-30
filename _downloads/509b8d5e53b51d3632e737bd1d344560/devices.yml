@@ -1,0 +1,97 @@
+# Guarneri-style device YAML configuration
+
+# Simulators to demonstrate and test a working installation.
+apsbits.utils.sim_creator.predefined_device:
+- { creator: ophyd.sim.motor, name: sim_motor }
+- { creator: ophyd.sim.noisy_det, name: sim_det }
+
+apstools.devices.ad_creator:
+  # Eiger2 500k
+  - name: eiger2
+    prefix: "dp_eiger_sn:"
+    labels: ["area_detector", "detectors"]
+    plugins:
+      - cam:
+          class: id3c.devices.area_detector.EigerDetectorCam_V34
+      - image
+      - pva
+      # - hdf1:
+      #     class: apstools.devices.AD_EpicsFileNameHDF5Plugin
+      #     read_path_template: "/path/to/bluesky/tmp/"  FIXME
+      #     write_path_template: "s3ida/XRD/"  FIXME
+      - roi1
+      - stats1
+
+apstools.devices.ApsPssShutter:
+- name: shutter
+  prefix: "3ida:shutterC:"
+  labels: ["shutters", "baseline"]
+  # PVs: 3ida:shutterC:Open and 3ida:shutterC:Close
+  # ApsPssShutter has no status readback; state is reported as "unknown".
+  # Use ApsPssShutterWithStatus if/when a status PV is identified.
+
+apstools.devices.motor_factory.mb_creator:
+- name: sample_stage
+  labels: [ "baseline" ]
+  prefix: ""
+  class_name: SampleStage
+  motors:
+    x: "3idxps1:m4"  # translation
+    y: "3idc:m42"    # translation (vertical)
+    z: "3idxps1:m3"  # translation (beam direction)
+    # omega is interlocked against laser_optics; see
+    # setup_omega_laser_interlock in
+    # src/id3c/devices/omega_laser_interlock.py (called from
+    # src/id3c/startup.py).  The 'class' key here makes mb_creator
+    # instantiate this axis as InterlockedEpicsMotor.
+    omega:
+      prefix: "3idxps1:m5"  # rotation around vertical
+      class: id3c.devices.interlocked_motor.InterlockedEpicsMotor
+      interlock_description: "laser_optics OUT"
+- name: detector_stage
+  labels: [ "baseline" ]
+  prefix: ""
+  class_name: DetectorStage
+  motors:
+    x: "3idc:m43"  # translation
+    y: "3idc:m35"  # translation Eiger2
+    z: "3idc:m36"  # translation Eiger2
+
+# laser_optics axes are interlocked against sample_stage.omega (both
+# directions).  See setup_omega_laser_interlock in
+# src/id3c/devices/omega_laser_interlock.py (called from
+# src/id3c/startup.py).
+# Position semantics: IN = +75 mm, OUT = -75 mm, tolerance = +/- 1 mm
+# (defaults defined on the LaserOptics class).
+id3c.devices.laser_optics.LaserOptics:
+- name: laser_optics
+  labels: [ "baseline" ]
+  prefix: "3idxps1:"
+
+## THIS ARE EXAMPLES OF OTHER DEVICES THAT YOU CAN USE
+# ophyd.Signal:
+# - name: test
+#   value: 50.7
+# - name: t2
+#   value: 2
+
+# apstools.synApps.Optics2Slit2D_HV:
+# - name: slit1
+#   prefix: ioc:Slit1
+#   labels: ["slits", "baseline"]
+
+# hkl.SimulatedE4CV:
+# - name: sim4c
+#   prefix: ""
+#   labels: ["diffractometer"]
+
+# ophyd.scaler.ScalerCH:
+# - name: scaler1
+#   prefix: vme:scaler1
+#   labels: ["scalers", "detectors"]
+
+# ophyd.EpicsMotor:
+# - {name: m1, prefix: gp:m1, labels: ["motor"]}
+# - {name: m2, prefix: gp:m2, labels: ["motor"]}
+# - {name: m3, prefix: gp:m3, labels: ["motor"]}
+# - {name: m4, prefix: gp:m4, labels: ["motor"]}
