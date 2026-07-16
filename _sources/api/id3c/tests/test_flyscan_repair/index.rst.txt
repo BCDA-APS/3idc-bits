@@ -1,0 +1,106 @@
+id3c.tests.test_flyscan_repair
+==============================
+
+.. py:module:: id3c.tests.test_flyscan_repair
+
+.. autoapi-nested-parse::
+
+   Tests for ``id3c.utils.flyscan_repair`` (the repair CLI).
+
+   Synthetic master + area-detector HDF5 files; the catalog run is faked
+   and injected by monkeypatching ``_get_run``.  No IOC, no live catalog.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.tests.test_flyscan_repair.UID
+   id3c.tests.test_flyscan_repair.UID_DSET
+   id3c.tests.test_flyscan_repair.TS_DSET
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_flyscan_repair.test_read_run_uid
+   id3c.tests.test_flyscan_repair.test_resolve_external_file_from_link
+   id3c.tests.test_flyscan_repair.test_resolve_external_file_from_metadata
+   id3c.tests.test_flyscan_repair.test_repair_writes_flyscan_data
+   id3c.tests.test_flyscan_repair.test_repair_is_idempotent
+   id3c.tests.test_flyscan_repair.test_dry_run_does_not_write
+   id3c.tests.test_flyscan_repair.test_missing_uid_raises
+   id3c.tests.test_flyscan_repair.test_unresolvable_ad_file_raises
+   id3c.tests.test_flyscan_repair.test_cli_main_success
+   id3c.tests.test_flyscan_repair.test_cli_main_failure_returns_1
+
+
+Module Contents
+---------------
+
+.. py:data:: UID
+   :value: 'abc123de-0000-1111-2222-333344445555'
+
+
+.. py:data:: UID_DSET
+   :value: '/entry/instrument/detector/NDAttributes/NDArrayUniqueId'
+
+
+.. py:data:: TS_DSET
+   :value: '/entry/instrument/detector/NDAttributes/NDArrayTimeStamp'
+
+
+.. py:function:: test_read_run_uid(tmp_path)
+
+   The uid is read from /entry/entry_identifier.
+
+
+.. py:function:: test_resolve_external_file_from_link(tmp_path)
+
+   The external link target is resolved relative to the master dir.
+
+
+.. py:function:: test_resolve_external_file_from_metadata(tmp_path)
+
+   With no link, the AD path is composed from start metadata.
+
+
+.. py:function:: test_repair_writes_flyscan_data(tmp_path, _patch_run)
+
+   A full repair writes /entry/flyscan_data with the paired frames.
+
+
+.. py:function:: test_repair_is_idempotent(tmp_path, _patch_run)
+
+   Running twice yields the same group (no crash on re-write).
+
+
+.. py:function:: test_dry_run_does_not_write(tmp_path, _patch_run)
+
+   --dry-run reports but leaves the master unchanged.
+
+
+.. py:function:: test_missing_uid_raises(tmp_path)
+
+   A master with no entry_identifier is an error.
+
+
+.. py:function:: test_unresolvable_ad_file_raises(tmp_path)
+
+   A non-existent area-detector file is an error.
+
+
+.. py:function:: test_cli_main_success(tmp_path, _patch_run, capsys)
+
+   The CLI returns 0 and prints a summary on success.
+
+
+.. py:function:: test_cli_main_failure_returns_1(tmp_path, capsys)
+
+   The CLI returns 1 and reports the error on failure.
+
+

@@ -1,0 +1,73 @@
+id3c.callbacks.demo_spec_callback
+=================================
+
+.. py:module:: id3c.callbacks.demo_spec_callback
+
+.. autoapi-nested-parse::
+
+   custom callbacks
+   ================
+
+   .. autosummary::
+       :nosignatures:
+
+       ~newSpecFile
+       ~spec_comment
+       ~specwriter
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.callbacks.demo_spec_callback.logger
+   id3c.callbacks.demo_spec_callback.specwriter
+   id3c.callbacks.demo_spec_callback.file_extension
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.callbacks.demo_spec_callback.spec_comment
+   id3c.callbacks.demo_spec_callback.newSpecFile
+   id3c.callbacks.demo_spec_callback.init_specwriter_with_RE
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:data:: specwriter
+   :value: None
+
+
+.. py:data:: file_extension
+   :value: None
+
+
+.. py:function:: spec_comment(comment: str, doc: Optional[Any] = None) -> None
+
+   Make it easy for user to add comments to the data file.
+
+
+.. py:function:: newSpecFile(title: str, scan_id: Optional[int] = None, RE: Optional[Any] = None) -> None
+
+   User choice of the SPEC file name.
+
+   Cleans up title, prepends month and day and appends file extension.
+   If ``RE`` is passed, then resets ``RE.md["scan_id"] = scan_id``.
+
+   If the SPEC file already exists, then ``scan_id`` is ignored and
+   ``RE.md["scan_id"]`` is set to the last scan number in the file.
+
+
+.. py:function:: init_specwriter_with_RE(RE: Any, iconfig: dict[str, Any]) -> Any
+
+   Initialize specwriter with the run engine and return it.
+
+

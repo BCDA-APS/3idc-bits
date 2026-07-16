@@ -1,0 +1,79 @@
+id3c.tests.test_check_ad_files_symlink
+======================================
+
+.. py:module:: id3c.tests.test_check_ad_files_symlink
+
+.. autoapi-nested-parse::
+
+   Tests for ``id3c.plans.flyscan_3idc._check_ad_files_symlink``.
+
+   Verifies:
+   - existing image-files symlink (symlink OR plain dir) is silently
+     accepted;
+   - a missing symlink emits a WARNING containing the suggested
+     ``ln -s`` command and the verification steps;
+   - the warning fires once per (master_dir, target) combination;
+   - a custom read_path_template is reflected in the suggested target;
+   - when read_path_template is missing the helper uses a placeholder
+     the operator must fill in;
+   - the helper never creates or modifies the link.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_check_ad_files_symlink.test_existing_ad_files_symlink_is_accepted_silently
+   id3c.tests.test_check_ad_files_symlink.test_existing_ad_files_directory_is_accepted_silently
+   id3c.tests.test_check_ad_files_symlink.test_missing_ad_files_emits_warning_with_ln_s_command
+   id3c.tests.test_check_ad_files_symlink.test_warning_fires_only_once_per_master_dir_target_combination
+   id3c.tests.test_check_ad_files_symlink.test_warning_fires_again_when_master_dir_changes
+   id3c.tests.test_check_ad_files_symlink.test_missing_read_path_template_uses_placeholder
+   id3c.tests.test_check_ad_files_symlink.test_helper_never_creates_the_symlink
+
+
+Module Contents
+---------------
+
+.. py:function:: test_existing_ad_files_symlink_is_accepted_silently(tmp_path, caplog)
+
+   A pre-existing ad_files symlink (any target) means no warning.
+
+
+.. py:function:: test_existing_ad_files_directory_is_accepted_silently(tmp_path, caplog)
+
+   A plain directory named {det.name}_files (no symlink) is accepted.
+
+
+.. py:function:: test_missing_ad_files_emits_warning_with_ln_s_command(tmp_path, caplog)
+
+   Missing ad_files emits a WARNING with the ln -s recipe.
+
+   Verifies the warning includes the suggested command, the
+   verification step, and the audience-appropriate explanation.
+
+
+.. py:function:: test_warning_fires_only_once_per_master_dir_target_combination(tmp_path, caplog)
+
+   Second call with the same (master_dir, target) is silent.
+
+
+.. py:function:: test_warning_fires_again_when_master_dir_changes(tmp_path, caplog)
+
+   A different master_dir legitimately warns again.
+
+
+.. py:function:: test_missing_read_path_template_uses_placeholder(tmp_path, caplog)
+
+   Missing read_path_template yields a placeholder target.
+
+   The operator must fill it in; we explicitly do NOT guess `/`.
+
+
+.. py:function:: test_helper_never_creates_the_symlink(tmp_path)
+
+   Pure paranoia: the helper must never create the link.
+
+

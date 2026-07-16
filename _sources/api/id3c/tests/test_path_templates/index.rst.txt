@@ -1,0 +1,55 @@
+id3c.tests.test_path_templates
+==============================
+
+.. py:module:: id3c.tests.test_path_templates
+
+.. autoapi-nested-parse::
+
+   Tests for the hdf1 path-template reader helpers.
+
+   ``_read_path_template`` / ``_write_path_template`` feed the
+   ``ad_read_path_template`` / ``ad_write_path_template`` start-metadata
+   that lets a master file reconstruct its image-files symlink.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_path_templates.test_read_path_template_primary
+   id3c.tests.test_path_templates.test_write_path_template_primary
+   id3c.tests.test_path_templates.test_read_falls_back_to_underscore_attr
+   id3c.tests.test_path_templates.test_write_falls_back_to_underscore_attr
+   id3c.tests.test_path_templates.test_returns_none_when_absent
+
+
+Module Contents
+---------------
+
+.. py:function:: test_read_path_template_primary()
+
+   read_path_template is returned when present.
+
+
+.. py:function:: test_write_path_template_primary()
+
+   write_path_template is returned when present.
+
+
+.. py:function:: test_read_falls_back_to_underscore_attr()
+
+   The _read_path_template attribute is the documented fallback.
+
+
+.. py:function:: test_write_falls_back_to_underscore_attr()
+
+   The _write_path_template attribute is the documented fallback.
+
+
+.. py:function:: test_returns_none_when_absent()
+
+   Missing templates return None (stamped as '' in metadata).
+
+

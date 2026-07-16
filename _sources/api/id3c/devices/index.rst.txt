@@ -1,0 +1,23 @@
+id3c.devices
+============
+
+.. py:module:: id3c.devices
+
+.. autoapi-nested-parse::
+
+   Ophyd-style devices.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/id3c/devices/area_detector/index
+   /api/id3c/devices/interlocked_motor/index
+   /api/id3c/devices/laser_optics/index
+   /api/id3c/devices/omega_laser_interlock/index
+
+

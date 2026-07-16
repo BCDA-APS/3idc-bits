@@ -1,0 +1,336 @@
+id3c.utils.flyscan_3idc_analysis
+================================
+
+.. py:module:: id3c.utils.flyscan_3idc_analysis
+
+.. autoapi-nested-parse::
+
+   Post-run analysis helpers for ``flyscan_3idc`` runs.
+
+   This module pairs each detector frame with the motor's
+   interpolated position at the frame's IOC timestamp, using the
+   monitor streams that ``flyscan_3idc.flyscan`` sets up via
+   ``@bpp.monitor_during_decorator``.  No bluesky, no ophyd, no
+   RunEngine — purely operates on ``BlueskyRun``-shaped objects from
+   tiled / databroker.
+
+   Usage
+   -----
+
+   ::
+
+       from tiled.client import from_profile
+       cat = from_profile("your_profile")["your_tree"]
+       run = cat[-1]
+       from flyscan_3idc_analysis import pair_frames_to_positions
+       df = pair_frames_to_positions(run)
+       # df columns: image_number, timestamp,
+       #             position_start_acquire, position_end_acquire,
+       #             position_end_period
+       # df.index: absolute timestamp (float seconds since epoch)
+       #
+       # optional write to CSV file
+       df.to_csv("scan.csv")
+
+   Calibrate timestamps: flymotor & area detector
+   ----------------------------------------------
+
+   The per-frame positions depend on a constant
+   ``hdf_t_phase_offset`` that maps each frame's IOC timestamp to its
+   exposure-start moment.
+
+   Measure it once per IOC/detector with
+   ``hdf_timestamp_semantic_diagnostic`` and pass the result to
+   ``flyscan(..., hdf_t_phase_offset=...)``; see that function's
+   docstring for the procedure.
+
+   Design notes
+   ------------
+
+   - IOC timestamps are the system of record for pairing.  The
+     primary-stream snapshots from the plan are a progress indicator;
+     this module's output is the high-fidelity pairing.
+   - Monitor-stream record order is interleaved across CA dispatcher
+     segments, so sort by timestamp:
+     - the motor monitor stream then yields a strictly increasing
+       position trace at constant velocity in the in-scan window.
+     - the HDF array_counter monitor stream then yields strictly
+       monotonic counter values (0, 1, 2, ..., contiguous).
+   - The function uses linear interpolation of motor position vs
+     motor IOC timestamp.  Linear is exact for a motor at constant
+     velocity in the in-scan window (which is the entire reason the
+     plan sets velocity = (p_end-p_start)/(num_frames*t_period) and
+     taxis the motor up to scan velocity before crossing p_start).
+   - Frames whose timestamps fall outside the motor stream's time
+     range are dropped (extrapolation is rejected, never silent).
+   - Frames whose interpolated positions fall outside
+     ``[p_start, p_end]`` are dropped (this is "frames captured
+     during taxi-in / coast-out" — they're in the HDF5 file but not
+     part of the scan).
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.utils.flyscan_3idc_analysis.logger
+   id3c.utils.flyscan_3idc_analysis.EPICS_EPOCH_OFFSET_S
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.utils.flyscan_3idc_analysis.pair_frames_to_positions_from_ad_file
+   id3c.utils.flyscan_3idc_analysis.pair_frames_to_positions
+   id3c.utils.flyscan_3idc_analysis.hdf_timestamp_semantic_diagnostic
+   id3c.utils.flyscan_3idc_analysis.write_flyscan_data
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:data:: EPICS_EPOCH_OFFSET_S
+   :value: 631152000
+
+
+   Add this to an EPICS timestamp to get a Unix timestamp.
+
+   EPICS time is seconds since 1990-01-01T00:00:00 UTC; Unix time is
+   seconds since 1970-01-01T00:00:00 UTC.  AD plugins store frame
+   timestamps in EPICS time; bluesky monitor streams use Unix time.
+
+.. py:function:: pair_frames_to_positions_from_ad_file(run, ad_file_path, *, timestamp_dset='/entry/instrument/detector/NDAttributes/NDArrayTimeStamp', unique_id_dset='/entry/instrument/detector/NDAttributes/NDArrayUniqueId') -> pandas.DataFrame
+
+   Pair frames with motor positions, sourcing timestamps from the AD file.
+
+   Same output shape as ``pair_frames_to_positions`` but reads
+   per-frame ``(timestamp, unique_id)`` from the AD HDF1 file's own
+   NDAttribute datasets instead of from the CA monitor stream.
+   The AD file is authoritative -- the IOC writes one row per
+   acquired frame -- so the image-number gaps caused by CA monitor
+   coalescing do not apply here.
+
+   The AD file's ``NDArrayTimeStamp`` is in EPICS epoch (seconds
+   since 1990-01-01 UTC).  Bluesky's motor monitor stream uses Unix
+   epoch.  This helper converts by adding ``EPICS_EPOCH_OFFSET_S``;
+   no per-IOC calibration measurement is required as long as the
+   AD IOC and the motor IOC are NTP-synchronized.
+
+   ``NDArrayUniqueId`` is 0-based (the IOC counts from 0).  This
+   helper adds 1 so the returned ``image_number`` matches the
+   1-based ``hdf1.array_counter`` convention used by
+   ``pair_frames_to_positions`` and by the downstream
+   ``frame_index = image_number - 1`` slicing.
+
+   :param run: Same as ``pair_frames_to_positions``; only the motor monitor
+               stream is read from it.
+   :type run: BlueskyRun
+   :param ad_file_path: Path to the AD HDF1 file.  Caller is responsible for
+                        resolving relative-link / symlink translation (e.g. via
+                        ``flyscan_3idc._external_link_target`` + the workstation's
+                        ``./ad_files/`` symlink).
+   :type ad_file_path: str
+   :param timestamp_dset: HDF5 paths inside the AD file for the per-frame timestamp
+                          and UID datasets.  Defaults match the EPICS areaDetector
+                          NDFileHDF5 plugin's standard NDAttribute layout.
+   :type timestamp_dset: str
+   :param unique_id_dset: HDF5 paths inside the AD file for the per-frame timestamp
+                          and UID datasets.  Defaults match the EPICS areaDetector
+                          NDFileHDF5 plugin's standard NDAttribute layout.
+   :type unique_id_dset: str
+
+   :returns: Same columns as ``pair_frames_to_positions``.
+   :rtype: pandas.DataFrame
+
+
+.. py:function:: pair_frames_to_positions(run) -> pandas.DataFrame
+
+   Pair each in-scan HDF frame with three motor positions per period.
+
+   Reads everything from the run's start-document metadata and the
+   standard monitor streams set up by ``flyscan_3idc.flyscan``:
+
+   - ``<flymotor_name>_monitor`` — motor position vs IOC timestamp.
+   - ``<det_name>_hdf1_array_counter_monitor`` — HDF
+     ``array_counter`` vs IOC timestamp.
+   - ``p_start``, ``p_end``, ``t_acquire``, ``t_period``,
+     ``hdf_t_phase_offset`` from ``run.metadata["start"]``.
+
+   For each in-scan frame, three motor positions are reported,
+   one at each of the three per-period phase moments:
+
+       position_start_acquire = motor at hdf_t + hdf_t_phase_offset
+       position_end_acquire   = motor at the above + t_acquire
+       position_end_period    = motor at the above + t_period
+
+   Frames whose ``position_start_acquire`` is outside
+   ``[p_start, p_end]`` are dropped (taxi / coast / before-acquire-
+   finished frames).  Frames whose phase timestamps would require
+   extrapolating past the motor stream's time range are also
+   dropped (no silent extrapolation).  Duplicate image_number
+   values within the in-scan window are deduped with a WARNING.
+
+   :param run: Tiled / databroker run object.  Must have
+               ``.metadata["start"]`` with the keys ``p_start``,
+               ``p_end``, ``flymotor_name``, ``det_name``, ``t_acquire``,
+               ``t_period``, ``hdf_t_phase_offset``, and must expose
+               monitor streams named per the convention above.
+   :type run: BlueskyRun
+
+   :returns: Columns: ``image_number`` (int64, the HDF array_counter
+             value at frame capture), ``timestamp`` (float, raw IOC
+             ``hdf_t`` of the frame), and three position columns
+             (``position_start_acquire``, ``position_end_acquire``,
+             ``position_end_period``).  Indexed by ``timestamp``
+             ascending.
+   :rtype: pandas.DataFrame
+
+   :raises KeyError: Required metadata key or monitor stream is missing from
+       the run.
+   :raises ValueError: Motor stream has fewer than 2 samples, or ``t_acquire``
+       / ``t_period`` are non-positive.
+
+
+.. py:function:: hdf_timestamp_semantic_diagnostic(run) -> dict
+
+   Empirically determine what moment hdf1.array_counter timestamps mark.
+
+   The flyscan plan records two array_counter monitor streams:
+
+   - ``<det>_cam_array_counter_monitor``: the cam's frame counter,
+     incremented when the cam finishes capturing a frame.  Closest
+     to ``end_acquire`` from the cam's perspective.
+   - ``<det>_hdf1_array_counter_monitor``: the HDF plugin's frame
+     counter, incremented after the plugin has accepted (and
+     typically written) the frame.
+
+   ``pair_frames_to_positions`` uses the **hdf** stream's timestamps
+   as the "when did this frame happen" coordinate for motor-position
+   interpolation.  But the exact moment those timestamps mark within
+   each cam exposure period is IOC-/plugin-dependent.  Three
+   plausible semantics:
+
+   - ``hdf_t ~= start_acquire``: counter timestamped at the *start*
+     of the exposure that produced the frame.  Would predict
+     ``hdf_t - cam_t ~= -t_acquire``.
+   - ``hdf_t ~= end_acquire``: counter timestamped at the *end* of
+     the exposure (when the cam finishes).  Most common AD HDF
+     plugin behavior.  Would predict ``hdf_t - cam_t ~= 0`` (plus
+     a small plugin-pipeline lag).
+   - ``hdf_t ~= end_period``: counter timestamped at the *end* of
+     the period (start of the next exposure).  Would predict
+     ``hdf_t - cam_t ~= t_period - t_acquire``.
+
+   This diagnostic pairs cam and HDF events by frame counter,
+   computes the mean ``hdf_t - cam_t`` over in-scan frames, picks
+   the closest-matching semantic, and prints a verdict plus a
+   recommended ``hdf_t_phase_offset`` value to use when computing
+   each frame's ``start_acquire`` timestamp from its ``hdf_t``:
+
+       start_acquire = hdf_t + hdf_t_phase_offset
+       end_acquire   = start_acquire + t_acquire
+       end_period    = start_acquire + t_period
+
+   Run once after any IOC / detector / plugin change to confirm
+   the semantic.  Returns a dict of the computed values for
+   programmatic use (testing, scripting).
+
+   Calibration procedure
+   ---------------------
+
+   1. Run a flyscan slow enough that the CA monitor publish path
+      can keep up with every counter increment (typically
+      ``t_period >= 0.5`` s).
+   2. ``result = hdf_timestamp_semantic_diagnostic(cat[-1])``.
+      Read the printed report.
+   3. If the verdict is ``RELIABLE``, use
+      ``result["recommended_hdf_t_phase_offset_s"]`` as the
+      calibration constant.  If ``UNRELIABLE``, slow the scan
+      further and repeat.
+   4. Pass the constant to subsequent flyscans via
+      ``RE(flyscan(..., hdf_t_phase_offset=...))`` or change the
+      plan's default.
+
+   :param run: A run produced by ``flyscan_3idc.flyscan``.  Must have the
+               three monitor streams (``<flymotor>_monitor``,
+               ``<det>_cam_array_counter_monitor``,
+               ``<det>_hdf1_array_counter_monitor``) and the standard
+               start-document metadata (``p_start``, ``p_end``,
+               ``flymotor_name``, ``det_name``, ``t_acquire``,
+               ``t_period``).
+   :type run: BlueskyRun
+
+   :returns: Keys:
+
+             - ``n_in_scan_frames`` : int — frames paired and inside
+               ``[p_start, p_end]``.
+             - ``d1_mean_s`` : float — observed mean ``hdf_t - cam_t``
+               over in-scan frames, in seconds.
+             - ``d1_std_s`` : float — stddev of the same.
+             - ``d2_mean_s`` : float — mean ``diff(hdf_t)`` over
+               in-scan frames; should equal ``t_period``.
+             - ``t_acquire``, ``t_period`` : float — copies from the
+               start metadata, in seconds.
+             - ``verdict`` : str — one of ``"start_acquire"``,
+               ``"end_acquire"``, ``"end_period"``.
+             - ``recommended_hdf_t_phase_offset_s`` : float — the value
+               to use as ``hdf_t_phase_offset`` for the chosen verdict
+               (negative of the predicted ``hdf_t - cam_t`` for that
+               semantic, since ``start_acquire = cam_t - t_acquire``
+               under the ``hdf_t == end_acquire`` model).
+             - ``is_reliable`` : bool — True iff none of the reliability
+               guards tripped.  When False, ``verdict`` is still populated
+               but should not be trusted for production phase-offset
+               choices.
+             - ``sparse_data`` : bool — True iff ``D2 > 2*t_period`` (CA
+               monitor publish path is coalescing events).
+             - ``noisy_data`` : bool — True iff ``D1 stddev > t_acquire``
+               (per-event timestamp jitter is comparable to or larger
+               than the time-scale we're trying to discriminate).
+             - ``indecisive`` : bool — True iff no candidate semantic is
+               meaningfully closer to the observed D1 than any other.
+   :rtype: dict
+
+   :raises KeyError: Required metadata key or monitor stream is missing.
+   :raises ValueError: No frames are in the scan range (cannot determine semantic).
+
+
+.. py:function:: write_flyscan_data(master_file, external_file, df, *, external_addr='/entry/data', n_frames_expected=None)
+
+   Write the ``/entry/flyscan_data`` group into the NeXus master file.
+
+   This is the single primary-product group: an ``NXdata`` holding the
+   in-scan image substack (an ``h5py.VirtualLayout`` into the external
+   area-detector file, no bytes copied) plus the per-frame correlation
+   data, all from the authoritative AD HDF1 file.
+
+   Both the live flyscan plan and the offline repair tool call this so
+   the on-disk layout is identical regardless of when it is written.
+   Any pre-existing ``/entry/flyscan_data`` is replaced (idempotent).
+
+   :param master_file: Path to the NeXus master HDF5 file (opened for append).
+   :type master_file: str
+   :param external_file: Path to the area-detector HDF1 file, resolvable from the
+                         master file's directory (i.e. through the image-files symlink).
+   :type external_file: str
+   :param df: Output of ``pair_frames_to_positions_from_ad_file``; one row
+              per in-scan frame with ``image_number``, ``timestamp``, and the
+              three ``position_*`` columns.
+   :type df: pandas.DataFrame
+   :param external_addr: Group inside ``external_file`` holding ``data`` (the image
+                         stack).  Defaults to ``/entry/data``.
+   :type external_addr: str
+   :param n_frames_expected: Total acquired-frame count, recorded as provenance.  ``None``
+                             omits the attribute.
+   :type n_frames_expected: int or None
+
+   :returns: Summary: ``n_frames_paired``, ``out_shape``, ``src_dtype``.
+   :rtype: dict
+
+

@@ -1,0 +1,75 @@
+id3c.tests.test_external_link_target
+====================================
+
+.. py:module:: id3c.tests.test_external_link_target
+
+.. autoapi-nested-parse::
+
+   Tests for ``id3c.plans.flyscan_3idc._external_link_target``.
+
+   Pure-Python: builds duck-typed det.hdf1 objects from synthetic
+   templates and IOC paths, exercises the common-suffix construction,
+   the legacy fallback, and the warning paths.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_external_link_target.test_strips_write_path_template_prefix
+   id3c.tests.test_external_link_target.test_handles_template_without_trailing_slash
+   id3c.tests.test_external_link_target.test_custom_ad_files_root
+   id3c.tests.test_external_link_target.test_falls_back_when_template_missing
+   id3c.tests.test_external_link_target.test_falls_back_when_template_does_not_prefix_full_file_name
+   id3c.tests.test_external_link_target.test_template_equal_to_full_file_name_yields_empty_suffix
+   id3c.tests.test_external_link_target.test_uses_underscore_write_path_template_fallback
+
+
+Module Contents
+---------------
+
+.. py:function:: test_strips_write_path_template_prefix()
+
+   write_path_template prefix is stripped from full_file_name.
+
+   The remaining common suffix is appended to the per-detector root.
+
+
+.. py:function:: test_handles_template_without_trailing_slash()
+
+   write_path_template without a trailing slash is normalized.
+
+
+.. py:function:: test_custom_ad_files_root()
+
+   A non-default ad_files_root parameter is honoured.
+
+
+.. py:function:: test_falls_back_when_template_missing(caplog)
+
+   Missing write_path_template falls back to legacy target.
+
+   Encapsulates the full absolute path and logs a WARNING.
+
+
+.. py:function:: test_falls_back_when_template_does_not_prefix_full_file_name(caplog)
+
+   Stale write_path_template (no prefix match) falls back.
+
+   Logs a WARNING and uses the legacy absolute-path target.
+
+
+.. py:function:: test_template_equal_to_full_file_name_yields_empty_suffix()
+
+   Empty suffix when full_file_name equals the template.
+
+   The helper handles this rather than raising.
+
+
+.. py:function:: test_uses_underscore_write_path_template_fallback()
+
+   Falls back to _write_path_template if write_path_template is absent.
+
+

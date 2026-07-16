@@ -1,0 +1,98 @@
+id3c.tests.test_expected_frame_count
+====================================
+
+.. py:module:: id3c.tests.test_expected_frame_count
+
+.. autoapi-nested-parse::
+
+   Tests for ``id3c.plans.flyscan_3idc._expected_frame_count``.
+
+   The helper provides the "expected" frame count stamped as provenance
+   on ``/entry/flyscan_data`` (issue #12, phase A).  It must:
+
+   - prefer the authoritative AD HDF1 file count when a path is given;
+   - fall back to the start document's ``num_frames`` otherwise;
+   - return ``None`` when neither source is available;
+   - never raise.
+
+   Synthetic AD files are built via h5py; runs are duck-typed dicts.
+   No IOC, no live detector, no catalog.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.tests.test_expected_frame_count.UID_DSET
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_expected_frame_count.test_ad_file_count_is_authoritative
+   id3c.tests.test_expected_frame_count.test_falls_back_to_num_frames_when_no_ad_path
+   id3c.tests.test_expected_frame_count.test_falls_back_to_num_frames_when_ad_file_missing
+   id3c.tests.test_expected_frame_count.test_falls_back_when_ad_file_lacks_uid_dataset
+   id3c.tests.test_expected_frame_count.test_returns_none_when_no_source
+   id3c.tests.test_expected_frame_count.test_returns_none_when_num_frames_is_none
+   id3c.tests.test_expected_frame_count.test_never_raises_on_bad_run_object
+   id3c.tests.test_expected_frame_count.test_ad_count_used_even_when_metadata_unusable
+   id3c.tests.test_expected_frame_count.test_returns_plain_int
+
+
+Module Contents
+---------------
+
+.. py:data:: UID_DSET
+   :value: '/entry/instrument/detector/NDAttributes/NDArrayUniqueId'
+
+
+.. py:function:: test_ad_file_count_is_authoritative(tmp_path)
+
+   When the AD file is openable, its UID row count is returned.
+
+
+.. py:function:: test_falls_back_to_num_frames_when_no_ad_path()
+
+   With ad_file_path=None, the start-doc num_frames is used.
+
+
+.. py:function:: test_falls_back_to_num_frames_when_ad_file_missing(tmp_path)
+
+   A non-openable AD path falls through to num_frames.
+
+
+.. py:function:: test_falls_back_when_ad_file_lacks_uid_dataset(tmp_path)
+
+   An AD file without the UID dataset falls through to num_frames.
+
+
+.. py:function:: test_returns_none_when_no_source(tmp_path)
+
+   No AD file and no num_frames -> None (not an exception).
+
+
+.. py:function:: test_returns_none_when_num_frames_is_none()
+
+   An explicit num_frames=None is treated as absent.
+
+
+.. py:function:: test_never_raises_on_bad_run_object()
+
+   A run object with no usable metadata yields None, not an error.
+
+
+.. py:function:: test_ad_count_used_even_when_metadata_unusable(tmp_path)
+
+   AD file count is returned regardless of a broken run object.
+
+
+.. py:function:: test_returns_plain_int(tmp_path)
+
+   The result is a built-in int (HDF5/JSON attr friendly).
+
+

@@ -1,0 +1,475 @@
+id3c.plans.flyscan_3idc
+=======================
+
+.. py:module:: id3c.plans.flyscan_3idc
+
+.. autoapi-nested-parse::
+
+   Fly scan for 3-ID-C: area detector *vs*. motor.
+
+   Fly scan an EPICS motor and collect Eiger2 (or any AreaDetector) images.
+
+   Software coordination only, no hardware triggering.
+
+   Usage
+   -----
+
+   From a command-line session::
+
+       from id3c.startup import *           # provides RE, oregistry, etc.
+
+       # The plan: drive a fly scan and record a Bluesky run.
+       uid, = RE(flyscan(p_start=0, p_end=5, exposures_per_egu=10, t_period=0.05))
+
+   General outline
+   ---------------
+
+   1. Preparation
+
+      * validate inputs
+      * collect metadata
+      * snapshot anything we will modify, so we can restore it later
+      * taxi the motor (at current velocity) to a position just before *p_start*
+
+   2. Takeoff
+
+      * stage the detector
+      * open the run
+      * start the detector acquiring continuously
+      * launch the motor toward (actually past) *p_end* (at computed flyscan velocity)
+
+   3. Monitor
+
+      * report one event per captured frame in the ``primary`` stream
+      * once the motor crosses *p_end*, stop the detector image
+        acquisitions and the motor movement
+
+   4. Conclusion
+
+      * close the run
+      * drain the detector pipeline
+      * verify the HDF5 file landed
+      * select the in-scan subset by position and write it to the HDF5/NeXus master file
+      * restore everything in step 1 snapshots
+
+   Implementation note: this plan is software-correlated (no hardware
+   gate or trigger signal). Frame-to-position pairing happens downstream
+   from the ``monitor_during_decorator`` streams, joined by IOC timestamp.
+   Waits inside the plan use ophyd ``Status`` objects (``MoveStatus``,
+   ``SubscriptionStatus``, ``AndStatus``) driven by CA monitor
+   callbacks rather than busy-poll loops.
+
+   The ``hdf_t_phase_offset`` kwarg is an IOC/detector-specific
+   calibration constant; measure it once with
+   ``flyscan_3idc_analysis.hdf_timestamp_semantic_diagnostic`` (see
+   that function's docstring for the procedure).
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.plans.flyscan_3idc.configure_adsimdet
+   id3c.plans.flyscan_3idc.flyscan
+
+
+Module Contents
+---------------
+
+.. py:function:: configure_adsimdet(det, *, ad_file_path='/tmp/flyscan/', ad_file_name='flyscan', ad_file_template='%s%s_%6.6d.h5', ad_file_number=1, acquire_time=0.02, acquire_period=0.1, capture_duration=2.0, num_capture=None, capture_arm_timeout=5.0, drain_timeout=10.0, do_capture=True, do_acquire=True)
+
+   Configure & exercise an AD HDF5 detector without a plan.
+
+   Diagnostic helper.  No RunEngine, no plan, no stage_decorator — just
+   straight ophyd ``put()`` calls in the order the IOC needs them.
+
+   Simulates the flyscan acquisition protocol:
+
+       1. Configure file destination & cam timings.
+       2. Cam in ``Continuous`` image_mode.
+       3. ``num_capture = UNLIMITED_FRAMES`` (capture until told to stop).
+       4. Arm capture (``hdf1.capture.put(1)``).
+       5. **Wait** for ``Capture_RBV == 'Capturing'`` — this avoids a
+          race in which the cam starts producing frames before the HDF
+          plugin is ready to receive them.  Without this wait, the
+          leading frames of a scan are silently dropped (not counted
+          in ``dropped_arrays`` because the plugin isn't even
+          listening yet).
+       6. Start cam acquire.
+       7. Sleep ``capture_duration`` seconds (simulates the motor
+          trajectory window in a real flyscan).
+       8. Stop capture (``hdf1.capture.put(0)``).
+       9. Drain: wait until ``num_queued_arrays == 0`` so all
+          in-flight frames flush to disk before the file is closed.
+       10. Stop cam acquire.
+       11. Snapshot relevant PVs and return.
+
+   Returns a dict of the post-operation PV snapshot.
+
+   Usage::
+
+       from flyscan_3idc import configure_adsimdet
+       result = configure_adsimdet(adsimdet, capture_duration=3.0)
+       for k, v in result.items():
+           print(f"  {k}: {v}")
+
+   :param capture_duration: Seconds to leave both capture and acquire active.  Total file
+                            write count is approximately ``capture_duration / acquire_period``.
+   :type capture_duration: float
+   :param capture_arm_timeout: Maximum seconds to wait for ``Capture_RBV`` to transition to
+                               ``'Capturing'`` after arming.  Raises ``RuntimeError`` on timeout.
+   :type capture_arm_timeout: float
+   :param drain_timeout: Maximum seconds to wait for ``num_queued_arrays`` to reach 0
+                         after stopping capture.  Logs a warning on timeout but does
+                         not raise.
+   :type drain_timeout: float
+   :param do_capture: Skip arming capture or starting acquire, respectively.  Useful
+                      for narrowing down which step misbehaves.
+   :type do_capture: bool
+   :param do_acquire: Skip arming capture or starting acquire, respectively.  Useful
+                      for narrowing down which step misbehaves.
+   :type do_acquire: bool
+
+
+.. py:function:: flyscan(detectors: list = None, det_name: str = 'adsimdet', flymotor_name: str = 'm1', p_start: float = 0, p_end: float = 5, exposures_per_egu: float = 2.0, t_period: float = 0.1, t_acquire: float = None, taxi_allowance: float = 0.5, compression: str = 'zlib', ad_file_name: str = 'flyscan', ad_file_path: str = '/tmp/flyscan', velocity_minimum: float = None, plan_name: str = 'flyscan', hdf_t_phase_offset: float = None, _consumer_tick: float = _CONSUMER_TICK_DEFAULT, _force_hdf_nonblocking: bool = False, md: dict = None)
+
+   Fly scan: move motor through range while acquiring detector frames.
+
+   The motor traverses ``p_initial → ≤ p_final``, maintaining constant
+   velocity between ``p_start → p_end`` to deliver ``num_frames`` frames
+   within ``[p_start, p_end]``.  ``p_initial`` and ``p_final`` are
+   computed from ``p_start``, ``p_end``, the motor's ``.ACCL``, and
+   ``taxi_allowance``; ``num_frames`` is computed from
+   ``(p_end - p_start) * exposures_per_egu``.
+
+   Detector frames are acquired continuously during the traverse;
+   downstream processing trims the data to ``[p_start, p_end]`` by
+   motor position.
+
+   An HDF5 file containing every captured frame is written next to the
+   run (the path is in the run metadata under ``ad_file_path`` /
+   ``ad_file_name``).
+
+   Position geometry
+   -----------------
+
+   User-supplied: ``p_start`` and ``p_end`` (in-scan range).  Derived:
+   ``p_initial`` (parked, pre-scan) and ``p_final`` (a conservative
+   upper bound the motor is almost never actually allowed to reach —
+   see below)::
+
+       p_initial     <  p_start <  p_end   <  p_final
+       |             |          |          |
+       |             |--scan----|          |
+       |--takeoff----|          |--stop----|
+
+   * ``p_start``: the position at which the first useful frame should
+     be captured.  Downstream processing trims frames captured before
+     this point.
+   * ``p_end``: the position at which the last useful frame should be
+     captured.  When the motor crosses this point, the plan stops the
+     cam (no more frames) *and* issues a controlled stop on the motor
+     (decelerates at ``.ACCL``).  The motor comes to rest somewhere
+     between ``p_end`` and ``p_final``, within roughly one deceleration
+     distance (``≈ 0.5 * scan_velocity * .ACCL``) past ``p_end``.
+   * ``p_initial`` (derived): where the motor is parked before the
+     scan, far enough below ``p_start`` that the motor reaches its
+     scan velocity *before* it enters the acquisition region.
+     Computed as ``p_start - d_taxi - taxi_allowance`` where
+     ``d_taxi = 0.5 * scan_velocity * motor.ACCL``.
+   * ``p_final`` (derived): the conservative upper bound used as the
+     *target* of the scan move (``bps.abs_set(flymotor, p_final,
+     group="scan")``).  The plan stops the motor before it reaches
+     ``p_final`` — this target only matters as a "should never be
+     exceeded" sentinel and as a fallback stopping point if something
+     prevents the planned controlled stop.  Computed symmetric to
+     ``p_initial``.
+
+   ``taxi_allowance`` (default ``0.5``, in motor EGU) is added to both
+   ends as a slack margin on top of the acceleration-based distance.
+   Increase it if the cam's first/last frame is observed to fall
+   outside ``[p_start, p_end]``; decrease it if the scan takes too
+   long to taxi.
+
+   Position units are whatever the motor reports (``user_readback``);
+   typically engineering units (mm, degrees, etc.) — the motor's
+   ``.EGU`` field is recorded in run metadata.
+
+   Frame timing
+   ------------
+
+   * ``exposures_per_egu``: target frame density.  Combined with the
+     scan range, gives ``num_frames = round(1 + (p_end - p_start)
+     * exposures_per_egu)`` (fence-post counting: one frame at each
+     endpoint plus ``exposures_per_egu`` frames per unit between).
+   * ``t_period``: seconds between successive frame exposures.
+   * ``t_acquire``: per-frame exposure time, in seconds.  Defaults to
+     ``t_period`` (continuous exposure).  Must satisfy
+     ``0 < t_acquire <= t_period``.
+
+   The scan velocity is computed as ``(p_end - p_start) / (num_frames
+   * t_period)``.  Pre-scan validation requires it to fall in the
+   bracket ``v_min <= scan_velocity <= v_max`` where:
+
+   * ``v_max`` is the motor's currently-configured ``.VELO`` (the
+     operator's chosen target velocity governs the ceiling — ``.VMAX``
+     is recorded as metadata but not used as the cap).  ``.VELO`` must
+     be readable; if it isn't, the plan refuses to run.
+   * ``v_min`` is ``max(.VBAS, velocity_minimum)``, where
+     ``velocity_minimum`` is the kwarg below (``None`` ⇒ floor is
+     ``.VBAS`` alone).
+
+   The motor's pre-run ``.VELO`` is automatically restored at scan end.
+
+   Detector & file
+   ---------------
+
+   * ``det_name``: ophyd device registry key for the area detector
+     (default ``"adsimdet"``).  Must be an AreaDetector with an HDF5
+     plugin attached.
+   * ``flymotor_name``: ophyd device registry key for the motor
+     (default ``"m1"``).
+   * ``compression``: HDF5 chunk compression name (default ``"zlib"``).
+     Validated against the HDF plugin's ``compression.enum_strs`` at
+     scan start; raises ``ValueError`` with the allowed list if the
+     value isn't supported by the IOC's HDF plugin build.
+   * ``ad_file_name``: stem for the saved HDF5 file (default
+     ``"flyscan"``); the IOC appends an auto-incrementing number and
+     the ``.h5`` extension.
+   * ``ad_file_path``: directory on the IOC's filesystem where the
+     HDF5 file is written (default ``"/tmp/flyscan"``).  **Must exist on
+     the IOC's filesystem.**  If the IOC runs in a container, this
+     is the container's view of the path, not the host's.  The plan
+     checks this before staging and raises ``RuntimeError`` with a
+     clear message if the path doesn't exist.
+
+   What gets recorded
+   ------------------
+
+   Each call to ``RE(flyscan(...))`` produces one bluesky run
+   containing:
+
+   * A ``primary`` event stream with one event per HDF frame
+     accepted by the writer.  Each event records the cam and HDF
+     array counters and the motor's reported position at the moment
+     the consumer drained that frame from its queue.  Treat this as
+     a progress indicator and at-the-bench snapshot; use the monitor
+     streams below for high-precision pairing.
+   * Three monitor streams (``adsimdet_cam_array_counter_monitor``,
+     ``adsimdet_hdf1_array_counter_monitor``, ``m1_monitor``)
+     carrying IOC-timestamped values for downstream synchronization
+     of frame counters with motor position.
+   * A ``baseline`` stream (whatever ``apsbits`` configures).
+   * Metadata under ``start``: user-supplied scan parameters
+     (``p_start``, ``p_end``, ``exposures_per_egu``, ``t_period``,
+     ``t_acquire``, ``taxi_allowance``, ``compression``,
+     ``velocity_minimum_requested``), derived geometry (``p_initial``,
+     ``p_final``, ``num_frames``, ``scan_velocity``, ``d_taxi``,
+     ``motor_accl``, ``motor_egu``), raw motor velocity values
+     (``motor_velo``, ``motor_velocity_max_raw``,
+     ``motor_velocity_base_raw``) and the effective bracket
+     (``effective_v_max``, ``effective_v_min``) the plan used, file
+     destination, watchdog timeout, ``consumer_tick``, plus anything
+     you pass in ``md``.
+   * An HDF5 file with the actual image data at
+     ``ad_file_path/ad_file_name_NNNNNN.h5``.
+
+   Common usage
+   ------------
+
+   From a 3-ID-C IPython session::
+
+       from id3c.startup import *           # provides RE, oregistry
+       from flyscan_3idc import flyscan
+
+       # 50 frames over a 5-EGU range at 20 Hz:
+       uid, = RE(flyscan(p_start=0, p_end=5, exposures_per_egu=10,
+                         t_period=0.05))
+
+   Override more defaults for a specific run::
+
+       uid, = RE(flyscan(
+           flymotor_name="m1",
+           p_start=0, p_end=10,
+           exposures_per_egu=10, t_period=0.05, t_acquire=0.01,
+           taxi_allowance=1.0,
+           compression="lz4",
+           ad_file_path="/tmp/myexperiment/",
+           ad_file_name="sample42",
+           md={"sample": "Ag behenate", "operator": "your-name"},
+       ))
+
+   Common pitfalls
+   ---------------
+
+   * **"file_path does not exist" RuntimeError at scan start.**  The
+     directory in ``ad_file_path`` doesn't exist on the IOC's
+     filesystem.  If the IOC is containerized, create the directory
+     inside the container or use a path that's visible there.
+   * **"scan_velocity exceeds motor .VELO" ValueError.** The
+     requested combination of position range and frame rate would
+     require the motor to move faster than its currently configured
+     ``.VELO``.  Either reduce ``exposures_per_egu``, increase
+     ``t_period``, shorten ``p_end - p_start``, or raise the motor's
+     ``.VELO`` (caveat: ``.VELO`` is restored to its pre-run value
+     after the scan; you must change it *before* invoking the plan).
+   * **"scan_velocity is below effective v_min" ValueError.** The
+     computed velocity is below ``max(.VBAS, velocity_minimum)``.
+     Either increase ``exposures_per_egu``, decrease ``t_period``,
+     lengthen ``p_end - p_start``, or lower ``velocity_minimum`` /
+     the motor's ``.VBAS``.
+   * **"Cannot determine velocity ceiling ... .VELO unreadable"
+     ValueError.** The motor's ``.VELO`` field could not be read
+     (IOC down, PV typo, network drop).  Fix the IOC connection
+     before retrying.
+   * **"compression=... not in HDF plugin's allowed set" ValueError.**
+     The IOC's HDF plugin doesn't support the requested compression
+     algorithm.  Inspect ``det.hdf1.compression.enum_strs`` to see
+     what *is* supported by this IOC build.
+   * **An extra detector's per-frame timestamp never changes
+     during the scan.**  The device isn't self-updating; the
+     flyscan plan does not trigger ancillary devices.  Check the
+     ``timestamp`` field of the reading, not the value (a
+     genuinely steady-state value with a moving timestamp is
+     fine).  Use a CA-monitor-driven signal, or put a scaler in
+     continuous mode, before adding it to ``detectors``.
+   * **Watchdog: "no frames captured" RuntimeError mid-scan.**  The
+     cam isn't delivering frames to the HDF plugin.  Likely the HDF
+     plugin's ``EnableCallbacks`` is ``Disable``, the cam's
+     ``ArrayCallbacks`` is ``Disable``, or the HDF plugin's
+     ``NDArrayPort`` doesn't point at the cam.  The RunEngine will
+     have stopped the motor; investigate the IOC and try again.
+   * **The scan completes but the data dictionary's ``num_captured``
+     is 0.**  The IOC resets ``NumCaptured_RBV`` to 0 after the
+     HDF5 file is closed.  Look at ``full_file_name`` (in
+     ``_cleanup``'s log line) and the actual file on disk to confirm
+     what was saved.
+   * **"HDF plugin dropped N frame(s) during this run"
+     FlyscanDataLossWarning at scan end.**  The HDF plugin couldn't
+     keep up with the cam at the requested rate, and ``N`` frames
+     the cam produced are missing from the on-disk HDF5 file.  The
+     warning is emitted both to the log (WARNING level) and via
+     Python's ``warnings`` machinery (subclass of ``UserWarning``).
+     The plan uses ``blocking_callbacks="Yes"`` on the HDF plugin
+     to throttle the cam to HDF's write rate, so this should be
+     rare — when it does occur, it usually means the cam emitted a
+     burst before back-pressure propagated, or the HDF queue size
+     is too small.  Treat ``N > 0`` as a data-integrity concern:
+     increase ``t_period`` or reduce ``exposures_per_egu``.
+     Promote the warning to an exception with
+     ``warnings.filterwarnings("error",
+     category=flyscan_3idc.FlyscanDataLossWarning)`` to fail-fast
+     in strict environments.
+
+   :param detectors: Extra readables reported in the primary stream once per HDF
+                     frame, alongside ``det`` and ``flymotor``.  The plan does
+                     **not** call ``.trigger()`` on these -- a flyscan has no
+                     room to pause for ancillary triggers.  Each entry must
+                     update its reported value(s) on its own (CA-monitor-driven
+                     ``EpicsSignal``, scaler in continuous mode, etc.).  A
+                     trigger-required device will simply report stale values
+                     every frame.  Default: empty.
+   :type detectors: list of ophyd Readable, optional
+   :param det_name: ophyd registry name of the area detector to fly.
+   :type det_name: str, default ``"adsimdet"``
+   :param flymotor_name: ophyd registry name of the motor to fly.
+   :type flymotor_name: str, default ``"m1"``
+   :param p_start: First in-scan position (motor units).
+   :type p_start: float, default ``0``
+   :param p_end: Last in-scan position (motor units).
+   :type p_end: float, default ``5``
+   :param exposures_per_egu: Frame density: frames per motor engineering unit.  Total
+                             frame count is ``round(1 + (p_end - p_start) *
+                             exposures_per_egu)``.  Must be positive.
+   :type exposures_per_egu: float, default ``2.0``
+   :param t_period: Time between successive frame exposures (seconds).
+   :type t_period: float, default ``0.1``
+   :param t_acquire: Per-frame exposure time (seconds).  ``None`` (default) means
+                     "use ``t_period``" (continuous exposure).  Must satisfy
+                     ``0 < t_acquire <= t_period``.
+   :type t_acquire: float or None, default ``None``
+   :param taxi_allowance: Extra distance (in motor EGU) added past the
+                          acceleration-based taxi region at each end of the scan.
+                          Increase if the first/last useful frame falls outside
+                          ``[p_start, p_end]``; must be non-negative.
+   :type taxi_allowance: float, default ``0.5``
+   :param compression: HDF5 chunk compression name.  Must match one of
+                       ``det.hdf1.compression.enum_strs`` if the IOC is reachable.
+   :type compression: str, default ``"zlib"``
+   :param ad_file_name: HDF5 filename stem (IOC appends a number and ``.h5``).
+   :type ad_file_name: str, default ``"flyscan"``
+   :param ad_file_path: Directory on the IOC's filesystem to write the HDF5 file.
+   :type ad_file_path: str, default ``"/tmp/flyscan"``
+   :param velocity_minimum: Optional lower bound on the computed scan velocity, in motor
+                            EGU per second.  The effective floor is ``max(.VBAS,
+                            velocity_minimum)``; ``None`` (default) defers to ``.VBAS``
+                            alone.  Must be non-negative if supplied.
+   :type velocity_minimum: float or None, default ``None``
+   :param plan_name: Recorded in the run's ``start`` document under ``plan_name``.
+                     Wrappers should pass their own name (e.g.
+                     ``flyscan(plan_name="my_3idc_scan", ...)``) so the run's
+                     provenance reflects the wrapper, not the inner flyscan call.
+                     This is explicit because bluesky's ``RunEngine`` cannot
+                     auto-derive ``plan_name`` for ``@bluesky_plan``-decorated
+                     plans (the decorator wraps the generator in a ``Plan`` class
+                     instance with no ``__name__`` attribute, so the auto-derived
+                     value would be the empty string).
+   :type plan_name: str, default ``"flyscan"``
+   :param hdf_t_phase_offset: Seconds to add to each ``hdf1.array_counter`` monitor-stream
+                              timestamp to obtain the corresponding frame's start-of-
+                              acquire moment.  Used by
+                              ``flyscan_3idc_analysis.pair_frames_to_positions`` to
+                              compute the three per-frame positions (start_acquire,
+                              end_acquire, end_period) recorded in the analysis output
+                              and (eventually) the NeXus master file.  ``None`` (default)
+                              means "use ``-t_acquire``" (``hdf_t`` arrives at
+                              ~``end_acquire``, so ``start_acquire = hdf_t - t_acquire``).
+                              See
+                              ``flyscan_3idc_analysis.hdf_timestamp_semantic_diagnostic``
+                              for determining the right value on a different IOC.
+   :type hdf_t_phase_offset: float or None, default ``None``
+   :param _consumer_tick: Internal: wake-up tick for the per-frame event consumer.
+                          Increase if your run-engine subscriptions can't keep up;
+                          decrease only for very high frame rates.  Rarely needs to
+                          be changed.
+   :type _consumer_tick: float, default ``_CONSUMER_TICK_DEFAULT`` (20 ms)
+   :param _force_hdf_nonblocking: Internal/diagnostic.  ``False`` keeps the safe mode
+                                  (``blocking_callbacks="Yes"``), where the cam back-throttles
+                                  to the HDF write rate so no frames are dropped.  ``True``
+                                  forces ``blocking_callbacks="No"``, letting the HDF plugin
+                                  drop frames.  Its only legitimate use is to demonstrate the
+                                  ``FlyscanDataLossWarning`` code path: set ``True``, push
+                                  ``exposures_per_egu`` past what the HDF can sustain, and watch
+                                  the post-scan warning fire.  Not for production data collection.
+   :type _force_hdf_nonblocking: bool, default ``False``
+   :param md: Additional metadata to record under the run's ``start``
+              document.  Merged on top of the plan's computed metadata.
+   :type md: dict, optional
+
+   :rtype: None (yields bluesky messages — pass to ``RE()`` to execute).
+
+   :raises KeyError: ``det_name`` or ``flymotor_name`` does not resolve to the
+       expected ophyd device type in the registry.
+   :raises ValueError: Position ordering is wrong (``p_end <= p_start``),
+       ``exposures_per_egu`` is non-positive, ``taxi_allowance`` is
+       negative, ``velocity_minimum`` is negative,
+       ``t_acquire > t_period``, computed ``num_frames`` is too small,
+       the motor's ``.VELO`` is unreadable, computed ``scan_velocity``
+       is outside the effective ``[v_min, v_max]`` bracket, or
+       ``compression`` is not in the HDF plugin's enumeration.
+   :raises RuntimeError: IOC preflight failed (an expected PV did not connect), or
+       the HDF plugin's file path does not exist on the IOC's
+       filesystem, or the no-frames watchdog tripped during the
+       scan.
+
+   .. seealso::
+
+      :py:obj:`configure_adsimdet`
+          Standalone diagnostic that exercises the same AD acquisition protocol without a plan or RunEngine.  Useful for triaging an IOC that's misbehaving.
+
+      :py:obj:`compute_flyscan_geometry`
+          Pure-function helper that derives ``p_initial``, ``p_final``, and ``num_frames`` from the user-supplied kwargs; unit- testable without an IOC.
+
+

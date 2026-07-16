@@ -1,0 +1,32 @@
+id3c.tests
+==========
+
+.. py:module:: id3c.tests
+
+.. autoapi-nested-parse::
+
+   Tests for the id3c instrument package.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/id3c/tests/test_ad_plugins/index
+   /api/id3c/tests/test_check_ad_files_symlink/index
+   /api/id3c/tests/test_check_cam_armed/index
+   /api/id3c/tests/test_effective_num_images/index
+   /api/id3c/tests/test_ensure_ad_files_symlink/index
+   /api/id3c/tests/test_expected_frame_count/index
+   /api/id3c/tests/test_external_link_target/index
+   /api/id3c/tests/test_flyscan_3idc_analysis/index
+   /api/id3c/tests/test_flyscan_repair/index
+   /api/id3c/tests/test_pair_frames_from_ad_file/index
+   /api/id3c/tests/test_path_templates/index
+   /api/id3c/tests/test_wait_for_openable/index
+   /api/id3c/tests/test_write_flyscan_data/index
+
+

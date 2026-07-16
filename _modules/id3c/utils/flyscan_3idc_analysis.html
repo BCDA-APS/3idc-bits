@@ -1,0 +1,1721 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>id3c.utils.flyscan_3idc_analysis &#8212; 3-ID-C BITS 0.0.1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../_static/documentation_options.js?v=f539c95a"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/id3c/utils/flyscan_3idc_analysis';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.1" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">3-ID-C BITS 0.0.1</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../how_to/index.html">
+    How-to guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../explanation/index.html">
+    Explanation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits/issues" title="Issue tracker" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-bug fa-lg" aria-hidden="true"></i><span class="visually-hidden">Issue tracker</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../how_to/index.html">
+    How-to guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../explanation/index.html">
+    Explanation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits/issues" title="Issue tracker" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-bug fa-lg" aria-hidden="true"></i><span class="visually-hidden">Issue tracker</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">id3c.utils.flyscan_3idc_analysis</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for id3c.utils.flyscan_3idc_analysis</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Post-run analysis helpers for ``flyscan_3idc`` runs.</span>
+
+<span class="sd">This module pairs each detector frame with the motor&#39;s</span>
+<span class="sd">interpolated position at the frame&#39;s IOC timestamp, using the</span>
+<span class="sd">monitor streams that ``flyscan_3idc.flyscan`` sets up via</span>
+<span class="sd">``@bpp.monitor_during_decorator``.  No bluesky, no ophyd, no</span>
+<span class="sd">RunEngine — purely operates on ``BlueskyRun``-shaped objects from</span>
+<span class="sd">tiled / databroker.</span>
+
+<span class="sd">Usage</span>
+<span class="sd">-----</span>
+
+<span class="sd">::</span>
+
+<span class="sd">    from tiled.client import from_profile</span>
+<span class="sd">    cat = from_profile(&quot;your_profile&quot;)[&quot;your_tree&quot;]</span>
+<span class="sd">    run = cat[-1]</span>
+<span class="sd">    from flyscan_3idc_analysis import pair_frames_to_positions</span>
+<span class="sd">    df = pair_frames_to_positions(run)</span>
+<span class="sd">    # df columns: image_number, timestamp,</span>
+<span class="sd">    #             position_start_acquire, position_end_acquire,</span>
+<span class="sd">    #             position_end_period</span>
+<span class="sd">    # df.index: absolute timestamp (float seconds since epoch)</span>
+<span class="sd">    #</span>
+<span class="sd">    # optional write to CSV file</span>
+<span class="sd">    df.to_csv(&quot;scan.csv&quot;)</span>
+
+<span class="sd">Calibrate timestamps: flymotor &amp; area detector</span>
+<span class="sd">----------------------------------------------</span>
+
+<span class="sd">The per-frame positions depend on a constant</span>
+<span class="sd">``hdf_t_phase_offset`` that maps each frame&#39;s IOC timestamp to its</span>
+<span class="sd">exposure-start moment.</span>
+
+<span class="sd">Measure it once per IOC/detector with</span>
+<span class="sd">``hdf_timestamp_semantic_diagnostic`` and pass the result to</span>
+<span class="sd">``flyscan(..., hdf_t_phase_offset=...)``; see that function&#39;s</span>
+<span class="sd">docstring for the procedure.</span>
+
+<span class="sd">Design notes</span>
+<span class="sd">------------</span>
+
+<span class="sd">- IOC timestamps are the system of record for pairing.  The</span>
+<span class="sd">  primary-stream snapshots from the plan are a progress indicator;</span>
+<span class="sd">  this module&#39;s output is the high-fidelity pairing.</span>
+<span class="sd">- Monitor-stream record order is interleaved across CA dispatcher</span>
+<span class="sd">  segments, so sort by timestamp:</span>
+<span class="sd">  - the motor monitor stream then yields a strictly increasing</span>
+<span class="sd">    position trace at constant velocity in the in-scan window.</span>
+<span class="sd">  - the HDF array_counter monitor stream then yields strictly</span>
+<span class="sd">    monotonic counter values (0, 1, 2, ..., contiguous).</span>
+<span class="sd">- The function uses linear interpolation of motor position vs</span>
+<span class="sd">  motor IOC timestamp.  Linear is exact for a motor at constant</span>
+<span class="sd">  velocity in the in-scan window (which is the entire reason the</span>
+<span class="sd">  plan sets velocity = (p_end-p_start)/(num_frames*t_period) and</span>
+<span class="sd">  taxis the motor up to scan velocity before crossing p_start).</span>
+<span class="sd">- Frames whose timestamps fall outside the motor stream&#39;s time</span>
+<span class="sd">  range are dropped (extrapolation is rejected, never silent).</span>
+<span class="sd">- Frames whose interpolated positions fall outside</span>
+<span class="sd">  ``[p_start, p_end]`` are dropped (this is &quot;frames captured</span>
+<span class="sd">  during taxi-in / coast-out&quot; — they&#39;re in the HDF5 file but not</span>
+<span class="sd">  part of the scan).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<div class="viewcode-block" id="logger">
+<a class="viewcode-back" href="../../../api/id3c/utils/flyscan_3idc_analysis/index.html#id3c.utils.flyscan_3idc_analysis.logger">[docs]</a>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_interpolate_positions</span><span class="p">(</span>
+    <span class="n">motor_t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">motor_pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">hdf_t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">hdf_counter</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">p_start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">p_end</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">t_acquire</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">t_period</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">hdf_t_phase_offset</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pair HDF frames with three per-frame motor positions.</span>
+
+<span class="sd">    Pure-array core; no run object, no ophyd, no bluesky.  Tests</span>
+<span class="sd">    construct inputs directly.</span>
+
+<span class="sd">    Each frame has a corresponding cam exposure with three</span>
+<span class="sd">    physically meaningful per-period moments:</span>
+
+<span class="sd">        start_acquire = hdf_t + hdf_t_phase_offset</span>
+<span class="sd">        end_acquire   = start_acquire + t_acquire</span>
+<span class="sd">        end_period    = start_acquire + t_period</span>
+
+<span class="sd">    The motor position at each of these three moments is reported</span>
+<span class="sd">    separately, so downstream analysis can choose whichever phase</span>
+<span class="sd">    best matches its model of &quot;what the cam was looking at&quot;.  See</span>
+<span class="sd">    ``hdf_timestamp_semantic_diagnostic`` for how to determine the</span>
+<span class="sd">    right ``hdf_t_phase_offset`` value for a given IOC.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    motor_t : np.ndarray</span>
+<span class="sd">        IOC timestamps (seconds since epoch) for motor samples.</span>
+<span class="sd">        May be in arbitrary order with duplicates; this function</span>
+<span class="sd">        sorts and dedupes.</span>
+<span class="sd">    motor_pos : np.ndarray</span>
+<span class="sd">        Motor positions (engineering units) aligned with</span>
+<span class="sd">        ``motor_t``.</span>
+<span class="sd">    hdf_t : np.ndarray</span>
+<span class="sd">        IOC timestamps (seconds since epoch) for HDF frame</span>
+<span class="sd">        captures.  May be in arbitrary order; this function sorts.</span>
+<span class="sd">    hdf_counter : np.ndarray</span>
+<span class="sd">        Integer HDF frame counter (``hdf1.array_counter``) aligned</span>
+<span class="sd">        with ``hdf_t``.</span>
+<span class="sd">    p_start, p_end : float</span>
+<span class="sd">        Scan range in motor engineering units.  A frame is &quot;in scan&quot;</span>
+<span class="sd">        if its time interval ``[start_acquire.t, end_period.t]``</span>
+<span class="sd">        OVERLAPS the time window during which the motor was inside</span>
+<span class="sd">        ``[p_start, p_end]``.  That window is bracketed by the first</span>
+<span class="sd">        and last motor-stream samples whose position lies in</span>
+<span class="sd">        ``[p_start, p_end]``.  The time-overlap rule admits</span>
+<span class="sd">        leading-edge and trailing-edge frames whose exposure crossed</span>
+<span class="sd">        a boundary mid-way, as well as frames that fell on the</span>
+<span class="sd">        wrong side of the boundary only due to motor-stream</span>
+<span class="sd">        interpolation noise.</span>
+<span class="sd">    t_acquire : float</span>
+<span class="sd">        Exposure time per frame, in seconds.  Used to compute</span>
+<span class="sd">        ``end_acquire = start_acquire + t_acquire``.</span>
+<span class="sd">    t_period : float</span>
+<span class="sd">        Period between successive frame starts, in seconds.  Used</span>
+<span class="sd">        to compute ``end_period = start_acquire + t_period``.</span>
+<span class="sd">    hdf_t_phase_offset : float</span>
+<span class="sd">        Offset, in seconds, from each ``hdf_t`` to the</span>
+<span class="sd">        corresponding ``start_acquire``.  Typically negative</span>
+<span class="sd">        (``hdf_t`` arrives at or after the frame&#39;s cam-end-of-</span>
+<span class="sd">        exposure event; ``start_acquire`` is one t_acquire earlier).</span>
+<span class="sd">        See ``hdf_timestamp_semantic_diagnostic`` to determine the</span>
+<span class="sd">        right value for an IOC; ``flyscan_3idc.build_flyscan_md``</span>
+<span class="sd">        defaults this to ``-t_acquire``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Columns:</span>
+
+<span class="sd">        - ``image_number`` (int64) — HDF array_counter value.</span>
+<span class="sd">        - ``timestamp`` (float) — raw ``hdf_t`` for the frame.</span>
+<span class="sd">        - ``position_start_acquire`` (float) — motor position at</span>
+<span class="sd">          the start of this frame&#39;s exposure.</span>
+<span class="sd">        - ``position_end_acquire`` (float) — motor position at the</span>
+<span class="sd">          end of this frame&#39;s exposure.</span>
+<span class="sd">        - ``position_end_period`` (float) — motor position at the</span>
+<span class="sd">          end of this frame&#39;s period (= start of the next frame&#39;s</span>
+<span class="sd">          exposure).</span>
+
+<span class="sd">        Indexed by ``timestamp``.  Sorted by timestamp ascending.</span>
+<span class="sd">        Only frames satisfying both filters are present:</span>
+
+<span class="sd">        1. all three phase timestamps fall within the motor</span>
+<span class="sd">           stream&#39;s time range (extrapolation is rejected);</span>
+<span class="sd">        2. the frame&#39;s ``[start_acquire.t, end_period.t]`` interval</span>
+<span class="sd">           overlaps the motor&#39;s in-range time window (the time</span>
+<span class="sd">           bracket during which the motor was inside</span>
+<span class="sd">           ``[p_start, p_end]``).</span>
+
+<span class="sd">        Image numbers are unique within the returned frame; if the</span>
+<span class="sd">        IOC&#39;s monitor stream emitted a counter value twice (CA</span>
+<span class="sd">        dispatcher quirk), the first occurrence is kept and a</span>
+<span class="sd">        WARNING is logged.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">motor_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">motor_t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">motor_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">motor_pos</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">hdf_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">hdf_t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">hdf_counter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">hdf_counter</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">motor_t</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">motor_pos</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;motor_t shape </span><span class="si">{</span><span class="n">motor_t</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> != motor_pos shape </span><span class="si">{</span><span class="n">motor_pos</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">hdf_t</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">hdf_counter</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;hdf_t shape </span><span class="si">{</span><span class="n">hdf_t</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> != hdf_counter shape </span><span class="si">{</span><span class="n">hdf_counter</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">motor_t</span><span class="o">.</span><span class="n">size</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;motor stream has </span><span class="si">{</span><span class="n">motor_t</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2"> sample(s); need &gt;= 2 for interpolation&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">t_acquire</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t_acquire=</span><span class="si">{</span><span class="n">t_acquire</span><span class="si">!r}</span><span class="s2"> must be positive&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">t_period</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t_period=</span><span class="si">{</span><span class="n">t_period</span><span class="si">!r}</span><span class="s2"> must be positive&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">hdf_t</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Nothing to pair; return an empty correctly-typed frame.</span>
+        <span class="k">return</span> <span class="n">_empty_result</span><span class="p">()</span>
+
+    <span class="c1"># Sort motor by timestamp and dedupe — keep first occurrence</span>
+    <span class="c1"># of each unique timestamp.  ``np.unique(..., return_index=True)``</span>
+    <span class="c1"># returns indices into the sorted-unique array; combine with</span>
+    <span class="c1"># argsort to recover the first occurrence in the original order.</span>
+    <span class="n">m_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">motor_t</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;stable&quot;</span><span class="p">)</span>
+    <span class="n">m_t_sorted</span> <span class="o">=</span> <span class="n">motor_t</span><span class="p">[</span><span class="n">m_order</span><span class="p">]</span>
+    <span class="n">m_p_sorted</span> <span class="o">=</span> <span class="n">motor_pos</span><span class="p">[</span><span class="n">m_order</span><span class="p">]</span>
+    <span class="c1"># Find duplicates after sort: keep first.</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">unique_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">m_t_sorted</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">unique_idx</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">m_t</span> <span class="o">=</span> <span class="n">m_t_sorted</span><span class="p">[</span><span class="n">unique_idx</span><span class="p">]</span>
+    <span class="n">m_p</span> <span class="o">=</span> <span class="n">m_p_sorted</span><span class="p">[</span><span class="n">unique_idx</span><span class="p">]</span>
+    <span class="n">n_dropped_dups</span> <span class="o">=</span> <span class="n">motor_t</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="n">m_t</span><span class="o">.</span><span class="n">size</span>
+    <span class="k">if</span> <span class="n">n_dropped_dups</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="s2">&quot;_interpolate_positions: deduplicated </span><span class="si">%d</span><span class="s2"> motor sample(s)&quot;</span>
+            <span class="s2">&quot; with repeated timestamp&quot;</span><span class="p">,</span>
+            <span class="n">n_dropped_dups</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Sort HDF by timestamp.</span>
+    <span class="n">h_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">hdf_t</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;stable&quot;</span><span class="p">)</span>
+    <span class="n">h_t</span> <span class="o">=</span> <span class="n">hdf_t</span><span class="p">[</span><span class="n">h_order</span><span class="p">]</span>
+    <span class="n">h_c</span> <span class="o">=</span> <span class="n">hdf_counter</span><span class="p">[</span><span class="n">h_order</span><span class="p">]</span>
+
+    <span class="c1"># Compute the three per-frame phase timestamps for every HDF event.</span>
+    <span class="n">t_start_acquire</span> <span class="o">=</span> <span class="n">h_t</span> <span class="o">+</span> <span class="n">hdf_t_phase_offset</span>
+    <span class="n">t_end_acquire</span> <span class="o">=</span> <span class="n">t_start_acquire</span> <span class="o">+</span> <span class="n">t_acquire</span>
+    <span class="n">t_end_period</span> <span class="o">=</span> <span class="n">t_start_acquire</span> <span class="o">+</span> <span class="n">t_period</span>
+
+    <span class="c1"># Drop frames whose *any* phase timestamp is outside the motor</span>
+    <span class="c1"># stream&#39;s time range.  Linear interpolation past the motor</span>
+    <span class="c1"># stream&#39;s endpoints would extrapolate, which we disallow.</span>
+    <span class="n">t_lo</span><span class="p">,</span> <span class="n">t_hi</span> <span class="o">=</span> <span class="n">m_t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">m_t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">in_time_range</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">t_start_acquire</span> <span class="o">&gt;=</span> <span class="n">t_lo</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">t_start_acquire</span> <span class="o">&lt;=</span> <span class="n">t_hi</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">t_end_acquire</span> <span class="o">&gt;=</span> <span class="n">t_lo</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">t_end_acquire</span> <span class="o">&lt;=</span> <span class="n">t_hi</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">t_end_period</span> <span class="o">&gt;=</span> <span class="n">t_lo</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">t_end_period</span> <span class="o">&lt;=</span> <span class="n">t_hi</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">n_out_of_range</span> <span class="o">=</span> <span class="n">h_t</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">in_time_range</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">n_out_of_range</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s2">&quot;_interpolate_positions: dropping </span><span class="si">%d</span><span class="s2"> HDF frame(s) with&quot;</span>
+            <span class="s2">&quot; phase timestamps outside motor stream range&quot;</span>
+            <span class="s2">&quot; [</span><span class="si">%g</span><span class="s2">, </span><span class="si">%g</span><span class="s2">] (would require extrapolation)&quot;</span><span class="p">,</span>
+            <span class="n">n_out_of_range</span><span class="p">,</span>
+            <span class="n">t_lo</span><span class="p">,</span>
+            <span class="n">t_hi</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">h_t_keep</span> <span class="o">=</span> <span class="n">h_t</span><span class="p">[</span><span class="n">in_time_range</span><span class="p">]</span>
+    <span class="n">h_c_keep</span> <span class="o">=</span> <span class="n">h_c</span><span class="p">[</span><span class="n">in_time_range</span><span class="p">]</span>
+    <span class="n">ts_start</span> <span class="o">=</span> <span class="n">t_start_acquire</span><span class="p">[</span><span class="n">in_time_range</span><span class="p">]</span>
+    <span class="n">ts_end_a</span> <span class="o">=</span> <span class="n">t_end_acquire</span><span class="p">[</span><span class="n">in_time_range</span><span class="p">]</span>
+    <span class="n">ts_end_p</span> <span class="o">=</span> <span class="n">t_end_period</span><span class="p">[</span><span class="n">in_time_range</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">h_t_keep</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_empty_result</span><span class="p">()</span>
+
+    <span class="c1"># Three linear interpolations — np.interp requires monotonic xp;</span>
+    <span class="c1"># we ensured that via sort+unique on the motor stream above.</span>
+    <span class="n">pos_start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">ts_start</span><span class="p">,</span> <span class="n">m_t</span><span class="p">,</span> <span class="n">m_p</span><span class="p">)</span>
+    <span class="n">pos_end_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">ts_end_a</span><span class="p">,</span> <span class="n">m_t</span><span class="p">,</span> <span class="n">m_p</span><span class="p">)</span>
+    <span class="n">pos_end_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">ts_end_p</span><span class="p">,</span> <span class="n">m_t</span><span class="p">,</span> <span class="n">m_p</span><span class="p">)</span>
+
+    <span class="c1"># In-scan filter: time-domain overlap.</span>
+    <span class="c1">#</span>
+    <span class="c1"># A frame is &quot;in scan&quot; if the time interval over which it was</span>
+    <span class="c1"># exposing/holding ([start_acquire.t, end_period.t]) OVERLAPS the</span>
+    <span class="c1"># time window during which the motor was inside [p_start, p_end].</span>
+    <span class="c1"># The time-overlap rule (rather than testing a single position</span>
+    <span class="c1"># against [p_start, p_end]) admits three classes of frame that</span>
+    <span class="c1"># carry valid in-range data:</span>
+    <span class="c1">#</span>
+    <span class="c1">#   1. Leading-edge: exposure started just before p_start but</span>
+    <span class="c1">#      crossed p_start before end_acquire.  The frame DOES carry</span>
+    <span class="c1">#      data from inside the scan range.</span>
+    <span class="c1">#   2. Trailing-edge: exposure started just before p_end but</span>
+    <span class="c1">#      crossed p_end before end_period.  Same logic.</span>
+    <span class="c1">#   3. Boundary-noise: frames whose true position is inside</span>
+    <span class="c1">#      [p_start, p_end] but whose interpolated pos_start was</span>
+    <span class="c1">#      slightly outside due to motor-stream sampling noise near</span>
+    <span class="c1">#      the boundary.</span>
+    <span class="c1">#</span>
+    <span class="c1"># The motor in-range time window is bracketed by the first and</span>
+    <span class="c1"># last motor-stream samples whose position lies in [p_start, p_end].</span>
+    <span class="c1"># This handles forward sweeps, reverse sweeps, and the (less common)</span>
+    <span class="c1"># case where the motor passes back through the range, conservatively:</span>
+    <span class="c1"># the window spans from the earliest to the latest in-range sample,</span>
+    <span class="c1"># so a frame in between is admitted.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Frames that never overlapped the window at all (taxi-in / coast-</span>
+    <span class="c1"># out frames whose entire [start_acquire, end_period] falls before</span>
+    <span class="c1"># the first in-range motor sample or after the last) are dropped:</span>
+    <span class="c1"># they carry no in-range data.</span>
+    <span class="n">in_range_pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">m_p</span> <span class="o">&gt;=</span> <span class="n">p_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">m_p</span> <span class="o">&lt;=</span> <span class="n">p_end</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">in_range_pos</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="c1"># The motor never entered the scan range in this run; reject</span>
+        <span class="c1"># every frame.</span>
+        <span class="n">in_scan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">ts_start</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+        <span class="n">motor_t_in_range_start</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">motor_t_in_range_end</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">in_range_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">in_range_pos</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">motor_t_in_range_start</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">m_t</span><span class="p">[</span><span class="n">in_range_idx</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+        <span class="n">motor_t_in_range_end</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">m_t</span><span class="p">[</span><span class="n">in_range_idx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="n">in_scan</span> <span class="o">=</span> <span class="p">(</span><span class="n">ts_end_p</span> <span class="o">&gt;=</span> <span class="n">motor_t_in_range_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="n">ts_start</span> <span class="o">&lt;=</span> <span class="n">motor_t_in_range_end</span>
+        <span class="p">)</span>
+
+    <span class="n">n_out_of_scan</span> <span class="o">=</span> <span class="n">h_t_keep</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">in_scan</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">n_out_of_scan</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">motor_t_in_range_start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;_interpolate_positions: dropping all </span><span class="si">%d</span><span class="s2"> HDF frame(s);&quot;</span>
+                <span class="s2">&quot; no motor sample ever fell inside [</span><span class="si">%g</span><span class="s2">, </span><span class="si">%g</span><span class="s2">]&quot;</span><span class="p">,</span>
+                <span class="n">n_out_of_scan</span><span class="p">,</span>
+                <span class="n">p_start</span><span class="p">,</span>
+                <span class="n">p_end</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;_interpolate_positions: dropping </span><span class="si">%d</span><span class="s2"> HDF frame(s) whose&quot;</span>
+                <span class="s2">&quot; [start_acquire.t, end_period.t] interval did not&quot;</span>
+                <span class="s2">&quot; overlap the motor in-range time window&quot;</span>
+                <span class="s2">&quot; [</span><span class="si">%g</span><span class="s2">, </span><span class="si">%g</span><span class="s2">] s (positions [</span><span class="si">%g</span><span class="s2">, </span><span class="si">%g</span><span class="s2">]) -- taxi-in / coast-out&quot;</span>
+                <span class="s2">&quot; frames&quot;</span><span class="p">,</span>
+                <span class="n">n_out_of_scan</span><span class="p">,</span>
+                <span class="n">motor_t_in_range_start</span><span class="p">,</span>
+                <span class="n">motor_t_in_range_end</span><span class="p">,</span>
+                <span class="n">p_start</span><span class="p">,</span>
+                <span class="n">p_end</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># After all filters, also dedup by image_number: the IOC&#39;s CA</span>
+    <span class="c1"># monitor stream very occasionally emits a counter value twice</span>
+    <span class="c1"># (dispatcher quirk).  Keep first occurrence; log the duplicates.</span>
+    <span class="n">counter_in_scan</span> <span class="o">=</span> <span class="n">h_c_keep</span><span class="p">[</span><span class="n">in_scan</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">first_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">counter_in_scan</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">first_idx</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">n_dropped_dup_counter</span> <span class="o">=</span> <span class="n">counter_in_scan</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="n">first_idx</span><span class="o">.</span><span class="n">size</span>
+    <span class="k">if</span> <span class="n">n_dropped_dup_counter</span><span class="p">:</span>
+        <span class="c1"># Compute the duplicated values for the log message.  Use</span>
+        <span class="c1"># set arithmetic on the sorted unique-kept counters.</span>
+        <span class="n">kept</span> <span class="o">=</span> <span class="n">counter_in_scan</span><span class="p">[</span><span class="n">first_idx</span><span class="p">]</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">dups</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">counter_in_scan</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="n">seen</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">kept</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dups</span><span class="p">:</span>
+                    <span class="n">dups</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+            <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s2">&quot;_interpolate_positions: dropping </span><span class="si">%d</span><span class="s2"> frame(s) with&quot;</span>
+            <span class="s2">&quot; duplicate image_number value(s) </span><span class="si">%r</span><span class="s2"> within in-scan window.&quot;</span>
+            <span class="s2">&quot; Symptom of CA dispatcher firing twice for the same&quot;</span>
+            <span class="s2">&quot; IOC-side counter value; keeping the first occurrence.&quot;</span><span class="p">,</span>
+            <span class="n">n_dropped_dup_counter</span><span class="p">,</span>
+            <span class="n">dups</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Apply in-scan + dedup masks together to all arrays in one</span>
+    <span class="c1"># final indexing pass.</span>
+    <span class="n">sel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">in_scan</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="n">first_idx</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;image_number&quot;</span><span class="p">:</span> <span class="n">h_c_keep</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">h_t_keep</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">&quot;position_start_acquire&quot;</span><span class="p">:</span> <span class="n">pos_start</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">&quot;position_end_acquire&quot;</span><span class="p">:</span> <span class="n">pos_end_a</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">&quot;position_end_period&quot;</span><span class="p">:</span> <span class="n">pos_end_p</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_empty_result</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a correctly-typed empty result DataFrame.&quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;image_number&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">&quot;position_start_acquire&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">&quot;position_end_acquire&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+            <span class="s2">&quot;position_end_period&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+
+<div class="viewcode-block" id="EPICS_EPOCH_OFFSET_S">
+<a class="viewcode-back" href="../../../api/id3c/utils/flyscan_3idc_analysis/index.html#id3c.utils.flyscan_3idc_analysis.EPICS_EPOCH_OFFSET_S">[docs]</a>
+<span class="n">EPICS_EPOCH_OFFSET_S</span> <span class="o">=</span> <span class="mi">631_152_000</span></div>
+
+<span class="sd">&quot;&quot;&quot;Add this to an EPICS timestamp to get a Unix timestamp.</span>
+
+<span class="sd">EPICS time is seconds since 1990-01-01T00:00:00 UTC; Unix time is</span>
+<span class="sd">seconds since 1970-01-01T00:00:00 UTC.  AD plugins store frame</span>
+<span class="sd">timestamps in EPICS time; bluesky monitor streams use Unix time.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="pair_frames_to_positions_from_ad_file">
+<a class="viewcode-back" href="../../../api/id3c/utils/flyscan_3idc_analysis/index.html#id3c.utils.flyscan_3idc_analysis.pair_frames_to_positions_from_ad_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pair_frames_to_positions_from_ad_file</span><span class="p">(</span>
+    <span class="n">run</span><span class="p">,</span>
+    <span class="n">ad_file_path</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">timestamp_dset</span><span class="o">=</span><span class="s2">&quot;/entry/instrument/detector/NDAttributes/NDArrayTimeStamp&quot;</span><span class="p">,</span>
+    <span class="n">unique_id_dset</span><span class="o">=</span><span class="s2">&quot;/entry/instrument/detector/NDAttributes/NDArrayUniqueId&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pair frames with motor positions, sourcing timestamps from the AD file.</span>
+
+<span class="sd">    Same output shape as ``pair_frames_to_positions`` but reads</span>
+<span class="sd">    per-frame ``(timestamp, unique_id)`` from the AD HDF1 file&#39;s own</span>
+<span class="sd">    NDAttribute datasets instead of from the CA monitor stream.</span>
+<span class="sd">    The AD file is authoritative -- the IOC writes one row per</span>
+<span class="sd">    acquired frame -- so the image-number gaps caused by CA monitor</span>
+<span class="sd">    coalescing do not apply here.</span>
+
+<span class="sd">    The AD file&#39;s ``NDArrayTimeStamp`` is in EPICS epoch (seconds</span>
+<span class="sd">    since 1990-01-01 UTC).  Bluesky&#39;s motor monitor stream uses Unix</span>
+<span class="sd">    epoch.  This helper converts by adding ``EPICS_EPOCH_OFFSET_S``;</span>
+<span class="sd">    no per-IOC calibration measurement is required as long as the</span>
+<span class="sd">    AD IOC and the motor IOC are NTP-synchronized.</span>
+
+<span class="sd">    ``NDArrayUniqueId`` is 0-based (the IOC counts from 0).  This</span>
+<span class="sd">    helper adds 1 so the returned ``image_number`` matches the</span>
+<span class="sd">    1-based ``hdf1.array_counter`` convention used by</span>
+<span class="sd">    ``pair_frames_to_positions`` and by the downstream</span>
+<span class="sd">    ``frame_index = image_number - 1`` slicing.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    run : BlueskyRun</span>
+<span class="sd">        Same as ``pair_frames_to_positions``; only the motor monitor</span>
+<span class="sd">        stream is read from it.</span>
+<span class="sd">    ad_file_path : str</span>
+<span class="sd">        Path to the AD HDF1 file.  Caller is responsible for</span>
+<span class="sd">        resolving relative-link / symlink translation (e.g. via</span>
+<span class="sd">        ``flyscan_3idc._external_link_target`` + the workstation&#39;s</span>
+<span class="sd">        ``./ad_files/`` symlink).</span>
+<span class="sd">    timestamp_dset, unique_id_dset : str</span>
+<span class="sd">        HDF5 paths inside the AD file for the per-frame timestamp</span>
+<span class="sd">        and UID datasets.  Defaults match the EPICS areaDetector</span>
+<span class="sd">        NDFileHDF5 plugin&#39;s standard NDAttribute layout.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Same columns as ``pair_frames_to_positions``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+
+    <span class="n">md</span> <span class="o">=</span> <span class="n">_get_start_metadata</span><span class="p">(</span><span class="n">run</span><span class="p">)</span>
+    <span class="n">flymotor_name</span> <span class="o">=</span> <span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;flymotor_name&quot;</span><span class="p">)</span>
+    <span class="n">p_start</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;p_start&quot;</span><span class="p">))</span>
+    <span class="n">p_end</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;p_end&quot;</span><span class="p">))</span>
+    <span class="n">t_acquire</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;t_acquire&quot;</span><span class="p">))</span>
+    <span class="n">t_period</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;t_period&quot;</span><span class="p">))</span>
+
+    <span class="c1"># Read motor monitor stream (Unix epoch).</span>
+    <span class="n">motor_stream_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">flymotor_name</span><span class="si">}</span><span class="s2">_monitor&quot;</span>
+    <span class="n">motor_ds</span> <span class="o">=</span> <span class="n">_read_stream</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">motor_stream_name</span><span class="p">)</span>
+    <span class="n">motor_t</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">motor_ds</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">motor_stream_name</span><span class="p">)</span>
+    <span class="n">motor_pos</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">motor_ds</span><span class="p">,</span> <span class="n">flymotor_name</span><span class="p">,</span> <span class="n">motor_stream_name</span><span class="p">)</span>
+
+    <span class="c1"># Read per-frame timestamp + UID from the AD HDF1 file.</span>
+    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">ad_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">timestamp_dset</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;AD file </span><span class="si">{</span><span class="n">ad_file_path</span><span class="si">!r}</span><span class="s2"> has no dataset </span><span class="si">{</span><span class="n">timestamp_dset</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">unique_id_dset</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;AD file </span><span class="si">{</span><span class="n">ad_file_path</span><span class="si">!r}</span><span class="s2"> has no dataset </span><span class="si">{</span><span class="n">unique_id_dset</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="n">ad_t_epics</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">timestamp_dset</span><span class="p">][</span><span class="o">...</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">ad_uid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">unique_id_dset</span><span class="p">][</span><span class="o">...</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ad_t_epics</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">ad_uid</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;AD timestamp and unique_id arrays disagree on length:&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">ad_t_epics</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2"> vs </span><span class="si">{</span><span class="n">ad_uid</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Convert EPICS epoch -&gt; Unix epoch, and convert 0-based UID -&gt; 1-based.</span>
+    <span class="n">hdf_t</span> <span class="o">=</span> <span class="n">ad_t_epics</span> <span class="o">+</span> <span class="n">EPICS_EPOCH_OFFSET_S</span>
+    <span class="n">hdf_counter</span> <span class="o">=</span> <span class="n">ad_uid</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="c1"># Same end_acquire semantic as the CA path: the IOC stamps each</span>
+    <span class="c1"># frame at end-of-acquire.  Phase offset of -t_acquire takes</span>
+    <span class="c1"># the frame timestamp back to start_acquire.</span>
+    <span class="n">hdf_t_phase_offset</span> <span class="o">=</span> <span class="o">-</span><span class="n">t_acquire</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="s2">&quot;pair_frames_to_positions_from_ad_file: motor=</span><span class="si">%r</span><span class="s2"> (</span><span class="si">%d</span><span class="s2"> sample(s)),&quot;</span>
+        <span class="s2">&quot; ad_file=</span><span class="si">%r</span><span class="s2"> (</span><span class="si">%d</span><span class="s2"> frame(s)), p_start=</span><span class="si">%g</span><span class="s2"> p_end=</span><span class="si">%g</span><span class="s2">&quot;</span>
+        <span class="s2">&quot; t_acquire=</span><span class="si">%g</span><span class="s2"> t_period=</span><span class="si">%g</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">motor_stream_name</span><span class="p">,</span>
+        <span class="n">motor_t</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+        <span class="n">ad_file_path</span><span class="p">,</span>
+        <span class="n">hdf_t</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+        <span class="n">p_start</span><span class="p">,</span>
+        <span class="n">p_end</span><span class="p">,</span>
+        <span class="n">t_acquire</span><span class="p">,</span>
+        <span class="n">t_period</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">_interpolate_positions</span><span class="p">(</span>
+        <span class="n">motor_t</span><span class="p">,</span>
+        <span class="n">motor_pos</span><span class="p">,</span>
+        <span class="n">hdf_t</span><span class="p">,</span>
+        <span class="n">hdf_counter</span><span class="p">,</span>
+        <span class="n">p_start</span><span class="p">,</span>
+        <span class="n">p_end</span><span class="p">,</span>
+        <span class="n">t_acquire</span><span class="o">=</span><span class="n">t_acquire</span><span class="p">,</span>
+        <span class="n">t_period</span><span class="o">=</span><span class="n">t_period</span><span class="p">,</span>
+        <span class="n">hdf_t_phase_offset</span><span class="o">=</span><span class="n">hdf_t_phase_offset</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="s2">&quot;pair_frames_to_positions_from_ad_file: paired </span><span class="si">%d</span><span class="s2"> in-scan frame(s)&quot;</span><span class="p">,</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+<div class="viewcode-block" id="pair_frames_to_positions">
+<a class="viewcode-back" href="../../../api/id3c/utils/flyscan_3idc_analysis/index.html#id3c.utils.flyscan_3idc_analysis.pair_frames_to_positions">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pair_frames_to_positions</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pair each in-scan HDF frame with three motor positions per period.</span>
+
+<span class="sd">    Reads everything from the run&#39;s start-document metadata and the</span>
+<span class="sd">    standard monitor streams set up by ``flyscan_3idc.flyscan``:</span>
+
+<span class="sd">    - ``&lt;flymotor_name&gt;_monitor`` — motor position vs IOC timestamp.</span>
+<span class="sd">    - ``&lt;det_name&gt;_hdf1_array_counter_monitor`` — HDF</span>
+<span class="sd">      ``array_counter`` vs IOC timestamp.</span>
+<span class="sd">    - ``p_start``, ``p_end``, ``t_acquire``, ``t_period``,</span>
+<span class="sd">      ``hdf_t_phase_offset`` from ``run.metadata[&quot;start&quot;]``.</span>
+
+<span class="sd">    For each in-scan frame, three motor positions are reported,</span>
+<span class="sd">    one at each of the three per-period phase moments:</span>
+
+<span class="sd">        position_start_acquire = motor at hdf_t + hdf_t_phase_offset</span>
+<span class="sd">        position_end_acquire   = motor at the above + t_acquire</span>
+<span class="sd">        position_end_period    = motor at the above + t_period</span>
+
+<span class="sd">    Frames whose ``position_start_acquire`` is outside</span>
+<span class="sd">    ``[p_start, p_end]`` are dropped (taxi / coast / before-acquire-</span>
+<span class="sd">    finished frames).  Frames whose phase timestamps would require</span>
+<span class="sd">    extrapolating past the motor stream&#39;s time range are also</span>
+<span class="sd">    dropped (no silent extrapolation).  Duplicate image_number</span>
+<span class="sd">    values within the in-scan window are deduped with a WARNING.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    run : BlueskyRun</span>
+<span class="sd">        Tiled / databroker run object.  Must have</span>
+<span class="sd">        ``.metadata[&quot;start&quot;]`` with the keys ``p_start``,</span>
+<span class="sd">        ``p_end``, ``flymotor_name``, ``det_name``, ``t_acquire``,</span>
+<span class="sd">        ``t_period``, ``hdf_t_phase_offset``, and must expose</span>
+<span class="sd">        monitor streams named per the convention above.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Columns: ``image_number`` (int64, the HDF array_counter</span>
+<span class="sd">        value at frame capture), ``timestamp`` (float, raw IOC</span>
+<span class="sd">        ``hdf_t`` of the frame), and three position columns</span>
+<span class="sd">        (``position_start_acquire``, ``position_end_acquire``,</span>
+<span class="sd">        ``position_end_period``).  Indexed by ``timestamp``</span>
+<span class="sd">        ascending.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    KeyError</span>
+<span class="sd">        Required metadata key or monitor stream is missing from</span>
+<span class="sd">        the run.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Motor stream has fewer than 2 samples, or ``t_acquire``</span>
+<span class="sd">        / ``t_period`` are non-positive.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">md</span> <span class="o">=</span> <span class="n">_get_start_metadata</span><span class="p">(</span><span class="n">run</span><span class="p">)</span>
+    <span class="n">flymotor_name</span> <span class="o">=</span> <span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;flymotor_name&quot;</span><span class="p">)</span>
+    <span class="n">det_name</span> <span class="o">=</span> <span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;det_name&quot;</span><span class="p">)</span>
+    <span class="n">p_start</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;p_start&quot;</span><span class="p">))</span>
+    <span class="n">p_end</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;p_end&quot;</span><span class="p">))</span>
+    <span class="n">t_acquire</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;t_acquire&quot;</span><span class="p">))</span>
+    <span class="n">t_period</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;t_period&quot;</span><span class="p">))</span>
+    <span class="n">hdf_t_phase_offset</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;hdf_t_phase_offset&quot;</span><span class="p">))</span>
+
+    <span class="n">motor_stream_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">flymotor_name</span><span class="si">}</span><span class="s2">_monitor&quot;</span>
+    <span class="n">motor_field_name</span> <span class="o">=</span> <span class="n">flymotor_name</span>
+    <span class="n">hdf_stream_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">det_name</span><span class="si">}</span><span class="s2">_hdf1_array_counter_monitor&quot;</span>
+    <span class="n">hdf_field_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">det_name</span><span class="si">}</span><span class="s2">_hdf1_array_counter&quot;</span>
+
+    <span class="n">motor_ds</span> <span class="o">=</span> <span class="n">_read_stream</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">motor_stream_name</span><span class="p">)</span>
+    <span class="n">hdf_ds</span> <span class="o">=</span> <span class="n">_read_stream</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">hdf_stream_name</span><span class="p">)</span>
+
+    <span class="n">motor_t</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">motor_ds</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">motor_stream_name</span><span class="p">)</span>
+    <span class="n">motor_pos</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">motor_ds</span><span class="p">,</span> <span class="n">motor_field_name</span><span class="p">,</span> <span class="n">motor_stream_name</span><span class="p">)</span>
+    <span class="n">hdf_t</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">hdf_ds</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">hdf_stream_name</span><span class="p">)</span>
+    <span class="n">hdf_counter</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">hdf_ds</span><span class="p">,</span> <span class="n">hdf_field_name</span><span class="p">,</span> <span class="n">hdf_stream_name</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="s2">&quot;pair_frames_to_positions: motor=</span><span class="si">%r</span><span class="s2"> (</span><span class="si">%d</span><span class="s2"> sample(s)),&quot;</span>
+        <span class="s2">&quot; hdf=</span><span class="si">%r</span><span class="s2"> (</span><span class="si">%d</span><span class="s2"> frame(s)), p_start=</span><span class="si">%g</span><span class="s2"> p_end=</span><span class="si">%g</span><span class="s2">&quot;</span>
+        <span class="s2">&quot; t_acquire=</span><span class="si">%g</span><span class="s2"> t_period=</span><span class="si">%g</span><span class="s2"> hdf_t_phase_offset=</span><span class="si">%g</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">motor_stream_name</span><span class="p">,</span>
+        <span class="n">motor_t</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+        <span class="n">hdf_stream_name</span><span class="p">,</span>
+        <span class="n">hdf_t</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+        <span class="n">p_start</span><span class="p">,</span>
+        <span class="n">p_end</span><span class="p">,</span>
+        <span class="n">t_acquire</span><span class="p">,</span>
+        <span class="n">t_period</span><span class="p">,</span>
+        <span class="n">hdf_t_phase_offset</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">_interpolate_positions</span><span class="p">(</span>
+        <span class="n">motor_t</span><span class="p">,</span>
+        <span class="n">motor_pos</span><span class="p">,</span>
+        <span class="n">hdf_t</span><span class="p">,</span>
+        <span class="n">hdf_counter</span><span class="p">,</span>
+        <span class="n">p_start</span><span class="p">,</span>
+        <span class="n">p_end</span><span class="p">,</span>
+        <span class="n">t_acquire</span><span class="o">=</span><span class="n">t_acquire</span><span class="p">,</span>
+        <span class="n">t_period</span><span class="o">=</span><span class="n">t_period</span><span class="p">,</span>
+        <span class="n">hdf_t_phase_offset</span><span class="o">=</span><span class="n">hdf_t_phase_offset</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="s2">&quot;pair_frames_to_positions: paired </span><span class="si">%d</span><span class="s2"> in-scan frame(s)&quot;</span><span class="p">,</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Internal: thin shims around the BlueskyRun shape that let us swap in</span>
+<span class="c1"># duck-typed mocks for tests.</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_start_metadata</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the run&#39;s start-document metadata as a dict.&quot;&quot;&quot;</span>
+    <span class="n">md</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">md</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;run object has no .metadata attribute&quot;</span><span class="p">)</span>
+    <span class="c1"># Both dict-style (BlueskyRun) and Mapping-style access work.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">md</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;run.metadata is missing the &#39;start&#39; document&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;run.metadata[&#39;start&#39;] is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">, expected dict&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">start</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">md</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;run.metadata[&#39;start&#39;] is missing required key </span><span class="si">{</span><span class="n">key</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">md</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_read_stream</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">stream_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return ``run.&lt;stream_name&gt;.read()`` (an xarray.Dataset).&quot;&quot;&quot;</span>
+    <span class="n">stream</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">stream_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">stream</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;run has no stream named </span><span class="si">{</span><span class="n">stream_name</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="s2">&quot;read&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;run.</span><span class="si">{</span><span class="n">stream_name</span><span class="si">}</span><span class="s2"> has no .read() method (got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_array_from_ds</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stream_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pull a column from an xarray.Dataset (or dict-like) as a 1-D numpy array.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;stream </span><span class="si">{</span><span class="n">stream_name</span><span class="si">!r}</span><span class="s2"> has no column </span><span class="si">{</span><span class="n">key</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+    <span class="c1"># xarray DataArray exposes .data; numpy arrays are already arrays;</span>
+    <span class="c1"># pandas Series have .to_numpy().  Try them in order.</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">data</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="s2">&quot;to_numpy&quot;</span><span class="p">):</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Diagnostics</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_by_counter</span><span class="p">(</span><span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sort by timestamp, then keep the first event seen for each</span>
+<span class="sd">    unique counter value.  Returns (counter_unique, t_unique) in</span>
+<span class="sd">    counter-value-ascending order.</span>
+
+<span class="sd">    Mirrors the dedup-on-duplicate-timestamps pattern used in</span>
+<span class="sd">    ``_interpolate_positions`` but keyed on the counter rather than</span>
+<span class="sd">    the timestamp: the IOC&#39;s array_counter monitor stream emits one</span>
+<span class="sd">    event per increment, but the CA dispatcher occasionally repeats</span>
+<span class="sd">    a value across segments.  Keeping the first-seen event per</span>
+<span class="sd">    counter value gives a single timestamp per frame number.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;stable&quot;</span><span class="p">)</span>
+    <span class="n">t_sorted</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+    <span class="n">c_sorted</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+    <span class="c1"># First-occurrence dedup by counter value: argsort-stable on</span>
+    <span class="c1"># counter, then unique returns the first index per group.</span>
+    <span class="n">c_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">c_sorted</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;stable&quot;</span><span class="p">)</span>
+    <span class="n">c_sorted2</span> <span class="o">=</span> <span class="n">c_sorted</span><span class="p">[</span><span class="n">c_order</span><span class="p">]</span>
+    <span class="n">t_sorted2</span> <span class="o">=</span> <span class="n">t_sorted</span><span class="p">[</span><span class="n">c_order</span><span class="p">]</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">first_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">c_sorted2</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">first_idx</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">c_sorted2</span><span class="p">[</span><span class="n">first_idx</span><span class="p">],</span> <span class="n">t_sorted2</span><span class="p">[</span><span class="n">first_idx</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="hdf_timestamp_semantic_diagnostic">
+<a class="viewcode-back" href="../../../api/id3c/utils/flyscan_3idc_analysis/index.html#id3c.utils.flyscan_3idc_analysis.hdf_timestamp_semantic_diagnostic">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">hdf_timestamp_semantic_diagnostic</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Empirically determine what moment hdf1.array_counter timestamps mark.</span>
+
+<span class="sd">    The flyscan plan records two array_counter monitor streams:</span>
+
+<span class="sd">    - ``&lt;det&gt;_cam_array_counter_monitor``: the cam&#39;s frame counter,</span>
+<span class="sd">      incremented when the cam finishes capturing a frame.  Closest</span>
+<span class="sd">      to ``end_acquire`` from the cam&#39;s perspective.</span>
+<span class="sd">    - ``&lt;det&gt;_hdf1_array_counter_monitor``: the HDF plugin&#39;s frame</span>
+<span class="sd">      counter, incremented after the plugin has accepted (and</span>
+<span class="sd">      typically written) the frame.</span>
+
+<span class="sd">    ``pair_frames_to_positions`` uses the **hdf** stream&#39;s timestamps</span>
+<span class="sd">    as the &quot;when did this frame happen&quot; coordinate for motor-position</span>
+<span class="sd">    interpolation.  But the exact moment those timestamps mark within</span>
+<span class="sd">    each cam exposure period is IOC-/plugin-dependent.  Three</span>
+<span class="sd">    plausible semantics:</span>
+
+<span class="sd">    - ``hdf_t ~= start_acquire``: counter timestamped at the *start*</span>
+<span class="sd">      of the exposure that produced the frame.  Would predict</span>
+<span class="sd">      ``hdf_t - cam_t ~= -t_acquire``.</span>
+<span class="sd">    - ``hdf_t ~= end_acquire``: counter timestamped at the *end* of</span>
+<span class="sd">      the exposure (when the cam finishes).  Most common AD HDF</span>
+<span class="sd">      plugin behavior.  Would predict ``hdf_t - cam_t ~= 0`` (plus</span>
+<span class="sd">      a small plugin-pipeline lag).</span>
+<span class="sd">    - ``hdf_t ~= end_period``: counter timestamped at the *end* of</span>
+<span class="sd">      the period (start of the next exposure).  Would predict</span>
+<span class="sd">      ``hdf_t - cam_t ~= t_period - t_acquire``.</span>
+
+<span class="sd">    This diagnostic pairs cam and HDF events by frame counter,</span>
+<span class="sd">    computes the mean ``hdf_t - cam_t`` over in-scan frames, picks</span>
+<span class="sd">    the closest-matching semantic, and prints a verdict plus a</span>
+<span class="sd">    recommended ``hdf_t_phase_offset`` value to use when computing</span>
+<span class="sd">    each frame&#39;s ``start_acquire`` timestamp from its ``hdf_t``:</span>
+
+<span class="sd">        start_acquire = hdf_t + hdf_t_phase_offset</span>
+<span class="sd">        end_acquire   = start_acquire + t_acquire</span>
+<span class="sd">        end_period    = start_acquire + t_period</span>
+
+<span class="sd">    Run once after any IOC / detector / plugin change to confirm</span>
+<span class="sd">    the semantic.  Returns a dict of the computed values for</span>
+<span class="sd">    programmatic use (testing, scripting).</span>
+
+<span class="sd">    Calibration procedure</span>
+<span class="sd">    ---------------------</span>
+
+<span class="sd">    1. Run a flyscan slow enough that the CA monitor publish path</span>
+<span class="sd">       can keep up with every counter increment (typically</span>
+<span class="sd">       ``t_period &gt;= 0.5`` s).</span>
+<span class="sd">    2. ``result = hdf_timestamp_semantic_diagnostic(cat[-1])``.</span>
+<span class="sd">       Read the printed report.</span>
+<span class="sd">    3. If the verdict is ``RELIABLE``, use</span>
+<span class="sd">       ``result[&quot;recommended_hdf_t_phase_offset_s&quot;]`` as the</span>
+<span class="sd">       calibration constant.  If ``UNRELIABLE``, slow the scan</span>
+<span class="sd">       further and repeat.</span>
+<span class="sd">    4. Pass the constant to subsequent flyscans via</span>
+<span class="sd">       ``RE(flyscan(..., hdf_t_phase_offset=...))`` or change the</span>
+<span class="sd">       plan&#39;s default.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    run : BlueskyRun</span>
+<span class="sd">        A run produced by ``flyscan_3idc.flyscan``.  Must have the</span>
+<span class="sd">        three monitor streams (``&lt;flymotor&gt;_monitor``,</span>
+<span class="sd">        ``&lt;det&gt;_cam_array_counter_monitor``,</span>
+<span class="sd">        ``&lt;det&gt;_hdf1_array_counter_monitor``) and the standard</span>
+<span class="sd">        start-document metadata (``p_start``, ``p_end``,</span>
+<span class="sd">        ``flymotor_name``, ``det_name``, ``t_acquire``,</span>
+<span class="sd">        ``t_period``).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Keys:</span>
+
+<span class="sd">        - ``n_in_scan_frames`` : int — frames paired and inside</span>
+<span class="sd">          ``[p_start, p_end]``.</span>
+<span class="sd">        - ``d1_mean_s`` : float — observed mean ``hdf_t - cam_t``</span>
+<span class="sd">          over in-scan frames, in seconds.</span>
+<span class="sd">        - ``d1_std_s`` : float — stddev of the same.</span>
+<span class="sd">        - ``d2_mean_s`` : float — mean ``diff(hdf_t)`` over</span>
+<span class="sd">          in-scan frames; should equal ``t_period``.</span>
+<span class="sd">        - ``t_acquire``, ``t_period`` : float — copies from the</span>
+<span class="sd">          start metadata, in seconds.</span>
+<span class="sd">        - ``verdict`` : str — one of ``&quot;start_acquire&quot;``,</span>
+<span class="sd">          ``&quot;end_acquire&quot;``, ``&quot;end_period&quot;``.</span>
+<span class="sd">        - ``recommended_hdf_t_phase_offset_s`` : float — the value</span>
+<span class="sd">          to use as ``hdf_t_phase_offset`` for the chosen verdict</span>
+<span class="sd">          (negative of the predicted ``hdf_t - cam_t`` for that</span>
+<span class="sd">          semantic, since ``start_acquire = cam_t - t_acquire``</span>
+<span class="sd">          under the ``hdf_t == end_acquire`` model).</span>
+<span class="sd">        - ``is_reliable`` : bool — True iff none of the reliability</span>
+<span class="sd">          guards tripped.  When False, ``verdict`` is still populated</span>
+<span class="sd">          but should not be trusted for production phase-offset</span>
+<span class="sd">          choices.</span>
+<span class="sd">        - ``sparse_data`` : bool — True iff ``D2 &gt; 2*t_period`` (CA</span>
+<span class="sd">          monitor publish path is coalescing events).</span>
+<span class="sd">        - ``noisy_data`` : bool — True iff ``D1 stddev &gt; t_acquire``</span>
+<span class="sd">          (per-event timestamp jitter is comparable to or larger</span>
+<span class="sd">          than the time-scale we&#39;re trying to discriminate).</span>
+<span class="sd">        - ``indecisive`` : bool — True iff no candidate semantic is</span>
+<span class="sd">          meaningfully closer to the observed D1 than any other.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    KeyError</span>
+<span class="sd">        Required metadata key or monitor stream is missing.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        No frames are in the scan range (cannot determine semantic).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">md</span> <span class="o">=</span> <span class="n">_get_start_metadata</span><span class="p">(</span><span class="n">run</span><span class="p">)</span>
+    <span class="n">flymotor_name</span> <span class="o">=</span> <span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;flymotor_name&quot;</span><span class="p">)</span>
+    <span class="n">det_name</span> <span class="o">=</span> <span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;det_name&quot;</span><span class="p">)</span>
+    <span class="n">p_start</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;p_start&quot;</span><span class="p">))</span>
+    <span class="n">p_end</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;p_end&quot;</span><span class="p">))</span>
+    <span class="n">t_acquire</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;t_acquire&quot;</span><span class="p">))</span>
+    <span class="n">t_period</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_require_metadata_key</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="s2">&quot;t_period&quot;</span><span class="p">))</span>
+
+    <span class="n">cam_stream_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">det_name</span><span class="si">}</span><span class="s2">_cam_array_counter_monitor&quot;</span>
+    <span class="n">cam_field_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">det_name</span><span class="si">}</span><span class="s2">_cam_array_counter&quot;</span>
+    <span class="n">hdf_stream_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">det_name</span><span class="si">}</span><span class="s2">_hdf1_array_counter_monitor&quot;</span>
+    <span class="n">hdf_field_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">det_name</span><span class="si">}</span><span class="s2">_hdf1_array_counter&quot;</span>
+    <span class="n">motor_stream_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">flymotor_name</span><span class="si">}</span><span class="s2">_monitor&quot;</span>
+    <span class="n">motor_field_name</span> <span class="o">=</span> <span class="n">flymotor_name</span>
+
+    <span class="n">cam_ds</span> <span class="o">=</span> <span class="n">_read_stream</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">cam_stream_name</span><span class="p">)</span>
+    <span class="n">hdf_ds</span> <span class="o">=</span> <span class="n">_read_stream</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">hdf_stream_name</span><span class="p">)</span>
+    <span class="n">motor_ds</span> <span class="o">=</span> <span class="n">_read_stream</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">motor_stream_name</span><span class="p">)</span>
+
+    <span class="n">cam_t_raw</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">cam_ds</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">cam_stream_name</span><span class="p">)</span>
+    <span class="n">cam_c_raw</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">cam_ds</span><span class="p">,</span> <span class="n">cam_field_name</span><span class="p">,</span> <span class="n">cam_stream_name</span><span class="p">)</span>
+    <span class="n">hdf_t_raw</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">hdf_ds</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">hdf_stream_name</span><span class="p">)</span>
+    <span class="n">hdf_c_raw</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">hdf_ds</span><span class="p">,</span> <span class="n">hdf_field_name</span><span class="p">,</span> <span class="n">hdf_stream_name</span><span class="p">)</span>
+    <span class="n">motor_t_raw</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">motor_ds</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">motor_stream_name</span><span class="p">)</span>
+    <span class="n">motor_pos_raw</span> <span class="o">=</span> <span class="n">_array_from_ds</span><span class="p">(</span><span class="n">motor_ds</span><span class="p">,</span> <span class="n">motor_field_name</span><span class="p">,</span> <span class="n">motor_stream_name</span><span class="p">)</span>
+
+    <span class="c1"># Dedup-by-counter so we have one timestamp per frame number.</span>
+    <span class="n">cam_c</span><span class="p">,</span> <span class="n">cam_t</span> <span class="o">=</span> <span class="n">_by_counter</span><span class="p">(</span><span class="n">cam_t_raw</span><span class="p">,</span> <span class="n">cam_c_raw</span><span class="p">)</span>
+    <span class="n">hdf_c</span><span class="p">,</span> <span class="n">hdf_t</span> <span class="o">=</span> <span class="n">_by_counter</span><span class="p">(</span><span class="n">hdf_t_raw</span><span class="p">,</span> <span class="n">hdf_c_raw</span><span class="p">)</span>
+
+    <span class="c1"># Pair cam and HDF events by frame counter (intersection).</span>
+    <span class="n">common</span><span class="p">,</span> <span class="n">ci</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">cam_c</span><span class="p">,</span> <span class="n">hdf_c</span><span class="p">,</span> <span class="n">return_indices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">common</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;no common frame counter values between </span><span class="si">{</span><span class="n">cam_stream_name</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; and </span><span class="si">{</span><span class="n">hdf_stream_name</span><span class="si">!r}</span><span class="s2">; cannot pair events&quot;</span>
+        <span class="p">)</span>
+    <span class="n">cam_t_pair</span> <span class="o">=</span> <span class="n">cam_t</span><span class="p">[</span><span class="n">ci</span><span class="p">]</span>
+    <span class="n">hdf_t_pair</span> <span class="o">=</span> <span class="n">hdf_t</span><span class="p">[</span><span class="n">hi</span><span class="p">]</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">hdf_t_pair</span> <span class="o">-</span> <span class="n">cam_t_pair</span>  <span class="c1"># D1 per frame</span>
+
+    <span class="c1"># Filter to in-scan frames using the motor stream.  Dedup motor</span>
+    <span class="c1"># timestamps (same as _interpolate_positions does internally).</span>
+    <span class="n">m_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">motor_t_raw</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;stable&quot;</span><span class="p">)</span>
+    <span class="n">m_t_sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">motor_t_raw</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)[</span><span class="n">m_order</span><span class="p">]</span>
+    <span class="n">m_p_sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">motor_pos_raw</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)[</span><span class="n">m_order</span><span class="p">]</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">m_uidx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">m_t_sorted</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">m_uidx</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">m_t</span> <span class="o">=</span> <span class="n">m_t_sorted</span><span class="p">[</span><span class="n">m_uidx</span><span class="p">]</span>
+    <span class="n">m_p</span> <span class="o">=</span> <span class="n">m_p_sorted</span><span class="p">[</span><span class="n">m_uidx</span><span class="p">]</span>
+
+    <span class="c1"># Drop pairings outside the motor stream&#39;s time range.</span>
+    <span class="n">in_motor_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">hdf_t_pair</span> <span class="o">&gt;=</span> <span class="n">m_t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">hdf_t_pair</span> <span class="o">&lt;=</span> <span class="n">m_t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">hdf_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">hdf_t_pair</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">hdf_pos</span><span class="p">[</span><span class="n">in_motor_range</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+        <span class="n">hdf_t_pair</span><span class="p">[</span><span class="n">in_motor_range</span><span class="p">],</span>
+        <span class="n">m_t</span><span class="p">,</span>
+        <span class="n">m_p</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">in_scan</span> <span class="o">=</span> <span class="n">in_motor_range</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">hdf_pos</span> <span class="o">&gt;=</span> <span class="n">p_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">hdf_pos</span> <span class="o">&lt;=</span> <span class="n">p_end</span><span class="p">)</span>
+    <span class="n">n_in_scan</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">in_scan</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">n_in_scan</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;only </span><span class="si">{</span><span class="n">n_in_scan</span><span class="si">}</span><span class="s2"> frame(s) in scan range [</span><span class="si">{</span><span class="n">p_start</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">p_end</span><span class="si">}</span><span class="s2">];&quot;</span>
+            <span class="s2">&quot; need &gt;= 2 for meaningful statistics&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">delta_in_scan</span> <span class="o">=</span> <span class="n">delta</span><span class="p">[</span><span class="n">in_scan</span><span class="p">]</span>
+    <span class="n">d1_mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">delta_in_scan</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">d1_std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">delta_in_scan</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+    <span class="n">d1_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">delta_in_scan</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="n">d1_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">delta_in_scan</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+    <span class="n">hdf_t_in_scan_sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">hdf_t_pair</span><span class="p">[</span><span class="n">in_scan</span><span class="p">])</span>
+    <span class="n">d2_mean</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">hdf_t_in_scan_sorted</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="k">if</span> <span class="n">n_in_scan</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Pick the closest-matching semantic.  Candidates: predicted</span>
+    <span class="c1"># hdf_t - cam_t for each semantic.  Tie-break preferring</span>
+    <span class="c1"># end_acquire (the most common AD HDF plugin behavior).</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;end_acquire&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">t_acquire</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;start_acquire&quot;</span><span class="p">,</span> <span class="o">-</span><span class="n">t_acquire</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;end_period&quot;</span><span class="p">,</span> <span class="n">t_period</span> <span class="o">-</span> <span class="n">t_acquire</span><span class="p">,</span> <span class="o">-</span><span class="n">t_period</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="c1"># Each tuple: (name, predicted_d1_seconds, phase_offset_to_get_start_acquire)</span>
+    <span class="c1"># Picker: minimize |observed_d1 - predicted_d1|; ties broken by</span>
+    <span class="c1"># the list order above (end_acquire wins ties).</span>
+    <span class="n">best_name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">best_offset</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">best_resid</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">predicted_d1</span><span class="p">,</span> <span class="n">offset</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="n">resid</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">d1_mean</span> <span class="o">-</span> <span class="n">predicted_d1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">resid</span> <span class="o">&lt;</span> <span class="n">best_resid</span><span class="p">:</span>
+            <span class="n">best_resid</span> <span class="o">=</span> <span class="n">resid</span>
+            <span class="n">best_name</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="n">best_offset</span> <span class="o">=</span> <span class="n">offset</span>
+
+    <span class="c1"># Reliability checks: this diagnostic only works if the two</span>
+    <span class="c1"># streams carry one timestamp-per-counter-increment AND those</span>
+    <span class="c1"># timestamps are stable from one frame to the next.  Two known</span>
+    <span class="c1"># ways the IOC&#39;s CA monitor publish path breaks both assumptions:</span>
+    <span class="c1">#</span>
+    <span class="c1">#   1. CA monitor coalescing: rapidly-incrementing integer</span>
+    <span class="c1">#      counters publish fewer monitor events than increments.</span>
+    <span class="c1">#      Symptom: D2 (mean inter-event gap) &gt;&gt; t_period.</span>
+    <span class="c1">#   2. Per-event timestamp jitter: the monitor&#39;s timestamp is</span>
+    <span class="c1">#      when the publish was queued, not when the underlying</span>
+    <span class="c1">#      record processed; jitter can be many ms.  Symptom: D1</span>
+    <span class="c1">#      stddev comparable to or larger than t_acquire (the</span>
+    <span class="c1">#      time-scale we&#39;re trying to discriminate among the</span>
+    <span class="c1">#      candidate semantics).</span>
+    <span class="c1">#</span>
+    <span class="c1"># If either check fails, mark the verdict unreliable.  The</span>
+    <span class="c1"># caller should treat the verdict as a hint, not a conclusion.</span>
+    <span class="n">sparseness_factor</span> <span class="o">=</span> <span class="p">(</span><span class="n">d2_mean</span> <span class="o">/</span> <span class="n">t_period</span><span class="p">)</span> <span class="k">if</span> <span class="n">t_period</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)</span>
+    <span class="n">sparse_data</span> <span class="o">=</span> <span class="n">d2_mean</span> <span class="o">&gt;</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">t_period</span>
+    <span class="n">noisy_data</span> <span class="o">=</span> <span class="n">d1_std</span> <span class="o">&gt;</span> <span class="n">t_acquire</span>
+    <span class="c1"># Also: if the best residual is larger than the spread within</span>
+    <span class="c1"># the candidates, no candidate is meaningfully closer than any</span>
+    <span class="c1"># other.  Spread = max predicted - min predicted (over candidates).</span>
+    <span class="n">predicted_d1s</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">_n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">_o</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">]</span>
+    <span class="n">candidate_spread</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">predicted_d1s</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">predicted_d1s</span><span class="p">)</span>
+    <span class="n">indecisive</span> <span class="o">=</span> <span class="n">best_resid</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">candidate_spread</span>
+    <span class="n">is_reliable</span> <span class="o">=</span> <span class="ow">not</span> <span class="p">(</span><span class="n">sparse_data</span> <span class="ow">or</span> <span class="n">noisy_data</span> <span class="ow">or</span> <span class="n">indecisive</span><span class="p">)</span>
+
+    <span class="c1"># Render a human-readable report.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hdf_timestamp_semantic_diagnostic:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;  frames paired:  cam=</span><span class="si">{</span><span class="n">cam_c</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">  hdf=</span><span class="si">{</span><span class="n">hdf_c</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;  common=</span><span class="si">{</span><span class="n">common</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">  in-scan=</span><span class="si">{</span><span class="n">n_in_scan</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;  D1 (hdf_t - cam_t, in-scan): &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;mean=</span><span class="si">{</span><span class="n">d1_mean</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">+8.3f</span><span class="si">}</span><span class="s2"> ms  std=</span><span class="si">{</span><span class="n">d1_std</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">6.3f</span><span class="si">}</span><span class="s2"> ms&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;  min=</span><span class="si">{</span><span class="n">d1_min</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">+8.3f</span><span class="si">}</span><span class="s2">  max=</span><span class="si">{</span><span class="n">d1_max</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">+8.3f</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;  D2 (diff(hdf_t) in-scan):    &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;mean=</span><span class="si">{</span><span class="n">d2_mean</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2"> ms&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;  (expected t_period = </span><span class="si">{</span><span class="n">t_period</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ms,&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot; sparseness x</span><span class="si">{</span><span class="n">sparseness_factor</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;  t_acquire = </span><span class="si">{</span><span class="n">t_acquire</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ms,  t_period = </span><span class="si">{</span><span class="n">t_period</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ms&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  candidate semantics for hdf_t (predicted D1 vs observed):&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">predicted_d1</span><span class="p">,</span> <span class="n">_offset</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot; &lt;- &quot;</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="n">best_name</span> <span class="k">else</span> <span class="s2">&quot;    &quot;</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">marker</span><span class="si">}{</span><span class="n">name</span><span class="si">:</span><span class="s2">14s</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;  predicted D1 = </span><span class="si">{</span><span class="n">predicted_d1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">+8.3f</span><span class="si">}</span><span class="s2"> ms&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;   residual = </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">d1_mean</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">predicted_d1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">7.3f</span><span class="si">}</span><span class="s2"> ms&quot;</span>
+        <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_reliable</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  verdict: hdf_t ~= </span><span class="si">{</span><span class="n">best_name</span><span class="si">}</span><span class="s2">  (RELIABLE)&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  recommended hdf_t_phase_offset = </span><span class="si">{</span><span class="n">best_offset</span><span class="si">:</span><span class="s2">+.6f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    (use as: start_acquire = hdf_t + hdf_t_phase_offset)&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Verdict is still reported (so the dict is always populated)</span>
+        <span class="c1"># but the user is warned not to trust it without more data.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  verdict: hdf_t ~= </span><span class="si">{</span><span class="n">best_name</span><span class="si">}</span><span class="s2">  *** UNRELIABLE ***&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  reasons:&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sparse_data</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;    - sparse: D2 (mean inter-event gap) = &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d2_mean</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms &gt; 2 x t_period &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t_period</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms);&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; CA monitor publish path is coalescing events,&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; so cam-vs-hdf timestamps may not correspond to&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; the same physical moment.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">noisy_data</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;    - noisy: D1 stddev = </span><span class="si">{</span><span class="n">d1_std</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; &gt; t_acquire (</span><span class="si">{</span><span class="n">t_acquire</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms);&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; per-event timestamp jitter is too large to&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; discriminate among the candidate semantics&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; (which differ by units of t_acquire / t_period).&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">indecisive</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;    - indecisive: best residual&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="n">best_resid</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms) &gt; half the spread of&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; candidate predictions&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="mf">0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">candidate_spread</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms);&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; no candidate is meaningfully closer than any other.&quot;</span>
+            <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;  recommended action: do NOT trust this verdict for&quot;</span>
+            <span class="s2">&quot; production phase-offset choices.  Re-run the diagnostic&quot;</span>
+            <span class="s2">&quot; against a longer/cleaner run, or investigate IOC monitor&quot;</span>
+            <span class="s2">&quot; coalescing (e.g. lower the cam frame rate so the CA&quot;</span>
+            <span class="s2">&quot; publish path can keep up with every counter increment).&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;n_in_scan_frames&quot;</span><span class="p">:</span> <span class="n">n_in_scan</span><span class="p">,</span>
+        <span class="s2">&quot;d1_mean_s&quot;</span><span class="p">:</span> <span class="n">d1_mean</span><span class="p">,</span>
+        <span class="s2">&quot;d1_std_s&quot;</span><span class="p">:</span> <span class="n">d1_std</span><span class="p">,</span>
+        <span class="s2">&quot;d2_mean_s&quot;</span><span class="p">:</span> <span class="n">d2_mean</span><span class="p">,</span>
+        <span class="s2">&quot;t_acquire&quot;</span><span class="p">:</span> <span class="n">t_acquire</span><span class="p">,</span>
+        <span class="s2">&quot;t_period&quot;</span><span class="p">:</span> <span class="n">t_period</span><span class="p">,</span>
+        <span class="s2">&quot;verdict&quot;</span><span class="p">:</span> <span class="n">best_name</span><span class="p">,</span>
+        <span class="s2">&quot;recommended_hdf_t_phase_offset_s&quot;</span><span class="p">:</span> <span class="n">best_offset</span><span class="p">,</span>
+        <span class="s2">&quot;is_reliable&quot;</span><span class="p">:</span> <span class="n">is_reliable</span><span class="p">,</span>
+        <span class="s2">&quot;sparse_data&quot;</span><span class="p">:</span> <span class="n">sparse_data</span><span class="p">,</span>
+        <span class="s2">&quot;noisy_data&quot;</span><span class="p">:</span> <span class="n">noisy_data</span><span class="p">,</span>
+        <span class="s2">&quot;indecisive&quot;</span><span class="p">:</span> <span class="n">indecisive</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="write_flyscan_data">
+<a class="viewcode-back" href="../../../api/id3c/utils/flyscan_3idc_analysis/index.html#id3c.utils.flyscan_3idc_analysis.write_flyscan_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">write_flyscan_data</span><span class="p">(</span>
+    <span class="n">master_file</span><span class="p">,</span>
+    <span class="n">external_file</span><span class="p">,</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">external_addr</span><span class="o">=</span><span class="s2">&quot;/entry/data&quot;</span><span class="p">,</span>
+    <span class="n">n_frames_expected</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write the ``/entry/flyscan_data`` group into the NeXus master file.</span>
+
+<span class="sd">    This is the single primary-product group: an ``NXdata`` holding the</span>
+<span class="sd">    in-scan image substack (an ``h5py.VirtualLayout`` into the external</span>
+<span class="sd">    area-detector file, no bytes copied) plus the per-frame correlation</span>
+<span class="sd">    data, all from the authoritative AD HDF1 file.</span>
+
+<span class="sd">    Both the live flyscan plan and the offline repair tool call this so</span>
+<span class="sd">    the on-disk layout is identical regardless of when it is written.</span>
+<span class="sd">    Any pre-existing ``/entry/flyscan_data`` is replaced (idempotent).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    master_file : str</span>
+<span class="sd">        Path to the NeXus master HDF5 file (opened for append).</span>
+<span class="sd">    external_file : str</span>
+<span class="sd">        Path to the area-detector HDF1 file, resolvable from the</span>
+<span class="sd">        master file&#39;s directory (i.e. through the image-files symlink).</span>
+<span class="sd">    df : pandas.DataFrame</span>
+<span class="sd">        Output of ``pair_frames_to_positions_from_ad_file``; one row</span>
+<span class="sd">        per in-scan frame with ``image_number``, ``timestamp``, and the</span>
+<span class="sd">        three ``position_*`` columns.</span>
+<span class="sd">    external_addr : str</span>
+<span class="sd">        Group inside ``external_file`` holding ``data`` (the image</span>
+<span class="sd">        stack).  Defaults to ``/entry/data``.</span>
+<span class="sd">    n_frames_expected : int or None</span>
+<span class="sd">        Total acquired-frame count, recorded as provenance.  ``None``</span>
+<span class="sd">        omits the attribute.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Summary: ``n_frames_paired``, ``out_shape``, ``src_dtype``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+
+    <span class="n">flyscan_data_addr</span> <span class="o">=</span> <span class="s2">&quot;/entry/flyscan_data&quot;</span>
+    <span class="c1"># frame_index = image_number - 1: IOC array_counter is 1-based,</span>
+    <span class="c1"># HDF5 dataset axes are 0-based.</span>
+    <span class="n">image_number_arr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;image_number&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">frame_index_arr</span> <span class="o">=</span> <span class="n">image_number_arr</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">n_frames_paired</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+
+    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">external_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+        <span class="n">src_ds</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="n">external_addr</span> <span class="o">+</span> <span class="s2">&quot;/data&quot;</span><span class="p">]</span>
+        <span class="n">src_shape</span> <span class="o">=</span> <span class="n">src_ds</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># (N, H, W)</span>
+        <span class="n">src_dtype</span> <span class="o">=</span> <span class="n">src_ds</span><span class="o">.</span><span class="n">dtype</span>
+    <span class="c1"># VirtualLayout: out-shape (n_in_scan, H, W), each row sourced</span>
+    <span class="c1"># from src[frame_index[i], :, :].</span>
+    <span class="n">n_in_scan</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">frame_index_arr</span><span class="p">)</span>
+    <span class="n">out_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_in_scan</span><span class="p">,)</span> <span class="o">+</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">src_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">layout</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">VirtualLayout</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">out_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">src_dtype</span><span class="p">)</span>
+    <span class="n">vsrc</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">VirtualSource</span><span class="p">(</span>
+        <span class="n">external_file</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">external_addr</span> <span class="o">+</span> <span class="s2">&quot;/data&quot;</span><span class="p">,</span>
+        <span class="n">shape</span><span class="o">=</span><span class="n">src_shape</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">src_dtype</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">out_i</span><span class="p">,</span> <span class="n">src_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">frame_index_arr</span><span class="p">):</span>
+        <span class="n">layout</span><span class="p">[</span><span class="n">out_i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vsrc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">src_i</span><span class="p">)]</span>
+
+    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">master_file</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">flyscan_data_addr</span> <span class="ow">in</span> <span class="n">root</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">root</span><span class="p">[</span><span class="n">flyscan_data_addr</span><span class="p">]</span>
+        <span class="n">fs_grp</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="n">flyscan_data_addr</span><span class="p">)</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;NX_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;NXdata&quot;</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;signal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;position_start_acquire&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Provenance: this group is sourced entirely from the</span>
+        <span class="c1"># authoritative AD HDF1 file.</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ad_file&quot;</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;source_description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Per-frame data read from the authoritative area-detector&quot;</span>
+            <span class="s2">&quot; HDF1 file (lossless, one row per acquired frame).&quot;</span>
+        <span class="p">)</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;n_frames_paired&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_frames_paired</span>
+        <span class="k">if</span> <span class="n">n_frames_expected</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fs_grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;n_frames_expected&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_frames_expected</span><span class="p">)</span>
+
+        <span class="c1"># Update the path to the NeXus default plot.</span>
+        <span class="n">root</span><span class="p">[</span><span class="s2">&quot;/entry&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;flyscan_data&quot;</span>
+
+        <span class="c1"># Primary signal: the in-scan image substack.</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">create_virtual_dataset</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">layout</span><span class="p">)</span>
+
+        <span class="c1"># Plot axes (the position arrays).</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span>
+            <span class="s2">&quot;position_start_acquire&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;position_start_acquire&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span>
+            <span class="s2">&quot;position_end_acquire&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;position_end_acquire&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span>
+            <span class="s2">&quot;position_end_period&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;position_end_period&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Subordinate per-frame correlation data.</span>
+        <span class="n">ds_img</span> <span class="o">=</span> <span class="n">fs_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s2">&quot;image_number&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">image_number_arr</span><span class="p">)</span>
+        <span class="n">ds_img</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;IOC-side hdf1.array_counter value at frame capture; 1-based&quot;</span>
+            <span class="s2">&quot; per EPICS areaDetector NDFileHDF5 plugin convention.&quot;</span>
+        <span class="p">)</span>
+        <span class="n">ds_idx</span> <span class="o">=</span> <span class="n">fs_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s2">&quot;frame_index&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">frame_index_arr</span><span class="p">)</span>
+        <span class="n">ds_idx</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/entry/images/data&quot;</span>
+        <span class="n">ds_idx</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;0-based index into /entry/images/data along its first axis;&quot;</span>
+            <span class="s2">&quot; equal to image_number - 1.  /entry/flyscan_data/data is&quot;</span>
+            <span class="s2">&quot; already this substack; use frame_index only to map back to&quot;</span>
+            <span class="s2">&quot; the full /entry/images/data stack:&quot;</span>
+            <span class="s2">&quot; images = f[&#39;/entry/images/data&#39;];&quot;</span>
+            <span class="s2">&quot; idx = f[&#39;/entry/flyscan_data/frame_index&#39;][:];&quot;</span>
+            <span class="s2">&quot; in_scan_images = images[idx, :, :]&quot;</span>
+        <span class="p">)</span>
+        <span class="n">fs_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="s2">&quot;write_flyscan_data: wrote </span><span class="si">%s</span><span class="s2"> (virtual &#39;data&#39; shape=</span><span class="si">%r</span><span class="s2"> dtype=</span><span class="si">%r</span><span class="s2">&quot;</span>
+        <span class="s2">&quot; from </span><span class="si">%s</span><span class="s2">::</span><span class="si">%s</span><span class="s2">, </span><span class="si">%d</span><span class="s2"> in-scan frame(s), frame_index 0-based </span><span class="si">%d</span><span class="s2">..</span><span class="si">%d</span><span class="s2">)&quot;</span>
+        <span class="s2">&quot; into </span><span class="si">%s</span><span class="s2"> and set /entry@default=&#39;flyscan_data&#39;&quot;</span><span class="p">,</span>
+        <span class="n">flyscan_data_addr</span><span class="p">,</span>
+        <span class="n">out_shape</span><span class="p">,</span>
+        <span class="n">src_dtype</span><span class="p">,</span>
+        <span class="n">external_file</span><span class="p">,</span>
+        <span class="n">external_addr</span> <span class="o">+</span> <span class="s2">&quot;/data&quot;</span><span class="p">,</span>
+        <span class="n">n_frames_paired</span><span class="p">,</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">frame_index_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+        <span class="nb">int</span><span class="p">(</span><span class="n">frame_index_arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">master_file</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;n_frames_paired&quot;</span><span class="p">:</span> <span class="n">n_frames_paired</span><span class="p">,</span>
+        <span class="s2">&quot;out_shape&quot;</span><span class="p">:</span> <span class="n">out_shape</span><span class="p">,</span>
+        <span class="s2">&quot;src_dtype&quot;</span><span class="p">:</span> <span class="n">src_dtype</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2014-2026, APS.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

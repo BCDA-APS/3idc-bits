@@ -1,0 +1,78 @@
+id3c.tests.test_check_cam_armed
+===============================
+
+.. py:module:: id3c.tests.test_check_cam_armed
+
+.. autoapi-nested-parse::
+
+   Tests for ``_check_cam_armed``.
+
+   Mocks the cam via SimpleNamespace.  The function is a plan stub
+   (yields ``bps.sleep(...)`` messages), so we exhaust the generator
+   manually and assert behaviour.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_check_cam_armed.test_armed_state_returns_immediately
+   id3c.tests.test_check_cam_armed.test_error_state_raises_with_status_message
+   id3c.tests.test_check_cam_armed.test_each_error_state_raises
+   id3c.tests.test_check_cam_armed.test_eventual_acquire_after_polls
+   id3c.tests.test_check_cam_armed.test_timeout_does_not_raise
+   id3c.tests.test_check_cam_armed.test_error_after_initializing_still_raises
+   id3c.tests.test_check_cam_armed.test_status_message_get_failure_is_safe
+   id3c.tests.test_check_cam_armed.test_detector_state_get_failure_is_safe
+
+
+Module Contents
+---------------
+
+.. py:function:: test_armed_state_returns_immediately()
+
+   Acquire on first poll -> generator returns with no sleeps.
+
+
+.. py:function:: test_error_state_raises_with_status_message()
+
+   Error state on first poll -> RuntimeError with msg.
+
+
+.. py:function:: test_each_error_state_raises()
+
+   All four error states trigger the raise.
+
+
+.. py:function:: test_eventual_acquire_after_polls()
+
+   If state goes Initializing -> Initializing -> Acquire, the
+   helper yields sleeps and then returns cleanly.
+
+
+.. py:function:: test_timeout_does_not_raise()
+
+   If state never becomes Acquire or Error within max_wait_s,
+   the helper returns without raising (the downstream first-frame
+   timeout handles genuinely stuck cams).
+
+
+.. py:function:: test_error_after_initializing_still_raises()
+
+   A transition Initializing -> Error mid-poll is caught.
+
+
+.. py:function:: test_status_message_get_failure_is_safe()
+
+   If status_message.get() raises, we still raise with the
+   detector_state info.
+
+
+.. py:function:: test_detector_state_get_failure_is_safe()
+
+   If detector_state.get() raises, the helper does not raise
+   spuriously; it just keeps polling until the max_wait_s expires.
+
+

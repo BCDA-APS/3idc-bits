@@ -1,0 +1,1833 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>id3c.user.s3idc_plans.setup_june_26 &#8212; 3-ID-C BITS 0.0.1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../../_static/documentation_options.js?v=f539c95a"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/id3c/user/s3idc_plans/setup_june_26';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.1" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">3-ID-C BITS 0.0.1</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../how_to/index.html">
+    How-to guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../explanation/index.html">
+    Explanation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits/issues" title="Issue tracker" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-bug fa-lg" aria-hidden="true"></i><span class="visually-hidden">Issue tracker</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../how_to/index.html">
+    How-to guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../explanation/index.html">
+    Explanation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits/issues" title="Issue tracker" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-bug fa-lg" aria-hidden="true"></i><span class="visually-hidden">Issue tracker</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">id3c.user.s3idc_plans.setup_june_26</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for id3c.user.s3idc_plans.setup_june_26</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;3-ID-C data-acquisition plans -- S3IDC commissioning beamtime (June 2026).</span>
+
+<span class="sd">These plans were developed and tested during the development cycle from</span>
+<span class="sd">15 June to 2 July 2026 -- the beamtime in which Bluesky was commissioned for</span>
+<span class="sd">the S3IDC (3-ID-C) beamline.  Developed and tested by Dishant Beniwal,</span>
+<span class="sd">Barbara Lavina and Peter Jemian.</span>
+
+<span class="sd">Detailed, hand-tuned plans for 3-ID-C data collection.  Author these</span>
+<span class="sd">as ``@plan``-decorated generators and run them through the RunEngine::</span>
+
+<span class="sd">    from id3c.user.s3idc_plans.setup_june_26 import omega_fly</span>
+<span class="sd">    RE(omega_fly())</span>
+
+<span class="sd">Conventions (see ../../AGENTS.md and docs/running_scans_at_3idc.md):</span>
+
+<span class="sd">* Decorate every plan / plan-stub with ``@plan`` so a forgotten</span>
+<span class="sd">  ``RE(...)`` warns instead of silently doing nothing.</span>
+<span class="sd">* Compose with ``yield from``; never call a plan bare inside another.</span>
+<span class="sd">* Look devices up by name from the module-level ``oregistry``</span>
+<span class="sd">  (imported from ``apsbits.core.instrument_init``, the same way the</span>
+<span class="sd">  library ``flyscan`` plan does) -- not via ``@with_registry`` and not</span>
+<span class="sd">  via session globals.</span>
+<span class="sd">* Pass an explicit ``plan_name=`` to wrapped library plans (e.g.</span>
+<span class="sd">  ``flyscan``) so the run&#39;s provenance reflects *this* wrapper.</span>
+
+<span class="sd">GUI-parseable docstrings (IMPORTANT -- keep consistent across ALL plans)</span>
+<span class="sd">-----------------------------------------------------------------------</span>
+<span class="sd">The Bluesky Plan Runner GUI builds each plan&#39;s parameter form directly</span>
+<span class="sd">from its docstring + signature (no import, AST only), so every plan MUST</span>
+<span class="sd">document its arguments in one fixed grammar.  Use a standard NumPy</span>
+<span class="sd">``Parameters`` section with one entry per argument::</span>
+
+<span class="sd">    &lt;name&gt; : &lt;dtype&gt;[ [&lt;units&gt;]]</span>
+<span class="sd">        &lt;short name&gt; :: &lt;long description, may wrap over indented lines&gt;</span>
+
+<span class="sd">* ``&lt;dtype&gt;`` is one of ``str``, ``int``, ``float``, ``bool``,</span>
+<span class="sd">  ``choice{opt1, opt2, ...}`` or ``positions`` (multi-line triples).</span>
+<span class="sd">* ``[&lt;units&gt;]`` is optional, e.g. ``[deg]``, ``[mm]``, ``[s]``, ``[1/deg]``.</span>
+<span class="sd">* The body is split on the first `` :: `` -- left = the short field label,</span>
+<span class="sd">  right = the long help text (shown as a tooltip).</span>
+<span class="sd">* Defaults and required-ness come from the **signature**, never the</span>
+<span class="sd">  docstring: no default =&gt; required; a ``None`` default =&gt; the field is</span>
+<span class="sd">  optional and left blank omits the argument.</span>
+<span class="sd">* Arguments left OUT of the ``Parameters`` section (e.g. ``md``) are hidden</span>
+<span class="sd">  from the GUI.  The plan summary shown in the GUI is this docstring&#39;s first</span>
+<span class="sd">  paragraph.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">apsbits.core.instrument_init</span><span class="w"> </span><span class="kn">import</span> <span class="n">oregistry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky</span><span class="w"> </span><span class="kn">import</span> <span class="n">plan_stubs</span> <span class="k">as</span> <span class="n">bps</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky</span><span class="w"> </span><span class="kn">import</span> <span class="n">plans</span> <span class="k">as</span> <span class="n">bp</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky</span><span class="w"> </span><span class="kn">import</span> <span class="n">preprocessors</span> <span class="k">as</span> <span class="n">bpp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">plan</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ophyd.status</span><span class="w"> </span><span class="kn">import</span> <span class="n">SubscriptionStatus</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">id3c.plans.flyscan_3idc</span><span class="w"> </span><span class="kn">import</span> <span class="n">flyscan</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_wait_cam_idle</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plan stub: wait until the cam stops acquiring (read-only poll).</span>
+
+<span class="sd">    Polls ``cam.acquire_busy`` (or ``cam.acquire`` RBV) for a return to</span>
+<span class="sd">    0.  We poll for the *done* state rather than waiting on a ``set``</span>
+<span class="sd">    status, because a waited ``set(acquire, 1)`` completes when the RBV</span>
+<span class="sd">    reaches 1 (&quot;acquiring&quot;, the start), not when the frame finishes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">busy</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="s2">&quot;acquire_busy&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">det</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">SubscriptionStatus</span><span class="p">(</span>
+        <span class="n">busy</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">_</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">run</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span>
+    <span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">status</span><span class="o">.</span><span class="n">done</span><span class="p">:</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_wait_for_captured</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">n_target</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plan stub: wait until ``hdf1.num_captured`` reaches ``n_target``.</span>
+
+<span class="sd">    Arming HDF capture resets ``num_captured`` to 0, so this waits for a</span>
+<span class="sd">    *positive edge* -- the frame(s) actually landing in the capture buffer.</span>
+<span class="sd">    Use this (NOT ``_wait_cam_idle``) right after firing ``acquire=1``:</span>
+<span class="sd">    ``acquire_busy`` reads 0 both *before* the cam starts and *after* it</span>
+<span class="sd">    finishes, so a ``run=True`` idle-wait returns instantly and the frame</span>
+<span class="sd">    would be aborted before it is ever taken.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">num_captured</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">SubscriptionStatus</span><span class="p">(</span>
+        <span class="n">counter</span><span class="p">,</span>
+        <span class="k">lambda</span> <span class="o">*</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">_</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">n_target</span><span class="p">,</span>
+        <span class="n">run</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">status</span><span class="o">.</span><span class="n">done</span><span class="p">:</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_flush_hdf_file</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plan stub: stop capture and force the HDF5 file to disk (Capture mode).</span>
+
+<span class="sd">    Mirrors the proven flush in ``flyscan_3idc``: ``write_file`` is an</span>
+<span class="sd">    EpicsSignalWithRBV, so fire the trigger and poll RBV back to 0</span>
+<span class="sd">    (&quot;Done&quot;) rather than waiting on the set (which completes at &quot;Writing&quot;).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">capture</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">captured</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">num_captured</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+        <span class="n">captured</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">captured</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="p">,</span> <span class="s2">&quot;write_file&quot;</span><span class="p">):</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">abs_set</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">write_file</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">SubscriptionStatus</span><span class="p">(</span>
+            <span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">write_file</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="o">*</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">_</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">run</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">status</span><span class="o">.</span><span class="n">done</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_record_det_positions_in_hdf</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span> <span class="n">requested</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Append detector-stage positions into the AD HDF5 file just written.</span>
+
+<span class="sd">    Best-effort, non-plan helper (plain file I/O, like ``flyscan``&#39;s own</span>
+<span class="sd">    ``update_master_file``): after a flyscan has finished and flushed its</span>
+<span class="sd">    file, resolve that file&#39;s local-readable path the same way ``flyscan``</span>
+<span class="sd">    does (``_external_link_target`` -&gt; ``{AD_FILES_ROOT}&lt;suffix&gt;``) and add</span>
+<span class="sd">    an ``NXcollection`` group ``/entry/instrument/detector_stage`` holding</span>
+<span class="sd">    the actual readback of each axis (full precision), with the requested</span>
+<span class="sd">    value recorded as an attribute.</span>
+
+<span class="sd">    ``positions`` / ``requested`` are ``{axis_name: value}`` mappings (the</span>
+<span class="sd">    actual PV readback and the requested target, respectively).  Never</span>
+<span class="sd">    raises -- a failure to annotate must not fail the scan; it only prints.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">id3c.plans.flyscan_3idc</span><span class="w"> </span><span class="kn">import</span> <span class="n">_external_link_target</span>
+
+    <span class="n">requested</span> <span class="o">=</span> <span class="n">requested</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">_external_link_target</span><span class="p">(</span><span class="n">det</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_record_det_positions_in_hdf: cannot resolve AD file path: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
+            <span class="n">grp</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">require_group</span><span class="p">(</span><span class="s2">&quot;/entry/instrument/detector_stage&quot;</span><span class="p">)</span>
+            <span class="n">grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;NX_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;NXcollection&quot;</span>
+            <span class="k">for</span> <span class="n">axis</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">positions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">grp</span><span class="p">:</span>
+                    <span class="k">del</span> <span class="n">grp</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span>
+                <span class="n">ds</span> <span class="o">=</span> <span class="n">grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+                <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mm&quot;</span>
+                <span class="k">if</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">requested</span><span class="p">:</span>
+                    <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;requested&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">requested</span><span class="p">[</span><span class="n">axis</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_record_det_positions_in_hdf: wrote </span><span class="si">{</span><span class="n">positions</span><span class="si">}</span><span class="s2"> into </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_record_det_positions_in_hdf: failed to write into </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_acquire_single_file</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">file_write_mode</span><span class="p">,</span> <span class="n">exposure_time</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plan stub: open cam+HDF, expose one frame, then close+write ONE file.</span>
+
+<span class="sd">    Names the file ``fname`` and (in Capture mode) arms capture, takes one</span>
+<span class="sd">    frame, then flushes -- so each call writes a single self-contained file.</span>
+<span class="sd">    Used per-point by ``fixed_exp_at_det_steps``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span>
+        <span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_name</span><span class="p">,</span>
+        <span class="n">fname</span><span class="p">,</span>
+        <span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_write_mode</span><span class="p">,</span>
+        <span class="n">file_write_mode</span><span class="p">,</span>
+        <span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">num_capture</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">auto_save</span><span class="p">,</span>
+        <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+        <span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">auto_increment</span><span class="p">,</span>
+        <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">file_write_mode</span> <span class="o">==</span> <span class="s2">&quot;Capture&quot;</span><span class="p">:</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">capture</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># open HDF capture (resets num_captured)</span>
+    <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">abs_set</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># open cam acquisition</span>
+    <span class="c1"># Wait for the frame to actually be captured -- NOT for acquire_busy to</span>
+    <span class="c1"># be idle, which is already 0 before the cam ramps up (would abort the</span>
+    <span class="c1"># frame instantly).  num_captured was reset to 0 by arming capture.</span>
+    <span class="k">if</span> <span class="n">file_write_mode</span> <span class="o">==</span> <span class="s2">&quot;Capture&quot;</span><span class="p">:</span>
+        <span class="k">yield from</span> <span class="n">_wait_for_captured</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">exposure_time</span> <span class="o">+</span> <span class="mf">30.0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Single write mode: let the cam start, then wait for it to finish.</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">exposure_time</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+        <span class="k">yield from</span> <span class="n">_wait_cam_idle</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">exposure_time</span> <span class="o">+</span> <span class="mf">30.0</span><span class="p">)</span>
+    <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">abs_set</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># close cam acquisition</span>
+    <span class="k">yield from</span> <span class="n">_wait_cam_idle</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">file_write_mode</span> <span class="o">==</span> <span class="s2">&quot;Capture&quot;</span><span class="p">:</span>
+        <span class="k">yield from</span> <span class="n">_flush_hdf_file</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">exposure_time</span> <span class="o">+</span> <span class="mf">30.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_ensure_detector_idle</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plan stub: make sure the cam and HDF plugin are closed (idempotent).</span>
+
+<span class="sd">    Safety net on top of a plan&#39;s own cleanup.  Fires ``Acquire=0``</span>
+<span class="sd">    non-blocking (the Eiger keeps ``Acquire_RBV`` at 1, so a *waited* mv</span>
+<span class="sd">    would time out), confirms the cam reached idle via ``acquire_busy``,</span>
+<span class="sd">    and makes sure HDF ``capture`` is off.  Safe to call when already idle.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">abs_set</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">_wait_cam_idle</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_ensure_detector_idle: cam stop failed: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">det</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">capture</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_ensure_detector_idle: hdf capture stop failed: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_fmt_pos</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compact, dot-free position token for file names (2 decimal places).</span>
+
+<span class="sd">    Renders a coordinate so it is safe to embed in an HDF5 base name (the</span>
+<span class="sd">    IOC appends ``_NNNNNN.h5``): trailing zeros trimmed and the decimal</span>
+<span class="sd">    point written as ``p`` so there is no ``.`` before ``.h5``.  The sign</span>
+<span class="sd">    is kept as ``-`` (the established ``EigPos`` file-name convention keeps</span>
+<span class="sd">    ``-``).  Examples: ``1.25 -&gt; &quot;1p25&quot;``, ``-0.5 -&gt; &quot;-0p5&quot;``,</span>
+<span class="sd">    ``2.0 -&gt; &quot;2&quot;``, ``0 -&gt; &quot;0&quot;``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;-0&quot;</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@plan</span>
+<div class="viewcode-block" id="sweep_xy_integrate_one">
+<a class="viewcode-back" href="../../../../api/id3c/user/s3idc_plans/setup_june_26/index.html#id3c.user.s3idc_plans.setup_june_26.sweep_xy_integrate_one">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sweep_xy_integrate_one</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">x_end</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">y_start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">y_end</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">exposure_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">n_rows</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sweep1&quot;</span><span class="p">,</span>
+    <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/home/sector3/s3ida/XRD/2026-2/setup/June17/&quot;</span><span class="p">,</span>
+    <span class="n">open_shutter</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">file_write_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Capture&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Integrate ONE detector image while rastering the sample in X-Y.</span>
+
+<span class="sd">    omega is left fixed.  ``sample_stage.xprime`` (X) sweeps</span>
+<span class="sd">    back-and-forth across ``[x_start, x_end]`` while ``sample_stage.base_y``</span>
+<span class="sd">    (Y) steps from ``y_start`` to ``y_end`` over ``n_rows`` rows (a</span>
+<span class="sd">    serpentine raster) -- all during a SINGLE Eiger exposure of</span>
+<span class="sd">    ``exposure_time`` seconds.  The detector integrates the diffraction</span>
+<span class="sd">    from the whole X-Y area into one image, which is then saved to a</span>
+<span class="sd">    single HDF5 file.  Conceptually like ``omega_fly`` but the sample</span>
+<span class="sd">    is translated (not rotated) and only one collective frame is recorded.</span>
+
+<span class="sd">    The X sweep speed is derived so the raster fills the exposure window::</span>
+
+<span class="sd">        v_x = n_rows * |x_end - x_start| / exposure_time</span>
+
+<span class="sd">    (Y-step and acceleration overhead make the real raster slightly</span>
+<span class="sd">    exceed ``exposure_time``; if the last row looks cut off, raise</span>
+<span class="sd">    ``exposure_time`` or lower ``n_rows``.)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_start : float [mm]</span>
+<span class="sd">        X start :: Start of the X (sample_stage.xprime) sweep range.</span>
+<span class="sd">    x_end : float [mm]</span>
+<span class="sd">        X end :: End of the X (sample_stage.xprime) sweep range.</span>
+<span class="sd">    y_start : float [mm]</span>
+<span class="sd">        Y start :: Start of the Y (sample_stage.base_y) range.</span>
+<span class="sd">    y_end : float [mm]</span>
+<span class="sd">        Y end :: End of the Y range, split into n_rows rows.</span>
+<span class="sd">    exposure_time : float [s]</span>
+<span class="sd">        Exposure time :: Single-frame integration time; also the target</span>
+<span class="sd">        raster duration.</span>
+<span class="sd">    n_rows : int</span>
+<span class="sd">        Number of Y rows :: Rows in the serpentine raster (&gt;= 1).</span>
+<span class="sd">    file_name : str</span>
+<span class="sd">        File name :: Output HDF5 base file name.</span>
+<span class="sd">    file_path : str</span>
+<span class="sd">        File path :: IOC-side directory the HDF5 file is written to.</span>
+<span class="sd">    open_shutter : bool</span>
+<span class="sd">        Open shutter :: Open shutterc for the exposure, then close it (always,</span>
+<span class="sd">        even on error).  Needed or the frame integrates with no beam.</span>
+<span class="sd">    file_write_mode : choice{Capture, Single}</span>
+<span class="sd">        HDF write mode :: HDF1 plugin file write mode.  Capture arms capture</span>
+<span class="sd">        and explicitly flushes the file (the mode tested on this Eiger).</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    This plan drives the detector directly (no Bluesky run / catalog entry</span>
+<span class="sd">    is opened) -- it produces the HDF5 file only, like a manual capture.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        RE(sweep_xy_integrate_one(-1, 1, -1, 1, exposure_time=10))</span>
+<span class="sd">        RE(sweep_xy_integrate_one(0, 2, 0, 2, exposure_time=30, n_rows=10,</span>
+<span class="sd">                                  file_name=&quot;sampleA&quot;))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n_rows</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_rows must be &gt;= 1&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">exposure_time</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;exposure_time must be &gt; 0&quot;</span><span class="p">)</span>
+    <span class="n">lx</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x_end</span> <span class="o">-</span> <span class="n">x_start</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x_start and x_end must differ (X is the swept axis).&quot;</span><span class="p">)</span>
+
+    <span class="n">sample_stage</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;sample_stage&quot;</span><span class="p">]</span>
+    <span class="n">eiger2</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;eiger2&quot;</span><span class="p">]</span>
+    <span class="n">xm</span> <span class="o">=</span> <span class="n">sample_stage</span><span class="o">.</span><span class="n">xprime</span>
+    <span class="n">ym</span> <span class="o">=</span> <span class="n">sample_stage</span><span class="o">.</span><span class="n">base_y</span>
+
+    <span class="c1"># sweep velocity derived so the raster fills the exposure window</span>
+    <span class="n">v_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_rows</span> <span class="o">*</span> <span class="n">lx</span><span class="p">)</span> <span class="o">/</span> <span class="n">exposure_time</span>
+
+    <span class="c1"># Y row positions (X sweeps serpentine between them)</span>
+    <span class="k">if</span> <span class="n">n_rows</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">y_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_start</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_end</span> <span class="o">-</span> <span class="n">y_start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_rows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">y_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_start</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">dy</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rows</span><span class="p">)]</span>
+
+    <span class="n">v_x_original</span> <span class="o">=</span> <span class="n">xm</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>  <span class="c1"># restored in cleanup</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_one: raster X[</span><span class="si">{</span><span class="n">x_start</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">x_end</span><span class="si">}</span><span class="s2">] x &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;Y[</span><span class="si">{</span><span class="n">y_start</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y_end</span><span class="si">}</span><span class="s2">] in &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n_rows</span><span class="si">}</span><span class="s2"> rows, v_x=</span><span class="si">{</span><span class="n">v_x</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2"> EGU/s, single </span><span class="si">{</span><span class="n">exposure_time</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">s frame &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;-&gt; </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_expose_while_rastering</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">open_shutter</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;shutterc&quot;</span><span class="p">],</span> <span class="s2">&quot;open&quot;</span><span class="p">)</span>
+
+        <span class="c1"># taxi to the raster start at the current (normal) velocity</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">x_start</span><span class="p">,</span> <span class="n">ym</span><span class="p">,</span> <span class="n">y_rows</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1"># set the derived sweep velocity on the X axis</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">xm</span><span class="o">.</span><span class="n">velocity</span><span class="p">,</span> <span class="n">v_x</span><span class="p">)</span>
+
+        <span class="c1"># configure the detector for ONE integrated frame</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">image_mode</span><span class="p">,</span>
+            <span class="s2">&quot;Single&quot;</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">num_images</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire_time</span><span class="p">,</span>
+            <span class="n">exposure_time</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire_period</span><span class="p">,</span>
+            <span class="n">exposure_time</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># The Eiger leaves Acquire_RBV at &quot;Acquiring&quot; after a frame and</span>
+        <span class="c1"># only drops acquire_busy promptly with wait_for_plugins=Yes, so</span>
+        <span class="c1"># the cam reports idle and stops cleanly (mirrors flyscan_3idc).</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="s2">&quot;wait_for_plugins&quot;</span><span class="p">):</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">wait_for_plugins</span><span class="p">,</span> <span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
+        <span class="c1"># file_template is a char-waveform PV whose RBV reads back oddly</span>
+        <span class="c1"># (e.g. &#39;%&#39;), so a *waited* set (bps.mv) times out.  Set it</span>
+        <span class="c1"># fire-and-forget with .put() like configure_adsimdet does.</span>
+        <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_template</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s%s</span><span class="s2">_</span><span class="si">%6.6d</span><span class="s2">.h5&quot;</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span>
+            <span class="n">file_path</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_name</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_write_mode</span><span class="p">,</span>
+            <span class="n">file_write_mode</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">num_capture</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">auto_save</span><span class="p">,</span>
+            <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">auto_increment</span><span class="p">,</span>
+            <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">file_write_mode</span> <span class="o">==</span> <span class="s2">&quot;Capture&quot;</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">capture</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># arm capture</span>
+
+        <span class="c1"># Start the single-frame acquisition WITHOUT waiting, so we can</span>
+        <span class="c1"># move the sample during the integration.  (Do not wait on the</span>
+        <span class="c1"># set status: it completes at Acquire_RBV==1, the start of the</span>
+        <span class="c1"># frame, not its end.)</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">abs_set</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># serpentine raster during the exposure</span>
+        <span class="n">forward</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">yrow</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_rows</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">ym</span><span class="p">,</span> <span class="n">yrow</span><span class="p">)</span>  <span class="c1"># step Y to the next row</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">x_end</span> <span class="k">if</span> <span class="n">forward</span> <span class="k">else</span> <span class="n">x_start</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>  <span class="c1"># sweep X across the range at v_x</span>
+            <span class="n">forward</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">forward</span>
+
+        <span class="c1"># wait for the single frame to finish integrating + read out</span>
+        <span class="k">yield from</span> <span class="n">_wait_cam_idle</span><span class="p">(</span><span class="n">eiger2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">exposure_time</span> <span class="o">+</span> <span class="mf">30.0</span><span class="p">)</span>
+        <span class="c1"># NOTE: the detector is *closed* in _cleanup (stop acquire, stop</span>
+        <span class="c1"># capture, flush) so it happens on every exit path -- normal</span>
+        <span class="c1"># completion, an error, or an RE abort/Ctrl-C during the raster.</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_cleanup</span><span class="p">():</span>
+        <span class="c1"># ALWAYS close the detector and restore state.  Each step is</span>
+        <span class="c1"># best-effort so a failure of one still attempts the rest.  This</span>
+        <span class="c1"># lives here (not in the body) so an error or Ctrl-C mid-raster</span>
+        <span class="c1"># still stops the camera and writes the file.</span>
+
+        <span class="c1"># 1. Stop the camera acquisition.  Do NOT rely on &quot;Single&quot;</span>
+        <span class="c1">#    image-mode auto-stopping the Eiger: if the cam was left in a</span>
+        <span class="c1">#    continuous mode, or the scan aborted mid-exposure, Acquire</span>
+        <span class="c1">#    would otherwise stay on -- the &quot;detector never closes&quot; bug.</span>
+        <span class="c1"># The Eiger keeps Acquire_RBV at 1 (&quot;Acquiring&quot;) after a frame, so</span>
+        <span class="c1"># a *waited* mv(acquire, 0) blocks on the readback and times out,</span>
+        <span class="c1"># leaving the cam shown as acquiring.  Fire the stop non-blocking,</span>
+        <span class="c1"># then confirm the cam actually reached idle via acquire_busy</span>
+        <span class="c1"># (which drops promptly with wait_for_plugins=Yes).</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">abs_set</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">yield from</span> <span class="n">_wait_cam_idle</span><span class="p">(</span><span class="n">eiger2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_one: failed to stop cam.acquire: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 2. Stop HDF capture and flush the file to disk (Capture mode).</span>
+        <span class="k">if</span> <span class="n">file_write_mode</span> <span class="o">==</span> <span class="s2">&quot;Capture&quot;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">yield from</span> <span class="n">_flush_hdf_file</span><span class="p">(</span><span class="n">eiger2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">exposure_time</span> <span class="o">+</span> <span class="mf">30.0</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_one: failed to flush HDF file: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># (Single mode: auto_save writes the frame as it arrives.)</span>
+
+        <span class="c1"># 3. Restore the X velocity.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">xm</span><span class="o">.</span><span class="n">velocity</span><span class="p">,</span> <span class="n">v_x_original</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_one: failed to restore X velocity: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 4. Close the shutter.</span>
+        <span class="k">if</span> <span class="n">open_shutter</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;shutterc&quot;</span><span class="p">],</span> <span class="s2">&quot;close&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_one: failed to close shutter: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">yield from</span> <span class="n">bpp</span><span class="o">.</span><span class="n">finalize_wrapper</span><span class="p">(</span><span class="n">_expose_while_rastering</span><span class="p">(),</span> <span class="n">_cleanup</span><span class="p">())</span></div>
+
+
+
+<span class="nd">@plan</span>
+<div class="viewcode-block" id="sweep_xy_integrate_steps">
+<a class="viewcode-back" href="../../../../api/id3c/user/s3idc_plans/setup_june_26/index.html#id3c.user.s3idc_plans.setup_june_26.sweep_xy_integrate_steps">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sweep_xy_integrate_steps</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">x_end</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">y_start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">y_end</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">total_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">frame_exposure</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_rows</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sweepN&quot;</span><span class="p">,</span>
+    <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/home/sector3/s3ida/XRD/2026-2/setup/June17/&quot;</span><span class="p">,</span>
+    <span class="n">open_shutter</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">file_write_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Capture&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raster the sample in X-Y while saving SEVERAL frames along the path.</span>
+
+<span class="sd">    Like ``sweep_xy_integrate_one`` (omega fixed; ``sample_stage.xprime`` (X) sweeps</span>
+<span class="sd">    serpentine across ``[x_start, x_end]`` while ``sample_stage.base_y``</span>
+<span class="sd">    (Y) steps over ``n_rows`` rows), **except** instead of integrating the</span>
+<span class="sd">    whole raster into one image, the detector free-runs at a fixed</span>
+<span class="sd">    ``frame_period`` so it records a *series* of frames evenly spaced in</span>
+<span class="sd">    time -- i.e. at regular positions along the continuous raster path.</span>
+<span class="sd">    All frames land in a single HDF5 (Capture-mode) file.</span>
+
+<span class="sd">    Frame count is derived from the requested timing::</span>
+
+<span class="sd">        n_frames       = round(total_time / frame_period)   # &gt;= 1</span>
+<span class="sd">        effective_total = n_frames * frame_period            # actual sweep duration</span>
+<span class="sd">        v_x            = n_rows * |x_end - x_start| / effective_total</span>
+
+<span class="sd">    ``effective_total`` (and thus the X sweep velocity) is snapped to a</span>
+<span class="sd">    whole number of frames so the motion and the acquisition span the same</span>
+<span class="sd">    window -- frame ``i`` is exposed during ``[i*frame_period,</span>
+<span class="sd">    (i+1)*frame_period]`` and so corresponds to a known sub-segment of the</span>
+<span class="sd">    serpentine path.  Each frame integrates ``frame_exposure`` seconds</span>
+<span class="sd">    (&lt;= ``frame_period``; ``None`` =&gt; ``frame_period``, continuous).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_start : float [mm]</span>
+<span class="sd">        X start :: Start of the X (sample_stage.xprime) sweep range.</span>
+<span class="sd">    x_end : float [mm]</span>
+<span class="sd">        X end :: End of the X (sample_stage.xprime) sweep range.</span>
+<span class="sd">    y_start : float [mm]</span>
+<span class="sd">        Y start :: Start of the Y (sample_stage.base_y) range.</span>
+<span class="sd">    y_end : float [mm]</span>
+<span class="sd">        Y end :: End of the Y range, split into n_rows rows.</span>
+<span class="sd">    total_time : float [s]</span>
+<span class="sd">        Total raster time :: Target total duration of the whole raster;</span>
+<span class="sd">        snapped to a whole number of frame_period frames.</span>
+<span class="sd">    frame_period : float [s]</span>
+<span class="sd">        Frame period :: Time between successive saved frames; sets how finely</span>
+<span class="sd">        the path is sampled (n_frames = round(total_time / frame_period)).</span>
+<span class="sd">    frame_exposure : float [s]</span>
+<span class="sd">        Frame exposure :: Per-frame integration time (&lt;= frame period); blank</span>
+<span class="sd">        uses the frame period.</span>
+<span class="sd">    n_rows : int</span>
+<span class="sd">        Number of Y rows :: Rows in the serpentine raster (&gt;= 1).</span>
+<span class="sd">    file_name : str</span>
+<span class="sd">        File name :: Output HDF5 base file name.</span>
+<span class="sd">    file_path : str</span>
+<span class="sd">        File path :: IOC-side directory the HDF5 file is written to.</span>
+<span class="sd">    open_shutter : bool</span>
+<span class="sd">        Open shutter :: Open shutterc for the sweep, then close it (always,</span>
+<span class="sd">        even on error).  Needed or the frames integrate with no beam.</span>
+<span class="sd">    file_write_mode : choice{Capture, Single}</span>
+<span class="sd">        HDF write mode :: HDF1 plugin file write mode.  Capture arms capture</span>
+<span class="sd">        and explicitly flushes the file (the mode tested on this Eiger).</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    Like ``sweep_xy_integrate_one``, this drives the detector directly (no Bluesky run /</span>
+<span class="sd">    catalog entry is opened) -- it produces one HDF5 file with ``n_frames``</span>
+<span class="sd">    images.  Frame&lt;-&gt;position mapping is implicit in the path geometry and</span>
+<span class="sd">    even time spacing (this plan does NOT do the timestamp-based pairing</span>
+<span class="sd">    that ``flyscan`` does); the first frame may carry a little extra</span>
+<span class="sd">    latency before motion is fully underway.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        # 20 s sweep, one frame every 2 s -&gt; 10 frames along the path</span>
+<span class="sd">        RE(sweep_xy_integrate_steps(-1, 1, -1, 1, total_time=20, frame_period=2))</span>
+<span class="sd">        RE(sweep_xy_integrate_steps(0, 2, 0, 2, total_time=60, frame_period=1,</span>
+<span class="sd">                           n_rows=10, file_name=&quot;sampleA&quot;))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n_rows</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_rows must be &gt;= 1&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">total_time</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;total_time must be &gt; 0&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">frame_period</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;frame_period must be &gt; 0&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">frame_exposure</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">frame_exposure</span> <span class="o">=</span> <span class="n">frame_period</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">frame_exposure</span> <span class="o">&lt;=</span> <span class="n">frame_period</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;frame_exposure must satisfy 0 &lt; frame_exposure &lt;= frame_period&quot;</span>
+        <span class="p">)</span>
+    <span class="n">lx</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x_end</span> <span class="o">-</span> <span class="n">x_start</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x_start and x_end must differ (X is the swept axis).&quot;</span><span class="p">)</span>
+
+    <span class="n">sample_stage</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;sample_stage&quot;</span><span class="p">]</span>
+    <span class="n">eiger2</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;eiger2&quot;</span><span class="p">]</span>
+    <span class="n">xm</span> <span class="o">=</span> <span class="n">sample_stage</span><span class="o">.</span><span class="n">xprime</span>
+    <span class="n">ym</span> <span class="o">=</span> <span class="n">sample_stage</span><span class="o">.</span><span class="n">base_y</span>
+
+    <span class="c1"># snap to a whole number of frames so motion + acquisition co-span</span>
+    <span class="n">n_frames</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">total_time</span> <span class="o">/</span> <span class="n">frame_period</span><span class="p">))</span>
+    <span class="n">effective_total</span> <span class="o">=</span> <span class="n">n_frames</span> <span class="o">*</span> <span class="n">frame_period</span>
+
+    <span class="c1"># sweep velocity derived so the raster fills the (snapped) window</span>
+    <span class="n">v_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_rows</span> <span class="o">*</span> <span class="n">lx</span><span class="p">)</span> <span class="o">/</span> <span class="n">effective_total</span>
+
+    <span class="c1"># Y row positions (X sweeps serpentine between them)</span>
+    <span class="k">if</span> <span class="n">n_rows</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">y_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_start</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_end</span> <span class="o">-</span> <span class="n">y_start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_rows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">y_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_start</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">dy</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rows</span><span class="p">)]</span>
+
+    <span class="n">v_x_original</span> <span class="o">=</span> <span class="n">xm</span><span class="o">.</span><span class="n">velocity</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>  <span class="c1"># restored in cleanup</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_steps: raster X[</span><span class="si">{</span><span class="n">x_start</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">x_end</span><span class="si">}</span><span class="s2">] x &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;Y[</span><span class="si">{</span><span class="n">y_start</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y_end</span><span class="si">}</span><span class="s2">] in &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n_rows</span><span class="si">}</span><span class="s2"> rows, </span><span class="si">{</span><span class="n">n_frames</span><span class="si">}</span><span class="s2"> frame(s) @ </span><span class="si">{</span><span class="n">frame_period</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">s period &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;(exposure </span><span class="si">{</span><span class="n">frame_exposure</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">s), total~</span><span class="si">{</span><span class="n">effective_total</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">s, &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;v_x=</span><span class="si">{</span><span class="n">v_x</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2"> EGU/s -&gt; </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_expose_while_rastering</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">open_shutter</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;shutterc&quot;</span><span class="p">],</span> <span class="s2">&quot;open&quot;</span><span class="p">)</span>
+
+        <span class="c1"># taxi to the raster start at the current (normal) velocity</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">x_start</span><span class="p">,</span> <span class="n">ym</span><span class="p">,</span> <span class="n">y_rows</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1"># set the derived sweep velocity on the X axis</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">xm</span><span class="o">.</span><span class="n">velocity</span><span class="p">,</span> <span class="n">v_x</span><span class="p">)</span>
+
+        <span class="c1"># configure the detector for a SERIES of n_frames frames</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">image_mode</span><span class="p">,</span>
+            <span class="s2">&quot;Multiple&quot;</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">num_images</span><span class="p">,</span>
+            <span class="n">n_frames</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire_time</span><span class="p">,</span>
+            <span class="n">frame_exposure</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire_period</span><span class="p">,</span>
+            <span class="n">frame_period</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># The Eiger leaves Acquire_RBV at &quot;Acquiring&quot; after frames and</span>
+        <span class="c1"># only drops acquire_busy promptly with wait_for_plugins=Yes, so</span>
+        <span class="c1"># the cam reports idle and stops cleanly (mirrors flyscan_3idc).</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="s2">&quot;wait_for_plugins&quot;</span><span class="p">):</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">wait_for_plugins</span><span class="p">,</span> <span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
+        <span class="c1"># file_template is a char-waveform PV whose RBV reads back oddly</span>
+        <span class="c1"># (e.g. &#39;%&#39;), so a *waited* set (bps.mv) times out.  Set it</span>
+        <span class="c1"># fire-and-forget with .put() like configure_adsimdet does.</span>
+        <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_template</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s%s</span><span class="s2">_</span><span class="si">%6.6d</span><span class="s2">.h5&quot;</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span>
+            <span class="n">file_path</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_name</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_write_mode</span><span class="p">,</span>
+            <span class="n">file_write_mode</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">num_capture</span><span class="p">,</span>
+            <span class="n">n_frames</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">auto_save</span><span class="p">,</span>
+            <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">auto_increment</span><span class="p">,</span>
+            <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">file_write_mode</span> <span class="o">==</span> <span class="s2">&quot;Capture&quot;</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">capture</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># arm capture</span>
+
+        <span class="c1"># Start the multi-frame acquisition WITHOUT waiting, so we can</span>
+        <span class="c1"># move the sample while the frames are recorded.  (Do not wait on</span>
+        <span class="c1"># the set status: it completes at Acquire_RBV==1, the start of the</span>
+        <span class="c1"># series, not its end.)</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">abs_set</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># serpentine raster spanning the same window as the acquisition</span>
+        <span class="n">forward</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">yrow</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_rows</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">ym</span><span class="p">,</span> <span class="n">yrow</span><span class="p">)</span>  <span class="c1"># step Y to the next row</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">x_end</span> <span class="k">if</span> <span class="n">forward</span> <span class="k">else</span> <span class="n">x_start</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>  <span class="c1"># sweep X across the range at v_x</span>
+            <span class="n">forward</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">forward</span>
+
+        <span class="c1"># wait for all n_frames to finish integrating + read out</span>
+        <span class="k">yield from</span> <span class="n">_wait_cam_idle</span><span class="p">(</span><span class="n">eiger2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">effective_total</span> <span class="o">+</span> <span class="mf">30.0</span><span class="p">)</span>
+        <span class="c1"># NOTE: the detector is *closed* in _cleanup (stop acquire, stop</span>
+        <span class="c1"># capture, flush) so it happens on every exit path -- normal</span>
+        <span class="c1"># completion, an error, or an RE abort/Ctrl-C during the raster.</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_cleanup</span><span class="p">():</span>
+        <span class="c1"># ALWAYS close the detector and restore state.  Each step is</span>
+        <span class="c1"># best-effort so a failure of one still attempts the rest.  This</span>
+        <span class="c1"># lives here (not in the body) so an error or Ctrl-C mid-raster</span>
+        <span class="c1"># still stops the camera and writes the file.</span>
+
+        <span class="c1"># 1. Stop the camera acquisition.  The Eiger keeps Acquire_RBV at 1</span>
+        <span class="c1"># (&quot;Acquiring&quot;) after frames, so a *waited* mv(acquire, 0) blocks on</span>
+        <span class="c1"># the readback and times out, leaving the cam shown as acquiring.</span>
+        <span class="c1"># Fire the stop non-blocking, then confirm the cam actually reached</span>
+        <span class="c1"># idle via acquire_busy (drops promptly with wait_for_plugins=Yes).</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">abs_set</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">yield from</span> <span class="n">_wait_cam_idle</span><span class="p">(</span><span class="n">eiger2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_steps: failed to stop cam.acquire: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 2. Stop HDF capture and flush the file to disk (Capture mode).</span>
+        <span class="k">if</span> <span class="n">file_write_mode</span> <span class="o">==</span> <span class="s2">&quot;Capture&quot;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">yield from</span> <span class="n">_flush_hdf_file</span><span class="p">(</span><span class="n">eiger2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">effective_total</span> <span class="o">+</span> <span class="mf">30.0</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_steps: failed to flush HDF file: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># (Single mode: auto_save writes each frame as it arrives.)</span>
+
+        <span class="c1"># 3. Restore the X velocity.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">xm</span><span class="o">.</span><span class="n">velocity</span><span class="p">,</span> <span class="n">v_x_original</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_steps: failed to restore X velocity: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 4. Close the shutter.</span>
+        <span class="k">if</span> <span class="n">open_shutter</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;shutterc&quot;</span><span class="p">],</span> <span class="s2">&quot;close&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sweep_xy_integrate_steps: failed to close shutter: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">yield from</span> <span class="n">bpp</span><span class="o">.</span><span class="n">finalize_wrapper</span><span class="p">(</span><span class="n">_expose_while_rastering</span><span class="p">(),</span> <span class="n">_cleanup</span><span class="p">())</span></div>
+
+
+
+<span class="nd">@plan</span>
+<div class="viewcode-block" id="omega_fly">
+<a class="viewcode-back" href="../../../../api/id3c/user/s3idc_plans/setup_june_26/index.html#id3c.user.s3idc_plans.setup_june_26.omega_fly">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">omega_fly</span><span class="p">(</span>
+    <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;omeFly&quot;</span><span class="p">,</span>
+    <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/home/sector3/s3ida/XRD/2026-2/setup/June17/&quot;</span><span class="p">,</span>
+    <span class="n">p_start</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">p_end</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">exposures_per_egu</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># 2 frames/deg -&gt; 21 frames over 10 deg</span>
+    <span class="n">t_period</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># 1 s/frame; with 2 frames/deg =&gt; 1 s/degree</span>
+    <span class="n">t_acquire</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># exposure per frame (&lt;= t_period); None =&gt; t_period</span>
+    <span class="n">md</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Continuous fly scan of ``sample_stage.omega`` with the Eiger2.</span>
+
+<span class="sd">    Rotates omega from ``p_start`` to ``p_end`` while ``eiger2`` acquires</span>
+<span class="sd">    continuously, saving one HDF5 (Capture-mode) file in ``file_path``.</span>
+
+<span class="sd">    omega is interlocked against ``laser_optics`` (it will not move</span>
+<span class="sd">    unless the optics are OUT), so this plan retracts the laser optics</span>
+<span class="sd">    first.</span>
+
+<span class="sd">    Defaults reproduce: omega -45 -&gt; +45 deg, 900 steps, ~10 s/degree.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_name : str</span>
+<span class="sd">        File name :: Output HDF5 base file name.</span>
+<span class="sd">    file_path : str</span>
+<span class="sd">        File path :: IOC-side directory the HDF5 file is written to.</span>
+<span class="sd">    p_start : float [deg]</span>
+<span class="sd">        omega start :: Omega angle at which the continuous rotation begins.</span>
+<span class="sd">    p_end : float [deg]</span>
+<span class="sd">        omega end :: Omega angle at which the rotation ends.</span>
+<span class="sd">    exposures_per_egu : float [1/deg]</span>
+<span class="sd">        Exposures per degree :: Frames acquired per degree of omega travel.</span>
+<span class="sd">    t_period : float [s]</span>
+<span class="sd">        Frame period :: Time between successive frames.</span>
+<span class="sd">    t_acquire : float [s]</span>
+<span class="sd">        Exposure per frame :: Per-frame exposure (&lt;= frame period); blank uses</span>
+<span class="sd">        the frame period.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        RE(omega_fly())</span>
+<span class="sd">        RE(omega_fly(file_name=&quot;sampleA&quot;, p_start=0, p_end=180))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">laser_optics</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;laser_optics&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Clear the interlock: omega is blocked unless the laser optics</span>
+    <span class="c1"># are OUT.  See ../../devices/omega_laser_interlock.py.</span>
+    <span class="k">yield from</span> <span class="n">laser_optics</span><span class="o">.</span><span class="n">move_out</span><span class="p">()</span>
+
+    <span class="k">yield from</span> <span class="n">flyscan</span><span class="p">(</span>
+        <span class="n">det_name</span><span class="o">=</span><span class="s2">&quot;eiger2&quot;</span><span class="p">,</span>
+        <span class="n">flymotor_name</span><span class="o">=</span><span class="s2">&quot;sample_stage_omega&quot;</span><span class="p">,</span>
+        <span class="n">p_start</span><span class="o">=</span><span class="n">p_start</span><span class="p">,</span>
+        <span class="n">p_end</span><span class="o">=</span><span class="n">p_end</span><span class="p">,</span>
+        <span class="n">exposures_per_egu</span><span class="o">=</span><span class="n">exposures_per_egu</span><span class="p">,</span>
+        <span class="n">t_period</span><span class="o">=</span><span class="n">t_period</span><span class="p">,</span>
+        <span class="n">t_acquire</span><span class="o">=</span><span class="n">t_acquire</span><span class="p">,</span>
+        <span class="n">ad_file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span>
+        <span class="n">ad_file_path</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span>
+        <span class="n">plan_name</span><span class="o">=</span><span class="s2">&quot;omega_fly&quot;</span><span class="p">,</span>
+        <span class="n">md</span><span class="o">=</span><span class="n">md</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<span class="nd">@plan</span>
+<div class="viewcode-block" id="omega_fly_at_det_steps">
+<a class="viewcode-back" href="../../../../api/id3c/user/s3idc_plans/setup_june_26/index.html#id3c.user.s3idc_plans.setup_june_26.omega_fly_at_det_steps">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">omega_fly_at_det_steps</span><span class="p">(</span>
+    <span class="n">positions</span><span class="p">,</span>
+    <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;omeFly_det&quot;</span><span class="p">,</span>
+    <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/home/sector3/s3ida/XRD/2026-2/setup/June17/&quot;</span><span class="p">,</span>
+    <span class="n">p_start</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">p_end</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">exposures_per_egu</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">t_period</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">t_acquire</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">start_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">md</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run ``omega_fly`` once at each detector ``(det_x, eiger_y, eiger_z)``.</span>
+
+<span class="sd">    ``positions`` is a list of ``(det_x, eiger_y, eiger_z)`` triples --</span>
+<span class="sd">    always in that fixed axis order.  For each triple (in order): move</span>
+<span class="sd">    ``detector_stage`` ``det_x``, ``eiger_y`` and ``eiger_z`` together,</span>
+<span class="sd">    then run ``omega_fly`` with identical scan settings.</span>
+
+<span class="sd">    File naming uses the **actual detector positions read back from the</span>
+<span class="sd">    motor PVs after the move** (not the requested values), each rounded</span>
+<span class="sd">    to the nearest integer::</span>
+
+<span class="sd">        &lt;file_name&gt;_&lt;X&gt;_&lt;Y&gt;_&lt;Z&gt;_000001</span>
+
+<span class="sd">    where ``&lt;X&gt;``/``&lt;Y&gt;``/``&lt;Z&gt;`` are the rounded integer readbacks of</span>
+<span class="sd">    ``det_x`` / ``eiger_y`` / ``eiger_z``, and ``_000001`` is the IOC&#39;s</span>
+<span class="sd">    trailing counter (constant, since the flyscan resets it each run).</span>
+
+<span class="sd">    The series index plus the requested and actual positions of all three</span>
+<span class="sd">    axes are recorded in each run&#39;s metadata, and the full-precision actual</span>
+<span class="sd">    positions are also written into the produced HDF5 file under</span>
+<span class="sd">    ``/entry/instrument/detector_stage`` (best-effort).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    positions : positions [mm]</span>
+<span class="sd">        Detector positions :: One (det_x, eiger_y, eiger_z) triple per line;</span>
+<span class="sd">        omega_fly runs once at each, in order.</span>
+<span class="sd">    file_name : str</span>
+<span class="sd">        File name :: Output HDF5 base file name (per-position suffix appended).</span>
+<span class="sd">    file_path : str</span>
+<span class="sd">        File path :: IOC-side directory the HDF5 files are written to.</span>
+<span class="sd">    p_start : float [deg]</span>
+<span class="sd">        omega start :: Omega angle at which each rotation begins.</span>
+<span class="sd">    p_end : float [deg]</span>
+<span class="sd">        omega end :: Omega angle at which each rotation ends.</span>
+<span class="sd">    exposures_per_egu : float [1/deg]</span>
+<span class="sd">        Exposures per degree :: Frames acquired per degree of omega travel.</span>
+<span class="sd">    t_period : float [s]</span>
+<span class="sd">        Frame period :: Time between successive frames.</span>
+<span class="sd">    t_acquire : float [s]</span>
+<span class="sd">        Exposure per frame :: Per-frame exposure (&lt;= frame period); blank uses</span>
+<span class="sd">        the frame period.</span>
+<span class="sd">    start_index : int</span>
+<span class="sd">        Start index :: First value of the per-run series index recorded in metadata.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        RE(omega_fly_at_det_steps([(100, 0, 50), (150, 0, 50), (200, 0, 50)]))</span>
+<span class="sd">        RE(omega_fly_at_det_steps([(0, 0, 0), (5, 0, 10)], file_name=&quot;sampleA&quot;,</span>
+<span class="sd">                                    p_start=-45, p_end=45))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">detector_stage</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;detector_stage&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;det_x&quot;</span><span class="p">,</span> <span class="s2">&quot;eiger_y&quot;</span><span class="p">,</span> <span class="s2">&quot;eiger_z&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">detector_stage</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;detector_stage has no axis </span><span class="si">{</span><span class="n">axis</span><span class="si">!r}</span><span class="s2">; expected &quot;</span>
+                <span class="s2">&quot;&#39;det_x&#39;, &#39;eiger_y&#39;, &#39;eiger_z&#39;.&quot;</span>
+            <span class="p">)</span>
+    <span class="n">x_motor</span> <span class="o">=</span> <span class="n">detector_stage</span><span class="o">.</span><span class="n">det_x</span>
+    <span class="n">y_motor</span> <span class="o">=</span> <span class="n">detector_stage</span><span class="o">.</span><span class="n">eiger_y</span>
+    <span class="n">z_motor</span> <span class="o">=</span> <span class="n">detector_stage</span><span class="o">.</span><span class="n">eiger_z</span>
+    <span class="n">eiger2</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;eiger2&quot;</span><span class="p">]</span>
+    <span class="n">positions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_series</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">offset</span><span class="p">,</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">positions</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">pos</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;positions[</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">]=</span><span class="si">{</span><span class="n">pos</span><span class="si">!r}</span><span class="s2"> is not a &quot;</span>
+                    <span class="s2">&quot;(det_x, eiger_y, eiger_z) triple.&quot;</span>
+                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">start_index</span> <span class="o">+</span> <span class="n">offset</span>
+
+            <span class="c1"># 1. move all three detector axes together (blocking)</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">x_motor</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_motor</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z_motor</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+            <span class="c1"># 2. read the ACTUAL positions back from the motor PVs; the</span>
+            <span class="c1">#    file name (and HDF annotation) reflect where the detector</span>
+            <span class="c1">#    really is, not the requested target.</span>
+            <span class="n">rx</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">rd</span><span class="p">(</span><span class="n">x_motor</span><span class="p">)</span>
+            <span class="n">ry</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">rd</span><span class="p">(</span><span class="n">y_motor</span><span class="p">)</span>
+            <span class="n">rz</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">rd</span><span class="p">(</span><span class="n">z_motor</span><span class="p">)</span>
+
+            <span class="c1"># 3. unique per-position file name: counter + EigPos suffix</span>
+            <span class="c1">#    built from the rounded-to-integer actual readbacks.</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;omega_fly_at_det_steps: [</span><span class="si">{</span><span class="n">offset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span><span class="si">}</span><span class="s2">] &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;requested det_x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, eiger_y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, eiger_z=</span><span class="si">{</span><span class="n">z</span><span class="si">}</span><span class="s2">; &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;actual=(</span><span class="si">{</span><span class="n">rx</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ry</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">rz</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">) -&gt; </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+            <span class="c1"># 4. record the detector context alongside any user metadata</span>
+            <span class="n">run_md</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">md</span> <span class="ow">or</span> <span class="p">{})</span>
+            <span class="n">run_md</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;series_index&quot;</span><span class="p">:</span> <span class="n">index</span><span class="p">,</span>
+                    <span class="s2">&quot;det_x_position_requested&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+                    <span class="s2">&quot;eiger_y_position_requested&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span>
+                    <span class="s2">&quot;eiger_z_position_requested&quot;</span><span class="p">:</span> <span class="n">z</span><span class="p">,</span>
+                    <span class="s2">&quot;det_x_position_actual&quot;</span><span class="p">:</span> <span class="n">rx</span><span class="p">,</span>
+                    <span class="s2">&quot;eiger_y_position_actual&quot;</span><span class="p">:</span> <span class="n">ry</span><span class="p">,</span>
+                    <span class="s2">&quot;eiger_z_position_actual&quot;</span><span class="p">:</span> <span class="n">rz</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+            <span class="c1"># 5. repeat omega_fly with identical scan settings</span>
+            <span class="k">yield from</span> <span class="n">omega_fly</span><span class="p">(</span>
+                <span class="n">file_name</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span>
+                <span class="n">file_path</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span>
+                <span class="n">p_start</span><span class="o">=</span><span class="n">p_start</span><span class="p">,</span>
+                <span class="n">p_end</span><span class="o">=</span><span class="n">p_end</span><span class="p">,</span>
+                <span class="n">exposures_per_egu</span><span class="o">=</span><span class="n">exposures_per_egu</span><span class="p">,</span>
+                <span class="n">t_period</span><span class="o">=</span><span class="n">t_period</span><span class="p">,</span>
+                <span class="n">t_acquire</span><span class="o">=</span><span class="n">t_acquire</span><span class="p">,</span>
+                <span class="n">md</span><span class="o">=</span><span class="n">run_md</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="c1"># 6. annotate the just-written HDF5 file with the detector</span>
+            <span class="c1">#    positions (full precision).  Best-effort; never fatal.</span>
+            <span class="n">_record_det_positions_in_hdf</span><span class="p">(</span>
+                <span class="n">eiger2</span><span class="p">,</span>
+                <span class="p">{</span><span class="s2">&quot;det_x&quot;</span><span class="p">:</span> <span class="n">rx</span><span class="p">,</span> <span class="s2">&quot;eiger_y&quot;</span><span class="p">:</span> <span class="n">ry</span><span class="p">,</span> <span class="s2">&quot;eiger_z&quot;</span><span class="p">:</span> <span class="n">rz</span><span class="p">},</span>
+                <span class="n">requested</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;det_x&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;eiger_y&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;eiger_z&quot;</span><span class="p">:</span> <span class="n">z</span><span class="p">},</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_close</span><span class="p">():</span>
+        <span class="c1"># Safety net: each omega_fly -&gt; flyscan already closes the</span>
+        <span class="c1"># detector in its own cleanup (stop cam.acquire, stop hdf1.capture,</span>
+        <span class="c1"># drain + flush).  This guarantees the cam + HDF plugin are left</span>
+        <span class="c1"># idle once the whole series ends -- or is aborted partway through.</span>
+        <span class="k">yield from</span> <span class="n">_ensure_detector_idle</span><span class="p">(</span><span class="n">eiger2</span><span class="p">)</span>
+
+    <span class="k">yield from</span> <span class="n">bpp</span><span class="o">.</span><span class="n">finalize_wrapper</span><span class="p">(</span><span class="n">_series</span><span class="p">(),</span> <span class="n">_close</span><span class="p">())</span></div>
+
+
+
+<span class="nd">@plan</span>
+<div class="viewcode-block" id="omega_fly_at_sam_steps">
+<a class="viewcode-back" href="../../../../api/id3c/user/s3idc_plans/setup_june_26/index.html#id3c.user.s3idc_plans.setup_june_26.omega_fly_at_sam_steps">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">omega_fly_at_sam_steps</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">x_end</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">n_x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">y_start</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">y_end</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">n_y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;omeFly_sam&quot;</span><span class="p">,</span>
+    <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/home/sector3/s3ida/XRD/2026-2/setup/June17/&quot;</span><span class="p">,</span>
+    <span class="n">p_start</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">p_end</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">exposures_per_egu</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">t_period</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">t_acquire</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">start_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">md</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run an ``omega_fly`` at each sample (samX, samY) grid position.</span>
+
+<span class="sd">    Rasters the *sample* over a rectangular grid of ``n_x`` x ``n_y``</span>
+<span class="sd">    positions -- ``samX`` is ``sample_stage.xprime`` and ``samY`` is</span>
+<span class="sd">    ``sample_stage.base_y`` (the same axes</span>
+<span class="sd">    ``sweep_xy_integrate_one``/``sweep_xy_integrate_steps``</span>
+<span class="sd">    translate) -- and at every grid point runs a full ``omega_fly``</span>
+<span class="sd">    (continuous omega fly with the Eiger2, one HDF5 file per point).</span>
+
+<span class="sd">    Grid traversal (NOT serpentine).  Rows are visited from ``y_start`` to</span>
+<span class="sd">    ``y_end``; within **every** row ``samX`` always runs from the negative</span>
+<span class="sd">    (lower) X to the positive (higher) X.  When ``samY`` steps to the next</span>
+<span class="sd">    row, ``samX`` resets back to the negative end -- so the X sweep</span>
+<span class="sd">    direction is identical for every row::</span>
+
+<span class="sd">        samY = y_rows[0]:  x_lo -&gt; ... -&gt; x_hi</span>
+<span class="sd">        samY = y_rows[1]:  x_lo -&gt; ... -&gt; x_hi      (samX restarts at x_lo)</span>
+<span class="sd">        ...</span>
+
+<span class="sd">    (``x_start``/``x_end`` may be passed in either order; the samX columns</span>
+<span class="sd">    are always ordered low-&gt;high so the sweep goes negative-&gt;positive.)</span>
+
+<span class="sd">    File naming.  Each point&#39;s HDF5 base name carries that point&#39;s</span>
+<span class="sd">    *requested* sample coordinates::</span>
+
+<span class="sd">        &lt;file_name&gt;_&lt;x&gt;_&lt;y&gt;_000001</span>
+
+<span class="sd">    where ``&lt;x&gt;``/``&lt;y&gt;`` are the commanded samX/samY grid values rounded</span>
+<span class="sd">    to 2 decimals (decimal point written as ``p``, e.g. ``-0p5_1p25``) and</span>
+<span class="sd">    ``_000001`` is the IOC&#39;s trailing counter (constant per run), e.g.</span>
+<span class="sd">    ``omeFly_sam_-1_0p5_000001``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_start : float [mm]</span>
+<span class="sd">        samX start :: samX (sample_stage.xprime) grid limit; ordered</span>
+<span class="sd">        internally so the sweep is always low-&gt;high.</span>
+<span class="sd">    x_end : float [mm]</span>
+<span class="sd">        samX end :: samX (sample_stage.xprime) grid limit; ordered internally</span>
+<span class="sd">        so the sweep is always low-&gt;high.</span>
+<span class="sd">    n_x : int</span>
+<span class="sd">        Number of samX columns :: Number of samX grid columns (&gt;= 1).</span>
+<span class="sd">    y_start : float [mm]</span>
+<span class="sd">        samY start :: samY (sample_stage.base_y) grid limit; rows are visited</span>
+<span class="sd">        in the order given (y_start -&gt; y_end).</span>
+<span class="sd">    y_end : float [mm]</span>
+<span class="sd">        samY end :: samY (sample_stage.base_y) grid limit; rows are visited in</span>
+<span class="sd">        the order given (y_start -&gt; y_end).</span>
+<span class="sd">    n_y : int</span>
+<span class="sd">        Number of samY rows :: Number of samY grid rows (&gt;= 1).</span>
+<span class="sd">    file_name : str</span>
+<span class="sd">        File name :: Output HDF5 base name; a _&lt;x&gt;_&lt;y&gt; position suffix is</span>
+<span class="sd">        appended per point.</span>
+<span class="sd">    file_path : str</span>
+<span class="sd">        File path :: IOC-side directory the HDF5 files are written to.</span>
+<span class="sd">    p_start : float [deg]</span>
+<span class="sd">        omega start :: Omega angle at which each rotation begins.</span>
+<span class="sd">    p_end : float [deg]</span>
+<span class="sd">        omega end :: Omega angle at which each rotation ends.</span>
+<span class="sd">    exposures_per_egu : float [1/deg]</span>
+<span class="sd">        Exposures per degree :: Frames acquired per degree of omega travel.</span>
+<span class="sd">    t_period : float [s]</span>
+<span class="sd">        Frame period :: Time between successive frames.</span>
+<span class="sd">    t_acquire : float [s]</span>
+<span class="sd">        Exposure per frame :: Per-frame exposure (&lt;= frame period); blank uses</span>
+<span class="sd">        the frame period.</span>
+<span class="sd">    start_index : int</span>
+<span class="sd">        Start index :: First value of the per-point series index recorded in metadata.</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    Each ``omega_fly`` retracts ``laser_optics`` (the omega interlock)</span>
+<span class="sd">    and opens its own Bluesky run + HDF5 file, exactly as a standalone</span>
+<span class="sd">    ``omega_fly`` would.  The detector is forced idle once the whole</span>
+<span class="sd">    series finishes -- or is aborted partway through -- best-effort.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        # 3 samX columns x 2 samY rows = 6 omega flyscans</span>
+<span class="sd">        RE(omega_fly_at_sam_steps(-1, 1, 3, 0, 0.5, 2))</span>
+<span class="sd">        RE(omega_fly_at_sam_steps(-2, 2, 5, -1, 1, 3, file_name=&quot;sampleA&quot;,</span>
+<span class="sd">                              p_start=-45, p_end=45))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n_x</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">n_y</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_x and n_y must both be &gt;= 1&quot;</span><span class="p">)</span>
+
+    <span class="n">sample_stage</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;sample_stage&quot;</span><span class="p">]</span>
+    <span class="n">eiger2</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;eiger2&quot;</span><span class="p">]</span>
+    <span class="n">xm</span> <span class="o">=</span> <span class="n">sample_stage</span><span class="o">.</span><span class="n">xprime</span>
+    <span class="n">ym</span> <span class="o">=</span> <span class="n">sample_stage</span><span class="o">.</span><span class="n">base_y</span>
+
+    <span class="c1"># samX columns: ALWAYS ordered low -&gt; high so every row sweeps</span>
+    <span class="c1"># negative -&gt; positive, regardless of the order x_start/x_end were</span>
+    <span class="c1"># passed in.</span>
+    <span class="n">x_lo</span><span class="p">,</span> <span class="n">x_hi</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">x_start</span><span class="p">,</span> <span class="n">x_end</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">n_x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">x_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_lo</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_hi</span> <span class="o">-</span> <span class="n">x_lo</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">x_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_lo</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">dx</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_x</span><span class="p">)]</span>
+
+    <span class="c1"># samY rows: visited in the order given (y_start -&gt; y_end).</span>
+    <span class="k">if</span> <span class="n">n_y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">y_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_start</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_end</span> <span class="o">-</span> <span class="n">y_start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">y_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_start</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">dy</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_y</span><span class="p">)]</span>
+
+    <span class="n">n_points</span> <span class="o">=</span> <span class="n">n_x</span> <span class="o">*</span> <span class="n">n_y</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;omega_fly_at_sam_steps: </span><span class="si">{</span><span class="n">n_x</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">n_y</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">n_points</span><span class="si">}</span><span class="s2"> sample positions &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;(samX </span><span class="si">{</span><span class="n">x_lo</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">x_hi</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2"> ascending every row, samY </span><span class="si">{</span><span class="n">y_start</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">-&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">y_end</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">); omega flyscan </span><span class="si">{</span><span class="n">p_start</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">p_end</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2"> deg at each &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;-&gt; </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_series</span><span class="p">():</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">yval</span> <span class="ow">in</span> <span class="n">y_rows</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">xval</span> <span class="ow">in</span> <span class="n">x_cols</span><span class="p">:</span>  <span class="c1"># always x_lo -&gt; x_hi (negative -&gt; positive)</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">start_index</span> <span class="o">+</span> <span class="n">offset</span>
+                <span class="n">offset</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="c1"># 1. move the sample to this grid point (blocking)</span>
+                <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">xm</span><span class="p">,</span> <span class="n">xval</span><span class="p">,</span> <span class="n">ym</span><span class="p">,</span> <span class="n">yval</span><span class="p">)</span>
+
+                <span class="c1"># 2. read the actual sample positions back (metadata /</span>
+                <span class="c1">#    provenance only; the file name uses the REQUESTED grid</span>
+                <span class="c1">#    values, per the naming spec).</span>
+                <span class="n">rx</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">rd</span><span class="p">(</span><span class="n">xm</span><span class="p">)</span>
+                <span class="n">ry</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">rd</span><span class="p">(</span><span class="n">ym</span><span class="p">)</span>
+
+                <span class="c1"># 3. per-point file name: requested coords + point number.</span>
+                <span class="n">fname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">_fmt_pos</span><span class="p">(</span><span class="n">xval</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">_fmt_pos</span><span class="p">(</span><span class="n">yval</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;omega_fly_at_sam_steps: [</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">n_points</span><span class="si">}</span><span class="s2">] &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;samX=</span><span class="si">{</span><span class="n">xval</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">, samY=</span><span class="si">{</span><span class="n">yval</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2"> &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;(actual </span><span class="si">{</span><span class="n">rx</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ry</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">) -&gt; </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+                <span class="c1"># 4. record the sample context alongside any user metadata</span>
+                <span class="n">run_md</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">md</span> <span class="ow">or</span> <span class="p">{})</span>
+                <span class="n">run_md</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;series_index&quot;</span><span class="p">:</span> <span class="n">index</span><span class="p">,</span>
+                        <span class="s2">&quot;samX_position_requested&quot;</span><span class="p">:</span> <span class="n">xval</span><span class="p">,</span>
+                        <span class="s2">&quot;samY_position_requested&quot;</span><span class="p">:</span> <span class="n">yval</span><span class="p">,</span>
+                        <span class="s2">&quot;samX_position_actual&quot;</span><span class="p">:</span> <span class="n">rx</span><span class="p">,</span>
+                        <span class="s2">&quot;samY_position_actual&quot;</span><span class="p">:</span> <span class="n">ry</span><span class="p">,</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+
+                <span class="c1"># 5. omega flyscan at this sample position, identical scan</span>
+                <span class="c1">#    settings every point.  omega_fly retracts the laser</span>
+                <span class="c1">#    optics (omega interlock) and writes its own HDF5 file.</span>
+                <span class="k">yield from</span> <span class="n">omega_fly</span><span class="p">(</span>
+                    <span class="n">file_name</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span>
+                    <span class="n">file_path</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span>
+                    <span class="n">p_start</span><span class="o">=</span><span class="n">p_start</span><span class="p">,</span>
+                    <span class="n">p_end</span><span class="o">=</span><span class="n">p_end</span><span class="p">,</span>
+                    <span class="n">exposures_per_egu</span><span class="o">=</span><span class="n">exposures_per_egu</span><span class="p">,</span>
+                    <span class="n">t_period</span><span class="o">=</span><span class="n">t_period</span><span class="p">,</span>
+                    <span class="n">t_acquire</span><span class="o">=</span><span class="n">t_acquire</span><span class="p">,</span>
+                    <span class="n">md</span><span class="o">=</span><span class="n">run_md</span><span class="p">,</span>
+                <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_close</span><span class="p">():</span>
+        <span class="c1"># Safety net: each omega_fly -&gt; flyscan already closes the</span>
+        <span class="c1"># detector in its own cleanup.  This guarantees the cam + HDF</span>
+        <span class="c1"># plugin are left idle once the whole series ends -- or is aborted</span>
+        <span class="c1"># partway through.</span>
+        <span class="k">yield from</span> <span class="n">_ensure_detector_idle</span><span class="p">(</span><span class="n">eiger2</span><span class="p">)</span>
+
+    <span class="k">yield from</span> <span class="n">bpp</span><span class="o">.</span><span class="n">finalize_wrapper</span><span class="p">(</span><span class="n">_series</span><span class="p">(),</span> <span class="n">_close</span><span class="p">())</span></div>
+
+
+
+<span class="nd">@plan</span>
+<div class="viewcode-block" id="fixed_exp_at_det_steps">
+<a class="viewcode-back" href="../../../../api/id3c/user/s3idc_plans/setup_june_26/index.html#id3c.user.s3idc_plans.setup_june_26.fixed_exp_at_det_steps">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fixed_exp_at_det_steps</span><span class="p">(</span>
+    <span class="n">scan_axis</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;det_x&quot;</span><span class="p">,</span>
+    <span class="n">start</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">end</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">spacing</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">exposure_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">det_x</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">eiger_y</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">eiger_z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;fixExp_det&quot;</span><span class="p">,</span>
+    <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/home/sector3/s3ida/XRD/2026-2/setup/June17/&quot;</span><span class="p">,</span>
+    <span class="n">open_shutter</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">file_write_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Capture&quot;</span><span class="p">,</span>
+    <span class="n">md</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Step scan of ONE detector_stage axis, built on ``bp.list_scan``.</span>
+
+<span class="sd">    Uses ``list_scan`` as the engine -- it opens a Bluesky **run**</span>
+<span class="sd">    (documents + Tiled catalog entry) over the list of positions -- but a</span>
+<span class="sd">    custom ``per_step`` drives the detector at each point so every position</span>
+<span class="sd">    gets its **own** HDF5 file named by *that point&#39;s* detector geometry as</span>
+<span class="sd">    ``&lt;file_name&gt;_&lt;X&gt;_&lt;Y&gt;_&lt;Z&gt;_NNNNNN`` (X=det_x, Y=eiger_y, Z=eiger_z,</span>
+<span class="sd">    rounded to int; ``_NNNNNN`` is the IOC counter), e.g.</span>
+<span class="sd">    ``fixExp_det_-25_7_30_000001``.  The</span>
+<span class="sd">    detector is therefore NOT passed to ``list_scan`` as a staged detector</span>
+<span class="sd">    (``detectors=[]``); instead the per-step opens the cam + HDF plugin,</span>
+<span class="sd">    exposes one frame, writes the file, and closes them -- and records the</span>
+<span class="sd">    three axis readbacks (and the data file name) into the run&#39;s ``primary``</span>
+<span class="sd">    stream, so positions are also in the catalog.</span>
+
+<span class="sd">    Moves ``detector_stage.&lt;scan_axis&gt;`` from ``start`` to ``end`` in</span>
+<span class="sd">    ``spacing``-sized steps (inclusive of ``end`` when divisible; never</span>
+<span class="sd">    overshoots); the other two axes are held at the values you pass.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scan_axis : choice{det_x, eiger_y, eiger_z}</span>
+<span class="sd">        Scan axis :: Which detector_stage axis to step.</span>
+<span class="sd">    start : float [mm]</span>
+<span class="sd">        Start :: First position of scan_axis.</span>
+<span class="sd">    end : float [mm]</span>
+<span class="sd">        End :: Last position of scan_axis (inclusive when divisible).</span>
+<span class="sd">    spacing : float [mm]</span>
+<span class="sd">        Step size :: Step between successive positions (&gt; 0).</span>
+<span class="sd">    exposure_time : float [s]</span>
+<span class="sd">        Exposure time :: Per-point exposure; sets eiger2.cam.acquire_time.</span>
+<span class="sd">    det_x : float [mm]</span>
+<span class="sd">        det_x fixed :: Fixed det_x for the non-scanned axis; leave blank when</span>
+<span class="sd">        det_x is the scan axis.</span>
+<span class="sd">    eiger_y : float [mm]</span>
+<span class="sd">        eiger_y fixed :: Fixed eiger_y for the non-scanned axis; leave blank</span>
+<span class="sd">        when eiger_y is the scan axis.</span>
+<span class="sd">    eiger_z : float [mm]</span>
+<span class="sd">        eiger_z fixed :: Fixed eiger_z for the non-scanned axis; leave blank</span>
+<span class="sd">        when eiger_z is the scan axis.</span>
+<span class="sd">    file_name : str</span>
+<span class="sd">        File name :: Output HDF5 base name; a _&lt;x&gt;_&lt;y&gt;_&lt;z&gt; position suffix is</span>
+<span class="sd">        appended per point.</span>
+<span class="sd">    file_path : str</span>
+<span class="sd">        File path :: IOC-side directory the HDF5 files are written to.</span>
+<span class="sd">    open_shutter : bool</span>
+<span class="sd">        Open shutter :: Open shutterc for the whole scan, then close it (held</span>
+<span class="sd">        open across points; always closed, even on error).</span>
+<span class="sd">    file_write_mode : choice{Capture, Single}</span>
+<span class="sd">        HDF write mode :: Per-point HDF1 plugin file write mode.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        RE(fixed_exp_at_det_steps(&quot;det_x&quot;, -25, 100, 5, exposure_time=2,</span>
+<span class="sd">                         eiger_y=7, eiger_z=30))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">AXES</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;det_x&quot;</span><span class="p">,</span> <span class="s2">&quot;eiger_y&quot;</span><span class="p">,</span> <span class="s2">&quot;eiger_z&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">scan_axis</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">AXES</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;scan_axis must be one of </span><span class="si">{</span><span class="n">AXES</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">scan_axis</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">spacing</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;spacing must be &gt; 0&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;start and end must differ&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">exposure_time</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;exposure_time must be &gt; 0&quot;</span><span class="p">)</span>
+
+    <span class="n">fixed_values</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;det_x&quot;</span><span class="p">:</span> <span class="n">det_x</span><span class="p">,</span> <span class="s2">&quot;eiger_y&quot;</span><span class="p">:</span> <span class="n">eiger_y</span><span class="p">,</span> <span class="s2">&quot;eiger_z&quot;</span><span class="p">:</span> <span class="n">eiger_z</span><span class="p">}</span>
+    <span class="n">fixed_axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">AXES</span> <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">scan_axis</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">fixed_axes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">fixed_values</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;provide a fixed value for </span><span class="si">{</span><span class="n">a</span><span class="si">!r}</span><span class="s2">; the two non-scanned axes &quot;</span>
+                <span class="s2">&quot;need fixed positions.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="n">detector_stage</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;detector_stage&quot;</span><span class="p">]</span>
+    <span class="n">eiger2</span> <span class="o">=</span> <span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;eiger2&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">AXES</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">detector_stage</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;detector_stage has no axis </span><span class="si">{</span><span class="n">a</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">motors</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">detector_stage</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">AXES</span><span class="p">}</span>
+    <span class="n">scan_motor</span> <span class="o">=</span> <span class="n">motors</span><span class="p">[</span><span class="n">scan_axis</span><span class="p">]</span>
+
+    <span class="c1"># inclusive list of scan positions; never overshoot `end`</span>
+    <span class="n">direction</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">end</span> <span class="o">&gt;=</span> <span class="n">start</span> <span class="k">else</span> <span class="o">-</span><span class="mf">1.0</span>
+    <span class="n">positions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">direction</span> <span class="o">*</span> <span class="n">spacing</span> <span class="o">*</span> <span class="n">i</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">direction</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="n">end</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">direction</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">-</span> <span class="mf">1e-9</span><span class="p">):</span>
+            <span class="k">break</span>
+        <span class="n">positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">state</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>  <span class="c1"># per-point counter for the file-name prefix</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">per_step</span><span class="p">(</span><span class="n">detectors</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">pos_cache</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Custom list_scan step: move, write this point&#39;s own EigPos file.&quot;&quot;&quot;</span>
+        <span class="c1"># move the scan motor to this point (list_scan supplies {motor: pos})</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">move_per_step</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">pos_cache</span><span class="p">)</span>
+
+        <span class="n">rx</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">rd</span><span class="p">(</span><span class="n">motors</span><span class="p">[</span><span class="s2">&quot;det_x&quot;</span><span class="p">])</span>
+        <span class="n">ry</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">rd</span><span class="p">(</span><span class="n">motors</span><span class="p">[</span><span class="s2">&quot;eiger_y&quot;</span><span class="p">])</span>
+        <span class="n">rz</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">rd</span><span class="p">(</span><span class="n">motors</span><span class="p">[</span><span class="s2">&quot;eiger_z&quot;</span><span class="p">])</span>
+        <span class="n">state</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">rx</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">ry</span><span class="p">)</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">rz</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># open cam+HDF, expose one frame, write THIS point&#39;s file, close</span>
+        <span class="k">yield from</span> <span class="n">_acquire_single_file</span><span class="p">(</span><span class="n">eiger2</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">file_write_mode</span><span class="p">,</span> <span class="n">exposure_time</span><span class="p">)</span>
+
+        <span class="c1"># record the positions (+ data file name) into the run&#39;s primary stream</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;primary&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">AXES</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">motors</span><span class="p">[</span><span class="n">a</span><span class="p">])</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">full_file_name</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;fixed_exp_at_det_steps: [</span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span><span class="si">}</span><span class="s2">] &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">scan_axis</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">step</span><span class="p">[</span><span class="n">scan_motor</span><span class="p">]</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">run_md</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">md</span> <span class="ow">or</span> <span class="p">{})</span>
+    <span class="n">run_md</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;plan_name&quot;</span><span class="p">,</span> <span class="s2">&quot;fixed_exp_at_det_steps&quot;</span><span class="p">)</span>
+    <span class="n">run_md</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;scan_axis&quot;</span><span class="p">:</span> <span class="n">scan_axis</span><span class="p">,</span>
+            <span class="s2">&quot;scan_start&quot;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span>
+            <span class="s2">&quot;scan_end&quot;</span><span class="p">:</span> <span class="n">end</span><span class="p">,</span>
+            <span class="s2">&quot;scan_spacing&quot;</span><span class="p">:</span> <span class="n">spacing</span><span class="p">,</span>
+            <span class="s2">&quot;exposure_time&quot;</span><span class="p">:</span> <span class="n">exposure_time</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">fixed_axes</span><span class="p">:</span>
+        <span class="n">run_md</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">_fixed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fixed_values</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;fixed_exp_at_det_steps: </span><span class="si">{</span><span class="n">scan_axis</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2"> step </span><span class="si">{</span><span class="n">spacing</span><span class="si">}</span><span class="s2"> &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span><span class="si">}</span><span class="s2"> pts, </span><span class="si">{</span><span class="n">exposure_time</span><span class="si">:</span><span class="s2">g</span><span class="si">}</span><span class="s2">s each, one file/point); fixed &quot;</span>
+        <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">fixed_values</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">fixed_axes</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_body</span><span class="p">():</span>
+        <span class="c1"># 1. position the fixed axes; only the detector moves during the scan</span>
+        <span class="n">move_args</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">fixed_axes</span><span class="p">:</span>
+            <span class="n">move_args</span> <span class="o">+=</span> <span class="p">[</span><span class="n">motors</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">fixed_values</span><span class="p">[</span><span class="n">a</span><span class="p">]]</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="o">*</span><span class="n">move_args</span><span class="p">)</span>
+
+        <span class="c1"># 2. open the shutter for the whole scan</span>
+        <span class="k">if</span> <span class="n">open_shutter</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;shutterc&quot;</span><span class="p">],</span> <span class="s2">&quot;open&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 3. configure the cam (per-point file name is set in _acquire_single_file)</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">image_mode</span><span class="p">,</span>
+            <span class="s2">&quot;Single&quot;</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">num_images</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire_time</span><span class="p">,</span>
+            <span class="n">exposure_time</span><span class="p">,</span>
+            <span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire_period</span><span class="p">,</span>
+            <span class="n">exposure_time</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="p">,</span> <span class="s2">&quot;wait_for_plugins&quot;</span><span class="p">):</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">wait_for_plugins</span><span class="p">,</span> <span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
+        <span class="c1"># file_template&#39;s RBV reads back oddly (&#39;%&#39;), so a waited set times</span>
+        <span class="c1"># out; set it fire-and-forget with .put() (see file_template note).</span>
+        <span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_template</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s%s</span><span class="s2">_</span><span class="si">%6.6d</span><span class="s2">.h5&quot;</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+        <span class="c1"># 4. list_scan as the engine; detectors=[] (we drive eiger2 in per_step)</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="k">yield from</span> <span class="n">bp</span><span class="o">.</span><span class="n">list_scan</span><span class="p">(</span>
+                <span class="p">[],</span> <span class="n">scan_motor</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span> <span class="n">per_step</span><span class="o">=</span><span class="n">per_step</span><span class="p">,</span> <span class="n">md</span><span class="o">=</span><span class="n">run_md</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_close</span><span class="p">():</span>
+        <span class="c1"># best-effort detector close + shutter close on every exit path</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">abs_set</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">acquire</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">yield from</span> <span class="n">_wait_cam_idle</span><span class="p">(</span><span class="n">eiger2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fixed_exp_at_det_steps: failed to stop cam.acquire: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">eiger2</span><span class="o">.</span><span class="n">hdf1</span><span class="o">.</span><span class="n">capture</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fixed_exp_at_det_steps: failed to stop hdf capture: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">open_shutter</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">yield from</span> <span class="n">bps</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">oregistry</span><span class="p">[</span><span class="s2">&quot;shutterc&quot;</span><span class="p">],</span> <span class="s2">&quot;close&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fixed_exp_at_det_steps: failed to close shutter: </span><span class="si">{</span><span class="n">exc</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="k">yield from</span> <span class="n">bpp</span><span class="o">.</span><span class="n">finalize_wrapper</span><span class="p">(</span><span class="n">_body</span><span class="p">(),</span> <span class="n">_close</span><span class="p">()))</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2014-2026, APS.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

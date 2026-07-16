@@ -1,0 +1,84 @@
+id3c.tests.test_pair_frames_from_ad_file
+========================================
+
+.. py:module:: id3c.tests.test_pair_frames_from_ad_file
+
+.. autoapi-nested-parse::
+
+   Tests for ``pair_frames_to_positions_from_ad_file``.
+
+   Synthetic AD HDF1 files built via h5py; no IOC, no live detector.
+   The motor monitor stream is faked via the same SimpleNamespace +
+   duck-typed stream pattern used by the rest of the analysis tests.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_pair_frames_from_ad_file.test_basic_constant_velocity_recovery
+   id3c.tests.test_pair_frames_from_ad_file.test_epics_to_unix_epoch_conversion
+   id3c.tests.test_pair_frames_from_ad_file.test_image_number_is_one_based
+   id3c.tests.test_pair_frames_from_ad_file.test_missing_timestamp_dataset_raises
+   id3c.tests.test_pair_frames_from_ad_file.test_missing_unique_id_dataset_raises
+   id3c.tests.test_pair_frames_from_ad_file.test_mismatched_lengths_raise
+   id3c.tests.test_pair_frames_from_ad_file.test_custom_dataset_paths
+   id3c.tests.test_pair_frames_from_ad_file.test_recovers_frames_that_ca_path_would_drop
+
+
+Module Contents
+---------------
+
+.. py:function:: test_basic_constant_velocity_recovery(tmp_path)
+
+   At constant motor velocity, AD-sourced pairing returns the
+   expected (position, 1-based image_number) for every in-scan frame.
+
+
+.. py:function:: test_epics_to_unix_epoch_conversion(tmp_path)
+
+   The EPICS->Unix conversion is applied exactly once.
+
+   Construct an AD timestamp that, without conversion, would land
+   well outside the motor stream's time range (and be dropped as
+   extrapolation).  After conversion it falls cleanly inside.
+
+
+.. py:function:: test_image_number_is_one_based(tmp_path)
+
+   NDArrayUniqueId is 0-based; output image_number must be 1-based.
+
+
+.. py:function:: test_missing_timestamp_dataset_raises(tmp_path)
+
+   A file without the timestamp dataset raises KeyError.
+
+
+.. py:function:: test_missing_unique_id_dataset_raises(tmp_path)
+
+   A file without the UID dataset raises KeyError.
+
+
+.. py:function:: test_mismatched_lengths_raise(tmp_path)
+
+   timestamp + UID arrays of different length raise ValueError.
+
+
+.. py:function:: test_custom_dataset_paths(tmp_path)
+
+   The timestamp / UID HDF5 paths are overridable.
+
+
+.. py:function:: test_recovers_frames_that_ca_path_would_drop(tmp_path)
+
+   The AD path returns every frame the IOC wrote, regardless of
+   whether the CA monitor stream would have lost some.
+
+   This is the core motivation: the AD file is authoritative.  The
+   test asserts that for N frames written by the IOC, the helper
+   returns N (modulo in-range filtering), independent of whether a
+   parallel CA monitor stream would have dropped any.
+
+

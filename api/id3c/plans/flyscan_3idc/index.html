@@ -1,0 +1,1221 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>id3c.plans.flyscan_3idc &#8212; 3-ID-C BITS 0.0.1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../../_static/documentation_options.js?v=f539c95a"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=30646c52"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/id3c/plans/flyscan_3idc/index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="id3c.plans.sim_plans" href="../sim_plans/index.html" />
+    <link rel="prev" title="id3c.plans.ad_plugins" href="../ad_plugins/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.1" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">3-ID-C BITS 0.0.1</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../how_to/index.html">
+    How-to guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../explanation/index.html">
+    Explanation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits/issues" title="Issue tracker" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-bug fa-lg" aria-hidden="true"></i><span class="visually-hidden">Issue tracker</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../how_to/index.html">
+    How-to guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../explanation/index.html">
+    Explanation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/BCDA-APS/3idc-bits/issues" title="Issue tracker" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-bug fa-lg" aria-hidden="true"></i><span class="visually-hidden">Issue tracker</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/cheat_sheet.html">Cheat sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/quick_reference.html">Quick reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/configuration.html">Configuration files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../presentations/index.html">Presentations</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../index.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../index.html">id3c</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../callbacks/index.html">id3c.callbacks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../callbacks/demo_nexus_callback/index.html">id3c.callbacks.demo_nexus_callback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../callbacks/demo_spec_callback/index.html">id3c.callbacks.demo_spec_callback</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configs/index.html">id3c.configs</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../devices/index.html">id3c.devices</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../devices/area_detector/index.html">id3c.devices.area_detector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../devices/interlocked_motor/index.html">id3c.devices.interlocked_motor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../devices/laser_optics/index.html">id3c.devices.laser_optics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../devices/omega_laser_interlock/index.html">id3c.devices.omega_laser_interlock</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../index.html">id3c.plans</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../ad_plugins/index.html">id3c.plans.ad_plugins</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">id3c.plans.flyscan_3idc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sim_plans/index.html">id3c.plans.sim_plans</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../startup/index.html">id3c.startup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../suspenders/index.html">id3c.suspenders</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../tests/index.html">id3c.tests</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_ad_plugins/index.html">id3c.tests.test_ad_plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_check_ad_files_symlink/index.html">id3c.tests.test_check_ad_files_symlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_check_cam_armed/index.html">id3c.tests.test_check_cam_armed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_effective_num_images/index.html">id3c.tests.test_effective_num_images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_ensure_ad_files_symlink/index.html">id3c.tests.test_ensure_ad_files_symlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_expected_frame_count/index.html">id3c.tests.test_expected_frame_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_external_link_target/index.html">id3c.tests.test_external_link_target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_flyscan_3idc_analysis/index.html">id3c.tests.test_flyscan_3idc_analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_flyscan_repair/index.html">id3c.tests.test_flyscan_repair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_pair_frames_from_ad_file/index.html">id3c.tests.test_pair_frames_from_ad_file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_path_templates/index.html">id3c.tests.test_path_templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_wait_for_openable/index.html">id3c.tests.test_wait_for_openable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tests/test_write_flyscan_data/index.html">id3c.tests.test_write_flyscan_data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../user/index.html">id3c.user</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../user/s3idc_plans/index.html">id3c.user.s3idc_plans</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../utils/index.html">id3c.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/flyscan_3idc_analysis/index.html">id3c.utils.flyscan_3idc_analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/flyscan_repair/index.html">id3c.utils.flyscan_repair</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../../reference/index.html" class="nav-link">Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">id3c</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">id3c.plans</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">id3c.plans.flyscan_3idc</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-id3c.plans.flyscan_3idc">
+<span id="id3c-plans-flyscan-3idc"></span><h1>id3c.plans.flyscan_3idc<a class="headerlink" href="#module-id3c.plans.flyscan_3idc" title="Link to this heading">#</a></h1>
+<p>Fly scan for 3-ID-C: area detector <em>vs</em>. motor.</p>
+<p>Fly scan an EPICS motor and collect Eiger2 (or any AreaDetector) images.</p>
+<p>Software coordination only, no hardware triggering.</p>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
+<p>From a command-line session:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">id3c.startup</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>           <span class="c1"># provides RE, oregistry, etc.</span>
+
+<span class="c1"># The plan: drive a fly scan and record a Bluesky run.</span>
+<span class="n">uid</span><span class="p">,</span> <span class="o">=</span> <span class="n">RE</span><span class="p">(</span><span class="n">flyscan</span><span class="p">(</span><span class="n">p_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">p_end</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">exposures_per_egu</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">t_period</span><span class="o">=</span><span class="mf">0.05</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="general-outline">
+<h2>General outline<a class="headerlink" href="#general-outline" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Preparation</p>
+<ul class="simple">
+<li><p>validate inputs</p></li>
+<li><p>collect metadata</p></li>
+<li><p>snapshot anything we will modify, so we can restore it later</p></li>
+<li><p>taxi the motor (at current velocity) to a position just before <em>p_start</em></p></li>
+</ul>
+</li>
+<li><p>Takeoff</p>
+<ul class="simple">
+<li><p>stage the detector</p></li>
+<li><p>open the run</p></li>
+<li><p>start the detector acquiring continuously</p></li>
+<li><p>launch the motor toward (actually past) <em>p_end</em> (at computed flyscan velocity)</p></li>
+</ul>
+</li>
+<li><p>Monitor</p>
+<ul class="simple">
+<li><p>report one event per captured frame in the <code class="docutils literal notranslate"><span class="pre">primary</span></code> stream</p></li>
+<li><p>once the motor crosses <em>p_end</em>, stop the detector image
+acquisitions and the motor movement</p></li>
+</ul>
+</li>
+<li><p>Conclusion</p>
+<ul class="simple">
+<li><p>close the run</p></li>
+<li><p>drain the detector pipeline</p></li>
+<li><p>verify the HDF5 file landed</p></li>
+<li><p>select the in-scan subset by position and write it to the HDF5/NeXus master file</p></li>
+<li><p>restore everything in step 1 snapshots</p></li>
+</ul>
+</li>
+</ol>
+<p>Implementation note: this plan is software-correlated (no hardware
+gate or trigger signal). Frame-to-position pairing happens downstream
+from the <code class="docutils literal notranslate"><span class="pre">monitor_during_decorator</span></code> streams, joined by IOC timestamp.
+Waits inside the plan use ophyd <code class="docutils literal notranslate"><span class="pre">Status</span></code> objects (<code class="docutils literal notranslate"><span class="pre">MoveStatus</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SubscriptionStatus</span></code>, <code class="docutils literal notranslate"><span class="pre">AndStatus</span></code>) driven by CA monitor
+callbacks rather than busy-poll loops.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">hdf_t_phase_offset</span></code> kwarg is an IOC/detector-specific
+calibration constant; measure it once with
+<code class="docutils literal notranslate"><span class="pre">flyscan_3idc_analysis.hdf_timestamp_semantic_diagnostic</span></code> (see
+that function’s docstring for the procedure).</p>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id3c.plans.flyscan_3idc.configure_adsimdet" title="id3c.plans.flyscan_3idc.configure_adsimdet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_adsimdet</span></code></a>(det, *[, ad_file_path, ...])</p></td>
+<td><p>Configure &amp; exercise an AD HDF5 detector without a plan.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id3c.plans.flyscan_3idc.flyscan" title="id3c.plans.flyscan_3idc.flyscan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flyscan</span></code></a>([detectors, det_name, flymotor_name, p_start, ...])</p></td>
+<td><p>Fly scan: move motor through range while acquiring detector frames.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="id3c.plans.flyscan_3idc.configure_adsimdet">
+<span class="sig-prename descclassname"><span class="pre">id3c.plans.flyscan_3idc.</span></span><span class="sig-name descname"><span class="pre">configure_adsimdet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">det</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">ad_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/tmp/flyscan/'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ad_file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'flyscan'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ad_file_template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%s%s_%6.6d.h5'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ad_file_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acquire_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acquire_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture_duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture_arm_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drain_timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_acquire</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/id3c/plans/flyscan_3idc.html#configure_adsimdet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3c.plans.flyscan_3idc.configure_adsimdet" title="Link to this definition">#</a></dt>
+<dd><p>Configure &amp; exercise an AD HDF5 detector without a plan.</p>
+<p>Diagnostic helper.  No RunEngine, no plan, no stage_decorator — just
+straight ophyd <code class="docutils literal notranslate"><span class="pre">put()</span></code> calls in the order the IOC needs them.</p>
+<p>Simulates the flyscan acquisition protocol:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Configure file destination &amp; cam timings.</p></li>
+<li><p>Cam in <code class="docutils literal notranslate"><span class="pre">Continuous</span></code> image_mode.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_capture</span> <span class="pre">=</span> <span class="pre">UNLIMITED_FRAMES</span></code> (capture until told to stop).</p></li>
+<li><p>Arm capture (<code class="docutils literal notranslate"><span class="pre">hdf1.capture.put(1)</span></code>).</p></li>
+<li><p><strong>Wait</strong> for <code class="docutils literal notranslate"><span class="pre">Capture_RBV</span> <span class="pre">==</span> <span class="pre">'Capturing'</span></code> — this avoids a
+race in which the cam starts producing frames before the HDF
+plugin is ready to receive them.  Without this wait, the
+leading frames of a scan are silently dropped (not counted
+in <code class="docutils literal notranslate"><span class="pre">dropped_arrays</span></code> because the plugin isn’t even
+listening yet).</p></li>
+<li><p>Start cam acquire.</p></li>
+<li><p>Sleep <code class="docutils literal notranslate"><span class="pre">capture_duration</span></code> seconds (simulates the motor
+trajectory window in a real flyscan).</p></li>
+<li><p>Stop capture (<code class="docutils literal notranslate"><span class="pre">hdf1.capture.put(0)</span></code>).</p></li>
+<li><p>Drain: wait until <code class="docutils literal notranslate"><span class="pre">num_queued_arrays</span> <span class="pre">==</span> <span class="pre">0</span></code> so all
+in-flight frames flush to disk before the file is closed.</p></li>
+<li><p>Stop cam acquire.</p></li>
+<li><p>Snapshot relevant PVs and return.</p></li>
+</ol>
+</div></blockquote>
+<p>Returns a dict of the post-operation PV snapshot.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">flyscan_3idc</span><span class="w"> </span><span class="kn">import</span> <span class="n">configure_adsimdet</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">configure_adsimdet</span><span class="p">(</span><span class="n">adsimdet</span><span class="p">,</span> <span class="n">capture_duration</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>capture_duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Seconds to leave both capture and acquire active.  Total file
+write count is approximately <code class="docutils literal notranslate"><span class="pre">capture_duration</span> <span class="pre">/</span> <span class="pre">acquire_period</span></code>.</p></li>
+<li><p><strong>capture_arm_timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Maximum seconds to wait for <code class="docutils literal notranslate"><span class="pre">Capture_RBV</span></code> to transition to
+<code class="docutils literal notranslate"><span class="pre">'Capturing'</span></code> after arming.  Raises <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> on timeout.</p></li>
+<li><p><strong>drain_timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – Maximum seconds to wait for <code class="docutils literal notranslate"><span class="pre">num_queued_arrays</span></code> to reach 0
+after stopping capture.  Logs a warning on timeout but does
+not raise.</p></li>
+<li><p><strong>do_capture</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Skip arming capture or starting acquire, respectively.  Useful
+for narrowing down which step misbehaves.</p></li>
+<li><p><strong>do_acquire</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Skip arming capture or starting acquire, respectively.  Useful
+for narrowing down which step misbehaves.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="id3c.plans.flyscan_3idc.flyscan">
+<span class="sig-prename descclassname"><span class="pre">id3c.plans.flyscan_3idc.</span></span><span class="sig-name descname"><span class="pre">flyscan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detectors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">det_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'adsimdet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flymotor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'m1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exposures_per_egu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_acquire</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taxi_allowance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'zlib'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ad_file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'flyscan'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ad_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/tmp/flyscan'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_minimum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plan_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'flyscan'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdf_t_phase_offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_consumer_tick</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">_CONSUMER_TICK_DEFAULT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_force_hdf_nonblocking</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">md</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/id3c/plans/flyscan_3idc.html#flyscan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3c.plans.flyscan_3idc.flyscan" title="Link to this definition">#</a></dt>
+<dd><p>Fly scan: move motor through range while acquiring detector frames.</p>
+<p>The motor traverses <code class="docutils literal notranslate"><span class="pre">p_initial</span> <span class="pre">→</span> <span class="pre">≤</span> <span class="pre">p_final</span></code>, maintaining constant
+velocity between <code class="docutils literal notranslate"><span class="pre">p_start</span> <span class="pre">→</span> <span class="pre">p_end</span></code> to deliver <code class="docutils literal notranslate"><span class="pre">num_frames</span></code> frames
+within <code class="docutils literal notranslate"><span class="pre">[p_start,</span> <span class="pre">p_end]</span></code>.  <code class="docutils literal notranslate"><span class="pre">p_initial</span></code> and <code class="docutils literal notranslate"><span class="pre">p_final</span></code> are
+computed from <code class="docutils literal notranslate"><span class="pre">p_start</span></code>, <code class="docutils literal notranslate"><span class="pre">p_end</span></code>, the motor’s <code class="docutils literal notranslate"><span class="pre">.ACCL</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">taxi_allowance</span></code>; <code class="docutils literal notranslate"><span class="pre">num_frames</span></code> is computed from
+<code class="docutils literal notranslate"><span class="pre">(p_end</span> <span class="pre">-</span> <span class="pre">p_start)</span> <span class="pre">*</span> <span class="pre">exposures_per_egu</span></code>.</p>
+<p>Detector frames are acquired continuously during the traverse;
+downstream processing trims the data to <code class="docutils literal notranslate"><span class="pre">[p_start,</span> <span class="pre">p_end]</span></code> by
+motor position.</p>
+<p>An HDF5 file containing every captured frame is written next to the
+run (the path is in the run metadata under <code class="docutils literal notranslate"><span class="pre">ad_file_path</span></code> /
+<code class="docutils literal notranslate"><span class="pre">ad_file_name</span></code>).</p>
+<section id="position-geometry">
+<h3>Position geometry<a class="headerlink" href="#position-geometry" title="Link to this heading">#</a></h3>
+<p>User-supplied: <code class="docutils literal notranslate"><span class="pre">p_start</span></code> and <code class="docutils literal notranslate"><span class="pre">p_end</span></code> (in-scan range).  Derived:
+<code class="docutils literal notranslate"><span class="pre">p_initial</span></code> (parked, pre-scan) and <code class="docutils literal notranslate"><span class="pre">p_final</span></code> (a conservative
+upper bound the motor is almost never actually allowed to reach —
+see below):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_initial</span>     <span class="o">&lt;</span>  <span class="n">p_start</span> <span class="o">&lt;</span>  <span class="n">p_end</span>   <span class="o">&lt;</span>  <span class="n">p_final</span>
+<span class="o">|</span>             <span class="o">|</span>          <span class="o">|</span>          <span class="o">|</span>
+<span class="o">|</span>             <span class="o">|--</span><span class="n">scan</span><span class="o">----|</span>          <span class="o">|</span>
+<span class="o">|--</span><span class="n">takeoff</span><span class="o">----|</span>          <span class="o">|--</span><span class="n">stop</span><span class="o">----|</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p_start</span></code>: the position at which the first useful frame should
+be captured.  Downstream processing trims frames captured before
+this point.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p_end</span></code>: the position at which the last useful frame should be
+captured.  When the motor crosses this point, the plan stops the
+cam (no more frames) <em>and</em> issues a controlled stop on the motor
+(decelerates at <code class="docutils literal notranslate"><span class="pre">.ACCL</span></code>).  The motor comes to rest somewhere
+between <code class="docutils literal notranslate"><span class="pre">p_end</span></code> and <code class="docutils literal notranslate"><span class="pre">p_final</span></code>, within roughly one deceleration
+distance (<code class="docutils literal notranslate"><span class="pre">≈</span> <span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">scan_velocity</span> <span class="pre">*</span> <span class="pre">.ACCL</span></code>) past <code class="docutils literal notranslate"><span class="pre">p_end</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p_initial</span></code> (derived): where the motor is parked before the
+scan, far enough below <code class="docutils literal notranslate"><span class="pre">p_start</span></code> that the motor reaches its
+scan velocity <em>before</em> it enters the acquisition region.
+Computed as <code class="docutils literal notranslate"><span class="pre">p_start</span> <span class="pre">-</span> <span class="pre">d_taxi</span> <span class="pre">-</span> <span class="pre">taxi_allowance</span></code> where
+<code class="docutils literal notranslate"><span class="pre">d_taxi</span> <span class="pre">=</span> <span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">scan_velocity</span> <span class="pre">*</span> <span class="pre">motor.ACCL</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p_final</span></code> (derived): the conservative upper bound used as the
+<em>target</em> of the scan move (<code class="docutils literal notranslate"><span class="pre">bps.abs_set(flymotor,</span> <span class="pre">p_final,</span>
+<span class="pre">group=&quot;scan&quot;)</span></code>).  The plan stops the motor before it reaches
+<code class="docutils literal notranslate"><span class="pre">p_final</span></code> — this target only matters as a “should never be
+exceeded” sentinel and as a fallback stopping point if something
+prevents the planned controlled stop.  Computed symmetric to
+<code class="docutils literal notranslate"><span class="pre">p_initial</span></code>.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">taxi_allowance</span></code> (default <code class="docutils literal notranslate"><span class="pre">0.5</span></code>, in motor EGU) is added to both
+ends as a slack margin on top of the acceleration-based distance.
+Increase it if the cam’s first/last frame is observed to fall
+outside <code class="docutils literal notranslate"><span class="pre">[p_start,</span> <span class="pre">p_end]</span></code>; decrease it if the scan takes too
+long to taxi.</p>
+<p>Position units are whatever the motor reports (<code class="docutils literal notranslate"><span class="pre">user_readback</span></code>);
+typically engineering units (mm, degrees, etc.) — the motor’s
+<code class="docutils literal notranslate"><span class="pre">.EGU</span></code> field is recorded in run metadata.</p>
+</section>
+<section id="frame-timing">
+<h3>Frame timing<a class="headerlink" href="#frame-timing" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">exposures_per_egu</span></code>: target frame density.  Combined with the
+scan range, gives <code class="docutils literal notranslate"><span class="pre">num_frames</span> <span class="pre">=</span> <span class="pre">round(1</span> <span class="pre">+</span> <span class="pre">(p_end</span> <span class="pre">-</span> <span class="pre">p_start)</span>
+<span class="pre">*</span> <span class="pre">exposures_per_egu)</span></code> (fence-post counting: one frame at each
+endpoint plus <code class="docutils literal notranslate"><span class="pre">exposures_per_egu</span></code> frames per unit between).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t_period</span></code>: seconds between successive frame exposures.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t_acquire</span></code>: per-frame exposure time, in seconds.  Defaults to
+<code class="docutils literal notranslate"><span class="pre">t_period</span></code> (continuous exposure).  Must satisfy
+<code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">t_acquire</span> <span class="pre">&lt;=</span> <span class="pre">t_period</span></code>.</p></li>
+</ul>
+<p>The scan velocity is computed as <code class="docutils literal notranslate"><span class="pre">(p_end</span> <span class="pre">-</span> <span class="pre">p_start)</span> <span class="pre">/</span> <span class="pre">(num_frames</span>
+<span class="pre">*</span> <span class="pre">t_period)</span></code>.  Pre-scan validation requires it to fall in the
+bracket <code class="docutils literal notranslate"><span class="pre">v_min</span> <span class="pre">&lt;=</span> <span class="pre">scan_velocity</span> <span class="pre">&lt;=</span> <span class="pre">v_max</span></code> where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">v_max</span></code> is the motor’s currently-configured <code class="docutils literal notranslate"><span class="pre">.VELO</span></code> (the
+operator’s chosen target velocity governs the ceiling — <code class="docutils literal notranslate"><span class="pre">.VMAX</span></code>
+is recorded as metadata but not used as the cap).  <code class="docutils literal notranslate"><span class="pre">.VELO</span></code> must
+be readable; if it isn’t, the plan refuses to run.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v_min</span></code> is <code class="docutils literal notranslate"><span class="pre">max(.VBAS,</span> <span class="pre">velocity_minimum)</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">velocity_minimum</span></code> is the kwarg below (<code class="docutils literal notranslate"><span class="pre">None</span></code> ⇒ floor is
+<code class="docutils literal notranslate"><span class="pre">.VBAS</span></code> alone).</p></li>
+</ul>
+<p>The motor’s pre-run <code class="docutils literal notranslate"><span class="pre">.VELO</span></code> is automatically restored at scan end.</p>
+</section>
+<section id="detector-file">
+<h3>Detector &amp; file<a class="headerlink" href="#detector-file" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">det_name</span></code>: ophyd device registry key for the area detector
+(default <code class="docutils literal notranslate"><span class="pre">&quot;adsimdet&quot;</span></code>).  Must be an AreaDetector with an HDF5
+plugin attached.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flymotor_name</span></code>: ophyd device registry key for the motor
+(default <code class="docutils literal notranslate"><span class="pre">&quot;m1&quot;</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compression</span></code>: HDF5 chunk compression name (default <code class="docutils literal notranslate"><span class="pre">&quot;zlib&quot;</span></code>).
+Validated against the HDF plugin’s <code class="docutils literal notranslate"><span class="pre">compression.enum_strs</span></code> at
+scan start; raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> with the allowed list if the
+value isn’t supported by the IOC’s HDF plugin build.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ad_file_name</span></code>: stem for the saved HDF5 file (default
+<code class="docutils literal notranslate"><span class="pre">&quot;flyscan&quot;</span></code>); the IOC appends an auto-incrementing number and
+the <code class="docutils literal notranslate"><span class="pre">.h5</span></code> extension.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ad_file_path</span></code>: directory on the IOC’s filesystem where the
+HDF5 file is written (default <code class="docutils literal notranslate"><span class="pre">&quot;/tmp/flyscan&quot;</span></code>).  <strong>Must exist on
+the IOC’s filesystem.</strong>  If the IOC runs in a container, this
+is the container’s view of the path, not the host’s.  The plan
+checks this before staging and raises <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> with a
+clear message if the path doesn’t exist.</p></li>
+</ul>
+</section>
+<section id="what-gets-recorded">
+<h3>What gets recorded<a class="headerlink" href="#what-gets-recorded" title="Link to this heading">#</a></h3>
+<p>Each call to <code class="docutils literal notranslate"><span class="pre">RE(flyscan(...))</span></code> produces one bluesky run
+containing:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">primary</span></code> event stream with one event per HDF frame
+accepted by the writer.  Each event records the cam and HDF
+array counters and the motor’s reported position at the moment
+the consumer drained that frame from its queue.  Treat this as
+a progress indicator and at-the-bench snapshot; use the monitor
+streams below for high-precision pairing.</p></li>
+<li><p>Three monitor streams (<code class="docutils literal notranslate"><span class="pre">adsimdet_cam_array_counter_monitor</span></code>,
+<code class="docutils literal notranslate"><span class="pre">adsimdet_hdf1_array_counter_monitor</span></code>, <code class="docutils literal notranslate"><span class="pre">m1_monitor</span></code>)
+carrying IOC-timestamped values for downstream synchronization
+of frame counters with motor position.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">baseline</span></code> stream (whatever <code class="docutils literal notranslate"><span class="pre">apsbits</span></code> configures).</p></li>
+<li><p>Metadata under <code class="docutils literal notranslate"><span class="pre">start</span></code>: user-supplied scan parameters
+(<code class="docutils literal notranslate"><span class="pre">p_start</span></code>, <code class="docutils literal notranslate"><span class="pre">p_end</span></code>, <code class="docutils literal notranslate"><span class="pre">exposures_per_egu</span></code>, <code class="docutils literal notranslate"><span class="pre">t_period</span></code>,
+<code class="docutils literal notranslate"><span class="pre">t_acquire</span></code>, <code class="docutils literal notranslate"><span class="pre">taxi_allowance</span></code>, <code class="docutils literal notranslate"><span class="pre">compression</span></code>,
+<code class="docutils literal notranslate"><span class="pre">velocity_minimum_requested</span></code>), derived geometry (<code class="docutils literal notranslate"><span class="pre">p_initial</span></code>,
+<code class="docutils literal notranslate"><span class="pre">p_final</span></code>, <code class="docutils literal notranslate"><span class="pre">num_frames</span></code>, <code class="docutils literal notranslate"><span class="pre">scan_velocity</span></code>, <code class="docutils literal notranslate"><span class="pre">d_taxi</span></code>,
+<code class="docutils literal notranslate"><span class="pre">motor_accl</span></code>, <code class="docutils literal notranslate"><span class="pre">motor_egu</span></code>), raw motor velocity values
+(<code class="docutils literal notranslate"><span class="pre">motor_velo</span></code>, <code class="docutils literal notranslate"><span class="pre">motor_velocity_max_raw</span></code>,
+<code class="docutils literal notranslate"><span class="pre">motor_velocity_base_raw</span></code>) and the effective bracket
+(<code class="docutils literal notranslate"><span class="pre">effective_v_max</span></code>, <code class="docutils literal notranslate"><span class="pre">effective_v_min</span></code>) the plan used, file
+destination, watchdog timeout, <code class="docutils literal notranslate"><span class="pre">consumer_tick</span></code>, plus anything
+you pass in <code class="docutils literal notranslate"><span class="pre">md</span></code>.</p></li>
+<li><p>An HDF5 file with the actual image data at
+<code class="docutils literal notranslate"><span class="pre">ad_file_path/ad_file_name_NNNNNN.h5</span></code>.</p></li>
+</ul>
+</section>
+<section id="common-usage">
+<h3>Common usage<a class="headerlink" href="#common-usage" title="Link to this heading">#</a></h3>
+<p>From a 3-ID-C IPython session:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">id3c.startup</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>           <span class="c1"># provides RE, oregistry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flyscan_3idc</span><span class="w"> </span><span class="kn">import</span> <span class="n">flyscan</span>
+
+<span class="c1"># 50 frames over a 5-EGU range at 20 Hz:</span>
+<span class="n">uid</span><span class="p">,</span> <span class="o">=</span> <span class="n">RE</span><span class="p">(</span><span class="n">flyscan</span><span class="p">(</span><span class="n">p_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">p_end</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">exposures_per_egu</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                  <span class="n">t_period</span><span class="o">=</span><span class="mf">0.05</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Override more defaults for a specific run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uid</span><span class="p">,</span> <span class="o">=</span> <span class="n">RE</span><span class="p">(</span><span class="n">flyscan</span><span class="p">(</span>
+    <span class="n">flymotor_name</span><span class="o">=</span><span class="s2">&quot;m1&quot;</span><span class="p">,</span>
+    <span class="n">p_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">p_end</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">exposures_per_egu</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">t_period</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">t_acquire</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">taxi_allowance</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">compression</span><span class="o">=</span><span class="s2">&quot;lz4&quot;</span><span class="p">,</span>
+    <span class="n">ad_file_path</span><span class="o">=</span><span class="s2">&quot;/tmp/myexperiment/&quot;</span><span class="p">,</span>
+    <span class="n">ad_file_name</span><span class="o">=</span><span class="s2">&quot;sample42&quot;</span><span class="p">,</span>
+    <span class="n">md</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sample&quot;</span><span class="p">:</span> <span class="s2">&quot;Ag behenate&quot;</span><span class="p">,</span> <span class="s2">&quot;operator&quot;</span><span class="p">:</span> <span class="s2">&quot;your-name&quot;</span><span class="p">},</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="common-pitfalls">
+<h3>Common pitfalls<a class="headerlink" href="#common-pitfalls" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>“file_path does not exist” RuntimeError at scan start.</strong>  The
+directory in <code class="docutils literal notranslate"><span class="pre">ad_file_path</span></code> doesn’t exist on the IOC’s
+filesystem.  If the IOC is containerized, create the directory
+inside the container or use a path that’s visible there.</p></li>
+<li><p><strong>“scan_velocity exceeds motor .VELO” ValueError.</strong> The
+requested combination of position range and frame rate would
+require the motor to move faster than its currently configured
+<code class="docutils literal notranslate"><span class="pre">.VELO</span></code>.  Either reduce <code class="docutils literal notranslate"><span class="pre">exposures_per_egu</span></code>, increase
+<code class="docutils literal notranslate"><span class="pre">t_period</span></code>, shorten <code class="docutils literal notranslate"><span class="pre">p_end</span> <span class="pre">-</span> <span class="pre">p_start</span></code>, or raise the motor’s
+<code class="docutils literal notranslate"><span class="pre">.VELO</span></code> (caveat: <code class="docutils literal notranslate"><span class="pre">.VELO</span></code> is restored to its pre-run value
+after the scan; you must change it <em>before</em> invoking the plan).</p></li>
+<li><p><strong>“scan_velocity is below effective v_min” ValueError.</strong> The
+computed velocity is below <code class="docutils literal notranslate"><span class="pre">max(.VBAS,</span> <span class="pre">velocity_minimum)</span></code>.
+Either increase <code class="docutils literal notranslate"><span class="pre">exposures_per_egu</span></code>, decrease <code class="docutils literal notranslate"><span class="pre">t_period</span></code>,
+lengthen <code class="docutils literal notranslate"><span class="pre">p_end</span> <span class="pre">-</span> <span class="pre">p_start</span></code>, or lower <code class="docutils literal notranslate"><span class="pre">velocity_minimum</span></code> /
+the motor’s <code class="docutils literal notranslate"><span class="pre">.VBAS</span></code>.</p></li>
+<li><p><strong>“Cannot determine velocity ceiling … .VELO unreadable”
+ValueError.</strong> The motor’s <code class="docutils literal notranslate"><span class="pre">.VELO</span></code> field could not be read
+(IOC down, PV typo, network drop).  Fix the IOC connection
+before retrying.</p></li>
+<li><p><strong>“compression=… not in HDF plugin’s allowed set” ValueError.</strong>
+The IOC’s HDF plugin doesn’t support the requested compression
+algorithm.  Inspect <code class="docutils literal notranslate"><span class="pre">det.hdf1.compression.enum_strs</span></code> to see
+what <em>is</em> supported by this IOC build.</p></li>
+<li><p><strong>An extra detector’s per-frame timestamp never changes
+during the scan.</strong>  The device isn’t self-updating; the
+flyscan plan does not trigger ancillary devices.  Check the
+<code class="docutils literal notranslate"><span class="pre">timestamp</span></code> field of the reading, not the value (a
+genuinely steady-state value with a moving timestamp is
+fine).  Use a CA-monitor-driven signal, or put a scaler in
+continuous mode, before adding it to <code class="docutils literal notranslate"><span class="pre">detectors</span></code>.</p></li>
+<li><p><strong>Watchdog: “no frames captured” RuntimeError mid-scan.</strong>  The
+cam isn’t delivering frames to the HDF plugin.  Likely the HDF
+plugin’s <code class="docutils literal notranslate"><span class="pre">EnableCallbacks</span></code> is <code class="docutils literal notranslate"><span class="pre">Disable</span></code>, the cam’s
+<code class="docutils literal notranslate"><span class="pre">ArrayCallbacks</span></code> is <code class="docutils literal notranslate"><span class="pre">Disable</span></code>, or the HDF plugin’s
+<code class="docutils literal notranslate"><span class="pre">NDArrayPort</span></code> doesn’t point at the cam.  The RunEngine will
+have stopped the motor; investigate the IOC and try again.</p></li>
+<li><p><strong>The scan completes but the data dictionary’s ``num_captured``
+is 0.</strong>  The IOC resets <code class="docutils literal notranslate"><span class="pre">NumCaptured_RBV</span></code> to 0 after the
+HDF5 file is closed.  Look at <code class="docutils literal notranslate"><span class="pre">full_file_name</span></code> (in
+<code class="docutils literal notranslate"><span class="pre">_cleanup</span></code>’s log line) and the actual file on disk to confirm
+what was saved.</p></li>
+<li><p><strong>“HDF plugin dropped N frame(s) during this run”
+FlyscanDataLossWarning at scan end.</strong>  The HDF plugin couldn’t
+keep up with the cam at the requested rate, and <code class="docutils literal notranslate"><span class="pre">N</span></code> frames
+the cam produced are missing from the on-disk HDF5 file.  The
+warning is emitted both to the log (WARNING level) and via
+Python’s <code class="docutils literal notranslate"><span class="pre">warnings</span></code> machinery (subclass of <code class="docutils literal notranslate"><span class="pre">UserWarning</span></code>).
+The plan uses <code class="docutils literal notranslate"><span class="pre">blocking_callbacks=&quot;Yes&quot;</span></code> on the HDF plugin
+to throttle the cam to HDF’s write rate, so this should be
+rare — when it does occur, it usually means the cam emitted a
+burst before back-pressure propagated, or the HDF queue size
+is too small.  Treat <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> as a data-integrity concern:
+increase <code class="docutils literal notranslate"><span class="pre">t_period</span></code> or reduce <code class="docutils literal notranslate"><span class="pre">exposures_per_egu</span></code>.
+Promote the warning to an exception with
+<code class="docutils literal notranslate"><span class="pre">warnings.filterwarnings(&quot;error&quot;,</span>
+<span class="pre">category=flyscan_3idc.FlyscanDataLossWarning)</span></code> to fail-fast
+in strict environments.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">param detectors<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Extra readables reported in the primary stream once per HDF
+frame, alongside <code class="docutils literal notranslate"><span class="pre">det</span></code> and <code class="docutils literal notranslate"><span class="pre">flymotor</span></code>.  The plan does
+<strong>not</strong> call <code class="docutils literal notranslate"><span class="pre">.trigger()</span></code> on these – a flyscan has no
+room to pause for ancillary triggers.  Each entry must
+update its reported value(s) on its own (CA-monitor-driven
+<code class="docutils literal notranslate"><span class="pre">EpicsSignal</span></code>, scaler in continuous mode, etc.).  A
+trigger-required device will simply report stale values
+every frame.  Default: empty.</p>
+</dd>
+<dt class="field-even">type detectors<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of ophyd Readable, optional</p>
+</dd>
+<dt class="field-odd">param det_name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ophyd registry name of the area detector to fly.</p>
+</dd>
+<dt class="field-even">type det_name<span class="colon">:</span></dt>
+<dd class="field-even"><p>str, default <code class="docutils literal notranslate"><span class="pre">&quot;adsimdet&quot;</span></code></p>
+</dd>
+<dt class="field-odd">param flymotor_name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ophyd registry name of the motor to fly.</p>
+</dd>
+<dt class="field-even">type flymotor_name<span class="colon">:</span></dt>
+<dd class="field-even"><p>str, default <code class="docutils literal notranslate"><span class="pre">&quot;m1&quot;</span></code></p>
+</dd>
+<dt class="field-odd">param p_start<span class="colon">:</span></dt>
+<dd class="field-odd"><p>First in-scan position (motor units).</p>
+</dd>
+<dt class="field-even">type p_start<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, default <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+<dt class="field-odd">param p_end<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Last in-scan position (motor units).</p>
+</dd>
+<dt class="field-even">type p_end<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, default <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
+</dd>
+<dt class="field-odd">param exposures_per_egu<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Frame density: frames per motor engineering unit.  Total
+frame count is <code class="docutils literal notranslate"><span class="pre">round(1</span> <span class="pre">+</span> <span class="pre">(p_end</span> <span class="pre">-</span> <span class="pre">p_start)</span> <span class="pre">*</span>
+<span class="pre">exposures_per_egu)</span></code>.  Must be positive.</p>
+</dd>
+<dt class="field-even">type exposures_per_egu<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, default <code class="docutils literal notranslate"><span class="pre">2.0</span></code></p>
+</dd>
+<dt class="field-odd">param t_period<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Time between successive frame exposures (seconds).</p>
+</dd>
+<dt class="field-even">type t_period<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, default <code class="docutils literal notranslate"><span class="pre">0.1</span></code></p>
+</dd>
+<dt class="field-odd">param t_acquire<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Per-frame exposure time (seconds).  <code class="docutils literal notranslate"><span class="pre">None</span></code> (default) means
+“use <code class="docutils literal notranslate"><span class="pre">t_period</span></code>” (continuous exposure).  Must satisfy
+<code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">t_acquire</span> <span class="pre">&lt;=</span> <span class="pre">t_period</span></code>.</p>
+</dd>
+<dt class="field-even">type t_acquire<span class="colon">:</span></dt>
+<dd class="field-even"><p>float or None, default <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-odd">param taxi_allowance<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Extra distance (in motor EGU) added past the
+acceleration-based taxi region at each end of the scan.
+Increase if the first/last useful frame falls outside
+<code class="docutils literal notranslate"><span class="pre">[p_start,</span> <span class="pre">p_end]</span></code>; must be non-negative.</p>
+</dd>
+<dt class="field-even">type taxi_allowance<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, default <code class="docutils literal notranslate"><span class="pre">0.5</span></code></p>
+</dd>
+<dt class="field-odd">param compression<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HDF5 chunk compression name.  Must match one of
+<code class="docutils literal notranslate"><span class="pre">det.hdf1.compression.enum_strs</span></code> if the IOC is reachable.</p>
+</dd>
+<dt class="field-even">type compression<span class="colon">:</span></dt>
+<dd class="field-even"><p>str, default <code class="docutils literal notranslate"><span class="pre">&quot;zlib&quot;</span></code></p>
+</dd>
+<dt class="field-odd">param ad_file_name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HDF5 filename stem (IOC appends a number and <code class="docutils literal notranslate"><span class="pre">.h5</span></code>).</p>
+</dd>
+<dt class="field-even">type ad_file_name<span class="colon">:</span></dt>
+<dd class="field-even"><p>str, default <code class="docutils literal notranslate"><span class="pre">&quot;flyscan&quot;</span></code></p>
+</dd>
+<dt class="field-odd">param ad_file_path<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Directory on the IOC’s filesystem to write the HDF5 file.</p>
+</dd>
+<dt class="field-even">type ad_file_path<span class="colon">:</span></dt>
+<dd class="field-even"><p>str, default <code class="docutils literal notranslate"><span class="pre">&quot;/tmp/flyscan&quot;</span></code></p>
+</dd>
+<dt class="field-odd">param velocity_minimum<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional lower bound on the computed scan velocity, in motor
+EGU per second.  The effective floor is <code class="docutils literal notranslate"><span class="pre">max(.VBAS,</span>
+<span class="pre">velocity_minimum)</span></code>; <code class="docutils literal notranslate"><span class="pre">None</span></code> (default) defers to <code class="docutils literal notranslate"><span class="pre">.VBAS</span></code>
+alone.  Must be non-negative if supplied.</p>
+</dd>
+<dt class="field-even">type velocity_minimum<span class="colon">:</span></dt>
+<dd class="field-even"><p>float or None, default <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-odd">param plan_name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Recorded in the run’s <code class="docutils literal notranslate"><span class="pre">start</span></code> document under <code class="docutils literal notranslate"><span class="pre">plan_name</span></code>.
+Wrappers should pass their own name (e.g.
+<code class="docutils literal notranslate"><span class="pre">flyscan(plan_name=&quot;my_3idc_scan&quot;,</span> <span class="pre">...)</span></code>) so the run’s
+provenance reflects the wrapper, not the inner flyscan call.
+This is explicit because bluesky’s <code class="docutils literal notranslate"><span class="pre">RunEngine</span></code> cannot
+auto-derive <code class="docutils literal notranslate"><span class="pre">plan_name</span></code> for <code class="docutils literal notranslate"><span class="pre">&#64;bluesky_plan</span></code>-decorated
+plans (the decorator wraps the generator in a <code class="docutils literal notranslate"><span class="pre">Plan</span></code> class
+instance with no <code class="docutils literal notranslate"><span class="pre">__name__</span></code> attribute, so the auto-derived
+value would be the empty string).</p>
+</dd>
+<dt class="field-even">type plan_name<span class="colon">:</span></dt>
+<dd class="field-even"><p>str, default <code class="docutils literal notranslate"><span class="pre">&quot;flyscan&quot;</span></code></p>
+</dd>
+<dt class="field-odd">param hdf_t_phase_offset<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Seconds to add to each <code class="docutils literal notranslate"><span class="pre">hdf1.array_counter</span></code> monitor-stream
+timestamp to obtain the corresponding frame’s start-of-
+acquire moment.  Used by
+<code class="docutils literal notranslate"><span class="pre">flyscan_3idc_analysis.pair_frames_to_positions</span></code> to
+compute the three per-frame positions (start_acquire,
+end_acquire, end_period) recorded in the analysis output
+and (eventually) the NeXus master file.  <code class="docutils literal notranslate"><span class="pre">None</span></code> (default)
+means “use <code class="docutils literal notranslate"><span class="pre">-t_acquire</span></code>” (<code class="docutils literal notranslate"><span class="pre">hdf_t</span></code> arrives at
+~``end_acquire``, so <code class="docutils literal notranslate"><span class="pre">start_acquire</span> <span class="pre">=</span> <span class="pre">hdf_t</span> <span class="pre">-</span> <span class="pre">t_acquire</span></code>).
+See
+<code class="docutils literal notranslate"><span class="pre">flyscan_3idc_analysis.hdf_timestamp_semantic_diagnostic</span></code>
+for determining the right value on a different IOC.</p>
+</dd>
+<dt class="field-even">type hdf_t_phase_offset<span class="colon">:</span></dt>
+<dd class="field-even"><p>float or None, default <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-odd">param _consumer_tick<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Internal: wake-up tick for the per-frame event consumer.
+Increase if your run-engine subscriptions can’t keep up;
+decrease only for very high frame rates.  Rarely needs to
+be changed.</p>
+</dd>
+<dt class="field-even">type _consumer_tick<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, default <code class="docutils literal notranslate"><span class="pre">_CONSUMER_TICK_DEFAULT</span></code> (20 ms)</p>
+</dd>
+<dt class="field-odd">param _force_hdf_nonblocking<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Internal/diagnostic.  <code class="docutils literal notranslate"><span class="pre">False</span></code> keeps the safe mode
+(<code class="docutils literal notranslate"><span class="pre">blocking_callbacks=&quot;Yes&quot;</span></code>), where the cam back-throttles
+to the HDF write rate so no frames are dropped.  <code class="docutils literal notranslate"><span class="pre">True</span></code>
+forces <code class="docutils literal notranslate"><span class="pre">blocking_callbacks=&quot;No&quot;</span></code>, letting the HDF plugin
+drop frames.  Its only legitimate use is to demonstrate the
+<code class="docutils literal notranslate"><span class="pre">FlyscanDataLossWarning</span></code> code path: set <code class="docutils literal notranslate"><span class="pre">True</span></code>, push
+<code class="docutils literal notranslate"><span class="pre">exposures_per_egu</span></code> past what the HDF can sustain, and watch
+the post-scan warning fire.  Not for production data collection.</p>
+</dd>
+<dt class="field-even">type _force_hdf_nonblocking<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, default <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt class="field-odd">param md<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Additional metadata to record under the run’s <code class="docutils literal notranslate"><span class="pre">start</span></code>
+document.  Merged on top of the plan’s computed metadata.</p>
+</dd>
+<dt class="field-even">type md<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict, optional</p>
+</dd>
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None (yields bluesky messages — pass to <code class="docutils literal notranslate"><span class="pre">RE()</span></code> to execute).</p>
+</dd>
+<dt class="field-even">raises KeyError<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">det_name</span></code> or <code class="docutils literal notranslate"><span class="pre">flymotor_name</span></code> does not resolve to the
+expected ophyd device type in the registry.</p>
+</dd>
+<dt class="field-odd">raises ValueError<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Position ordering is wrong (<code class="docutils literal notranslate"><span class="pre">p_end</span> <span class="pre">&lt;=</span> <span class="pre">p_start</span></code>),
+<code class="docutils literal notranslate"><span class="pre">exposures_per_egu</span></code> is non-positive, <code class="docutils literal notranslate"><span class="pre">taxi_allowance</span></code> is
+negative, <code class="docutils literal notranslate"><span class="pre">velocity_minimum</span></code> is negative,
+<code class="docutils literal notranslate"><span class="pre">t_acquire</span> <span class="pre">&gt;</span> <span class="pre">t_period</span></code>, computed <code class="docutils literal notranslate"><span class="pre">num_frames</span></code> is too small,
+the motor’s <code class="docutils literal notranslate"><span class="pre">.VELO</span></code> is unreadable, computed <code class="docutils literal notranslate"><span class="pre">scan_velocity</span></code>
+is outside the effective <code class="docutils literal notranslate"><span class="pre">[v_min,</span> <span class="pre">v_max]</span></code> bracket, or
+<code class="docutils literal notranslate"><span class="pre">compression</span></code> is not in the HDF plugin’s enumeration.</p>
+</dd>
+<dt class="field-even">raises RuntimeError<span class="colon">:</span></dt>
+<dd class="field-even"><p>IOC preflight failed (an expected PV did not connect), or
+the HDF plugin’s file path does not exist on the IOC’s
+filesystem, or the no-frames watchdog tripped during the
+scan.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#id3c.plans.flyscan_3idc.configure_adsimdet" title="id3c.plans.flyscan_3idc.configure_adsimdet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure_adsimdet</span></code></a></dt><dd><p>Standalone diagnostic that exercises the same AD acquisition protocol without a plan or RunEngine.  Useful for triaging an IOC that’s misbehaving.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_flyscan_geometry</span></code></dt><dd><p>Pure-function helper that derives <code class="docutils literal notranslate"><span class="pre">p_initial</span></code>, <code class="docutils literal notranslate"><span class="pre">p_final</span></code>, and <code class="docutils literal notranslate"><span class="pre">num_frames</span></code> from the user-supplied kwargs; unit- testable without an IOC.</p>
+</dd>
+</dl>
+</div>
+</section>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../ad_plugins/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">id3c.plans.ad_plugins</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../sim_plans/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">id3c.plans.sim_plans</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-outline">General outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3c.plans.flyscan_3idc.configure_adsimdet"><code class="docutils literal notranslate"><span class="pre">configure_adsimdet()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3c.plans.flyscan_3idc.flyscan"><code class="docutils literal notranslate"><span class="pre">flyscan()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/BCDA-APS/3idc-bits/edit/main/docs/source/api/id3c/plans/flyscan_3idc/index.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../_sources/api/id3c/plans/flyscan_3idc/index.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2014-2026, APS.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
