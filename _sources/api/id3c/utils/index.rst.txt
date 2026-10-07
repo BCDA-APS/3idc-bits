@@ -1,0 +1,21 @@
+id3c.utils
+==========
+
+.. py:module:: id3c.utils
+
+.. autoapi-nested-parse::
+
+   Package containing utility functions and classes for the instrument.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/id3c/utils/flyscan_3idc_analysis/index
+   /api/id3c/utils/flyscan_repair/index
+
+

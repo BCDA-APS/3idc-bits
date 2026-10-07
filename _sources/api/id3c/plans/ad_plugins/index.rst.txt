@@ -1,0 +1,72 @@
+id3c.plans.ad_plugins
+=====================
+
+.. py:module:: id3c.plans.ad_plugins
+
+.. autoapi-nested-parse::
+
+   Support for area detector file plugins (HDF5, TIFF, ...).
+
+   .. autosummary::
+       ~read_ad_plugin_components
+       ~set_ad_plugin_components
+
+   The set of components visible to either helper is determined by each
+   component's ``kind`` (``hinted``, ``normal``, or ``config``).  To
+   expose or hide a component, adjust its ``kind`` attribute (for
+   example ``eiger2.hdf1.num_capture.kind = "config"``).
+
+   The set helper is intended for plugin configuration *before*
+   acquisition -- an alternative to ophyd's staging process.  Actionable
+   signals (``capture``, ``acquire``, ...) are normally driven by
+   staging and should not be set through this helper.  Order of the
+   ``bps.mv`` calls inside the set helper is undefined; if ordering
+   matters, make separate calls.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.plans.ad_plugins.REPORTABLE_KINDS
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.plans.ad_plugins.read_ad_plugin_components
+   id3c.plans.ad_plugins.set_ad_plugin_components
+
+
+Module Contents
+---------------
+
+.. py:data:: REPORTABLE_KINDS
+
+.. py:function:: read_ad_plugin_components(plugin)
+
+   Print a table of plugin components (access, name, current value).
+
+   Diagnostic only.  Use this interactively to discover which keys
+   can be passed to :func:`set_ad_plugin_components`.  Components
+   whose ``.read()`` returns no ``value`` field are skipped.
+
+
+.. py:function:: set_ad_plugin_components(plugin, /, **kwargs)
+
+   Set plugin components by keyword.
+
+   Each keyword names a component on ``plugin``; the value is the
+   new setpoint.  All writes are issued through a single
+   ``bps.mv(...)`` and complete in parallel; order is undefined.
+
+   :raises TypeError: any kwarg names a component that is not writable.
+   :raises KeyError: any kwarg names a component the helper does not
+       see (unknown name, or its ``kind`` is
+       ``omitted``).
+
+

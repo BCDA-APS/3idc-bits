@@ -1,0 +1,68 @@
+id3c.tests.test_ensure_ad_files_symlink
+=======================================
+
+.. py:module:: id3c.tests.test_ensure_ad_files_symlink
+
+.. autoapi-nested-parse::
+
+   Tests for ``id3c.plans.flyscan_3idc._ensure_ad_files_symlink``.
+
+   The plan auto-creates the per-detector image-files symlink
+   (``{det.name}_files``) next to the master file when it is safe to do
+   so, and falls back to a descriptive WARNING otherwise.  It must never
+   raise.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_ensure_ad_files_symlink.test_creates_symlink_when_target_exists
+   id3c.tests.test_ensure_ad_files_symlink.test_symlink_name_follows_detector_name
+   id3c.tests.test_ensure_ad_files_symlink.test_idempotent_when_link_already_present
+   id3c.tests.test_ensure_ad_files_symlink.test_existing_plain_directory_is_accepted
+   id3c.tests.test_ensure_ad_files_symlink.test_warns_when_target_unknown
+   id3c.tests.test_ensure_ad_files_symlink.test_warns_when_target_does_not_exist
+   id3c.tests.test_ensure_ad_files_symlink.test_never_raises_on_unwritable_master_dir
+
+
+Module Contents
+---------------
+
+.. py:function:: test_creates_symlink_when_target_exists(tmp_path)
+
+   A resolvable mount yields a real symlink named {det.name}_files.
+
+
+.. py:function:: test_symlink_name_follows_detector_name(tmp_path)
+
+   The link name tracks det.name (e.g. pilatus -> pilatus_files).
+
+
+.. py:function:: test_idempotent_when_link_already_present(tmp_path)
+
+   An existing link of any kind is left untouched and accepted.
+
+
+.. py:function:: test_existing_plain_directory_is_accepted(tmp_path)
+
+   A plain directory of the right name is accepted, not replaced.
+
+
+.. py:function:: test_warns_when_target_unknown(tmp_path, caplog)
+
+   No read_path_template -> no link created, a WARNING is emitted.
+
+
+.. py:function:: test_warns_when_target_does_not_exist(tmp_path, caplog)
+
+   A read_path_template that points nowhere -> no link, WARNING.
+
+
+.. py:function:: test_never_raises_on_unwritable_master_dir(tmp_path, caplog)
+
+   A non-existent master_dir (cannot symlink into) -> False, no raise.
+
+

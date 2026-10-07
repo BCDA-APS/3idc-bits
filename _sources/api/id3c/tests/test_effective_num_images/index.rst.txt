@@ -1,0 +1,58 @@
+id3c.tests.test_effective_num_images
+====================================
+
+.. py:module:: id3c.tests.test_effective_num_images
+
+.. autoapi-nested-parse::
+
+   Tests for ``effective_num_images``.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_effective_num_images.test_short_period_caps_at_unlimited_frames
+   id3c.tests.test_effective_num_images.test_long_period_caps_at_max_seconds
+   id3c.tests.test_effective_num_images.test_crossover_at_max_over_unlimited
+   id3c.tests.test_effective_num_images.test_returns_at_least_one
+   id3c.tests.test_effective_num_images.test_zero_period_clamped
+   id3c.tests.test_effective_num_images.test_observed_failing_combo_is_capped
+
+
+Module Contents
+---------------
+
+.. py:function:: test_short_period_caps_at_unlimited_frames()
+
+   Short t_period -> capped by UNLIMITED_FRAMES, not by duration.
+
+
+.. py:function:: test_long_period_caps_at_max_seconds()
+
+   Long t_period -> capped by MAX_ACQUISITION_SECONDS / t_period.
+
+
+.. py:function:: test_crossover_at_max_over_unlimited()
+
+   Crossover happens at t_period = MAX_ACQUISITION_SECONDS / UNLIMITED_FRAMES.
+
+
+.. py:function:: test_returns_at_least_one()
+
+   Even a pathologically long t_period returns >= 1.
+
+
+.. py:function:: test_zero_period_clamped()
+
+   t_period <= 0 must not divide-by-zero; returns UNLIMITED_FRAMES.
+
+
+.. py:function:: test_observed_failing_combo_is_capped()
+
+   The 2026-06-16 failing combo (1_000_000 frames at 1 s period,
+   = 1_000_000 s ~= 11.6 days) is reduced to a safe value.
+
+

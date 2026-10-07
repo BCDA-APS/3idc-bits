@@ -1,0 +1,11 @@
+id3c.configs
+============
+
+.. py:module:: id3c.configs
+
+.. autoapi-nested-parse::
+
+   Configs required to set up user package
+
+
+

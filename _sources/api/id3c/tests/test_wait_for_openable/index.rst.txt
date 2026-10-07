@@ -1,0 +1,55 @@
+id3c.tests.test_wait_for_openable
+=================================
+
+.. py:module:: id3c.tests.test_wait_for_openable
+
+.. autoapi-nested-parse::
+
+   Tests for ``id3c.plans.flyscan_3idc._wait_for_openable``.
+
+   Pure-Python: builds real HDF5 files in a tmp dir, no IOC, no
+   ophyd, no bluesky.  Exercises the success path, the
+   missing-file path, and the bounded-timeout behaviour.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_wait_for_openable.test_wait_for_openable_returns_true_for_existing_file
+   id3c.tests.test_wait_for_openable.test_wait_for_openable_returns_false_for_missing_file
+   id3c.tests.test_wait_for_openable.test_wait_for_openable_returns_false_for_non_hdf5_path
+   id3c.tests.test_wait_for_openable.test_wait_for_openable_append_mode_works
+   id3c.tests.test_wait_for_openable.test_wait_for_openable_respects_timeout_budget
+
+
+Module Contents
+---------------
+
+.. py:function:: test_wait_for_openable_returns_true_for_existing_file(tmp_path)
+
+   A valid HDF5 file opens on the first try.
+
+
+.. py:function:: test_wait_for_openable_returns_false_for_missing_file(tmp_path)
+
+   A nonexistent path returns False after retries (no raise).
+
+
+.. py:function:: test_wait_for_openable_returns_false_for_non_hdf5_path(tmp_path)
+
+   A path that exists but is not a valid HDF5 file returns False.
+
+
+.. py:function:: test_wait_for_openable_append_mode_works(tmp_path)
+
+   Append mode opens a writable file successfully.
+
+
+.. py:function:: test_wait_for_openable_respects_timeout_budget(tmp_path)
+
+   Helper exits within the timeout budget on persistent failure.
+
+

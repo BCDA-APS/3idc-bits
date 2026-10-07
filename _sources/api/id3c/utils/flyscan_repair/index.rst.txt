@@ -1,0 +1,97 @@
+id3c.utils.flyscan_repair
+=========================
+
+.. py:module:: id3c.utils.flyscan_repair
+
+.. autoapi-nested-parse::
+
+   Repair tool: add ``/entry/flyscan_data`` to an existing master file.
+
+   A flyscan master file is missing ``/entry/flyscan_data`` when the
+   area-detector file was not reachable at run end (most commonly the
+   image-files symlink next to the master was missing or mis-shaped).
+   Once the symlink is fixed, this tool recomputes the per-frame pairing
+   and writes the group, producing the same on-disk layout the live plan
+   would have written.
+
+   Console script (see ``pyproject.toml``)::
+
+       id3c-flyscan-repair MASTER.hdf [--external-file PATH] [--dry-run]
+
+   The run is identified by the uid stored in the master file at
+   ``/entry/entry_identifier``; the catalog is read from
+   ``id3c.startup.cat``.  The area-detector file is located from the
+   master's existing ``/entry/images`` external link, or composed from
+   the ``ad_file_path`` / ``ad_file_name`` start-document metadata.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.utils.flyscan_repair.logger
+   id3c.utils.flyscan_repair.ENTRY_IDENTIFIER
+   id3c.utils.flyscan_repair.IMAGES_ADDR
+   id3c.utils.flyscan_repair.AD_FILE_NUMBER_SUFFIX
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.utils.flyscan_repair.read_run_uid
+   id3c.utils.flyscan_repair.resolve_external_file
+   id3c.utils.flyscan_repair.repair_master_file
+   id3c.utils.flyscan_repair.main
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:data:: ENTRY_IDENTIFIER
+   :value: '/entry/entry_identifier'
+
+
+.. py:data:: IMAGES_ADDR
+   :value: '/entry/images'
+
+
+.. py:data:: AD_FILE_NUMBER_SUFFIX
+   :value: '_000001.h5'
+
+
+.. py:function:: read_run_uid(master_file)
+
+   Return the run uid stored in the master file, or None.
+
+
+.. py:function:: resolve_external_file(master_file)
+
+   Return the area-detector file path resolvable from the master.
+
+   Prefers the existing ``/entry/images`` external-link target
+   (resolved relative to the master's directory through the
+   image-files symlink).  Falls back to composing the IOC path from
+   the ``ad_file_path`` / ``ad_file_name`` start metadata.  Returns
+   ``None`` if neither is available.
+
+
+.. py:function:: repair_master_file(master_file, *, external_file=None, dry_run=False)
+
+   Recompute and write ``/entry/flyscan_data`` into ``master_file``.
+
+   Returns a summary dict.  Raises on unrecoverable conditions
+   (no uid, no AD file, AD file not openable, 0 paired frames) so the
+   CLI can report a non-zero exit.
+
+
+.. py:function:: main(argv=None)
+
+   Console-script entry point.
+
+

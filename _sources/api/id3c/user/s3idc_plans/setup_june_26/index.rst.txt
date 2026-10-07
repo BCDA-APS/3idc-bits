@@ -1,0 +1,421 @@
+id3c.user.s3idc_plans.setup_june_26
+===================================
+
+.. py:module:: id3c.user.s3idc_plans.setup_june_26
+
+.. autoapi-nested-parse::
+
+   3-ID-C data-acquisition plans -- S3IDC commissioning beamtime (June 2026).
+
+   These plans were developed and tested during the development cycle from
+   15 June to 2 July 2026 -- the beamtime in which Bluesky was commissioned for
+   the S3IDC (3-ID-C) beamline.  Developed and tested by Dishant Beniwal,
+   Barbara Lavina and Peter Jemian.
+
+   Detailed, hand-tuned plans for 3-ID-C data collection.  Author these
+   as ``@plan``-decorated generators and run them through the RunEngine::
+
+       from id3c.user.s3idc_plans.setup_june_26 import omega_fly
+       RE(omega_fly())
+
+   Conventions (see ../../AGENTS.md and docs/running_scans_at_3idc.md):
+
+   * Decorate every plan / plan-stub with ``@plan`` so a forgotten
+     ``RE(...)`` warns instead of silently doing nothing.
+   * Compose with ``yield from``; never call a plan bare inside another.
+   * Look devices up by name from the module-level ``oregistry``
+     (imported from ``apsbits.core.instrument_init``, the same way the
+     library ``flyscan`` plan does) -- not via ``@with_registry`` and not
+     via session globals.
+   * Pass an explicit ``plan_name=`` to wrapped library plans (e.g.
+     ``flyscan``) so the run's provenance reflects *this* wrapper.
+
+   GUI-parseable docstrings (IMPORTANT -- keep consistent across ALL plans)
+   -----------------------------------------------------------------------
+   The Bluesky Plan Runner GUI builds each plan's parameter form directly
+   from its docstring + signature (no import, AST only), so every plan MUST
+   document its arguments in one fixed grammar.  Use a standard NumPy
+   ``Parameters`` section with one entry per argument::
+
+       <name> : <dtype>[ [<units>]]
+           <short name> :: <long description, may wrap over indented lines>
+
+   * ``<dtype>`` is one of ``str``, ``int``, ``float``, ``bool``,
+     ``choice{opt1, opt2, ...}`` or ``positions`` (multi-line triples).
+   * ``[<units>]`` is optional, e.g. ``[deg]``, ``[mm]``, ``[s]``, ``[1/deg]``.
+   * The body is split on the first `` :: `` -- left = the short field label,
+     right = the long help text (shown as a tooltip).
+   * Defaults and required-ness come from the **signature**, never the
+     docstring: no default => required; a ``None`` default => the field is
+     optional and left blank omits the argument.
+   * Arguments left OUT of the ``Parameters`` section (e.g. ``md``) are hidden
+     from the GUI.  The plan summary shown in the GUI is this docstring's first
+     paragraph.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.user.s3idc_plans.setup_june_26.sweep_xy_integrate_one
+   id3c.user.s3idc_plans.setup_june_26.sweep_xy_integrate_steps
+   id3c.user.s3idc_plans.setup_june_26.omega_fly
+   id3c.user.s3idc_plans.setup_june_26.omega_fly_at_det_steps
+   id3c.user.s3idc_plans.setup_june_26.omega_fly_at_sam_steps
+   id3c.user.s3idc_plans.setup_june_26.fixed_exp_at_det_steps
+
+
+Module Contents
+---------------
+
+.. py:function:: sweep_xy_integrate_one(x_start: float, x_end: float, y_start: float, y_end: float, exposure_time: float, n_rows: int = 5, file_name: str = 'sweep1', file_path: str = '/home/sector3/s3ida/XRD/2026-2/setup/June17/', open_shutter: bool = True, file_write_mode: str = 'Capture')
+
+   Integrate ONE detector image while rastering the sample in X-Y.
+
+   omega is left fixed.  ``sample_stage.xprime`` (X) sweeps
+   back-and-forth across ``[x_start, x_end]`` while ``sample_stage.base_y``
+   (Y) steps from ``y_start`` to ``y_end`` over ``n_rows`` rows (a
+   serpentine raster) -- all during a SINGLE Eiger exposure of
+   ``exposure_time`` seconds.  The detector integrates the diffraction
+   from the whole X-Y area into one image, which is then saved to a
+   single HDF5 file.  Conceptually like ``omega_fly`` but the sample
+   is translated (not rotated) and only one collective frame is recorded.
+
+   The X sweep speed is derived so the raster fills the exposure window::
+
+       v_x = n_rows * |x_end - x_start| / exposure_time
+
+   (Y-step and acceleration overhead make the real raster slightly
+   exceed ``exposure_time``; if the last row looks cut off, raise
+   ``exposure_time`` or lower ``n_rows``.)
+
+   :param x_start: X start :: Start of the X (sample_stage.xprime) sweep range.
+   :type x_start: float [mm]
+   :param x_end: X end :: End of the X (sample_stage.xprime) sweep range.
+   :type x_end: float [mm]
+   :param y_start: Y start :: Start of the Y (sample_stage.base_y) range.
+   :type y_start: float [mm]
+   :param y_end: Y end :: End of the Y range, split into n_rows rows.
+   :type y_end: float [mm]
+   :param exposure_time: Exposure time :: Single-frame integration time; also the target
+                         raster duration.
+   :type exposure_time: float [s]
+   :param n_rows: Number of Y rows :: Rows in the serpentine raster (>= 1).
+   :type n_rows: int
+   :param file_name: File name :: Output HDF5 base file name.
+   :type file_name: str
+   :param file_path: File path :: IOC-side directory the HDF5 file is written to.
+   :type file_path: str
+   :param open_shutter: Open shutter :: Open shutterc for the exposure, then close it (always,
+                        even on error).  Needed or the frame integrates with no beam.
+   :type open_shutter: bool
+   :param file_write_mode: HDF write mode :: HDF1 plugin file write mode.  Capture arms capture
+                           and explicitly flushes the file (the mode tested on this Eiger).
+   :type file_write_mode: choice{Capture, Single}
+
+   .. note::
+
+      This plan drives the detector directly (no Bluesky run / catalog entry
+      is opened) -- it produces the HDF5 file only, like a manual capture.
+
+      Example::
+
+          RE(sweep_xy_integrate_one(-1, 1, -1, 1, exposure_time=10))
+          RE(sweep_xy_integrate_one(0, 2, 0, 2, exposure_time=30, n_rows=10,
+                                    file_name="sampleA"))
+
+
+.. py:function:: sweep_xy_integrate_steps(x_start: float, x_end: float, y_start: float, y_end: float, total_time: float, frame_period: float, frame_exposure: float = None, n_rows: int = 5, file_name: str = 'sweepN', file_path: str = '/home/sector3/s3ida/XRD/2026-2/setup/June17/', open_shutter: bool = True, file_write_mode: str = 'Capture')
+
+   Raster the sample in X-Y while saving SEVERAL frames along the path.
+
+   Like ``sweep_xy_integrate_one`` (omega fixed; ``sample_stage.xprime`` (X) sweeps
+   serpentine across ``[x_start, x_end]`` while ``sample_stage.base_y``
+   (Y) steps over ``n_rows`` rows), **except** instead of integrating the
+   whole raster into one image, the detector free-runs at a fixed
+   ``frame_period`` so it records a *series* of frames evenly spaced in
+   time -- i.e. at regular positions along the continuous raster path.
+   All frames land in a single HDF5 (Capture-mode) file.
+
+   Frame count is derived from the requested timing::
+
+       n_frames       = round(total_time / frame_period)   # >= 1
+       effective_total = n_frames * frame_period            # actual sweep duration
+       v_x            = n_rows * |x_end - x_start| / effective_total
+
+   ``effective_total`` (and thus the X sweep velocity) is snapped to a
+   whole number of frames so the motion and the acquisition span the same
+   window -- frame ``i`` is exposed during ``[i*frame_period,
+   (i+1)*frame_period]`` and so corresponds to a known sub-segment of the
+   serpentine path.  Each frame integrates ``frame_exposure`` seconds
+   (<= ``frame_period``; ``None`` => ``frame_period``, continuous).
+
+   :param x_start: X start :: Start of the X (sample_stage.xprime) sweep range.
+   :type x_start: float [mm]
+   :param x_end: X end :: End of the X (sample_stage.xprime) sweep range.
+   :type x_end: float [mm]
+   :param y_start: Y start :: Start of the Y (sample_stage.base_y) range.
+   :type y_start: float [mm]
+   :param y_end: Y end :: End of the Y range, split into n_rows rows.
+   :type y_end: float [mm]
+   :param total_time: Total raster time :: Target total duration of the whole raster;
+                      snapped to a whole number of frame_period frames.
+   :type total_time: float [s]
+   :param frame_period: Frame period :: Time between successive saved frames; sets how finely
+                        the path is sampled (n_frames = round(total_time / frame_period)).
+   :type frame_period: float [s]
+   :param frame_exposure: Frame exposure :: Per-frame integration time (<= frame period); blank
+                          uses the frame period.
+   :type frame_exposure: float [s]
+   :param n_rows: Number of Y rows :: Rows in the serpentine raster (>= 1).
+   :type n_rows: int
+   :param file_name: File name :: Output HDF5 base file name.
+   :type file_name: str
+   :param file_path: File path :: IOC-side directory the HDF5 file is written to.
+   :type file_path: str
+   :param open_shutter: Open shutter :: Open shutterc for the sweep, then close it (always,
+                        even on error).  Needed or the frames integrate with no beam.
+   :type open_shutter: bool
+   :param file_write_mode: HDF write mode :: HDF1 plugin file write mode.  Capture arms capture
+                           and explicitly flushes the file (the mode tested on this Eiger).
+   :type file_write_mode: choice{Capture, Single}
+
+   .. note::
+
+      Like ``sweep_xy_integrate_one``, this drives the detector directly (no Bluesky run /
+      catalog entry is opened) -- it produces one HDF5 file with ``n_frames``
+      images.  Frame<->position mapping is implicit in the path geometry and
+      even time spacing (this plan does NOT do the timestamp-based pairing
+      that ``flyscan`` does); the first frame may carry a little extra
+      latency before motion is fully underway.
+
+      Example::
+
+          # 20 s sweep, one frame every 2 s -> 10 frames along the path
+          RE(sweep_xy_integrate_steps(-1, 1, -1, 1, total_time=20, frame_period=2))
+          RE(sweep_xy_integrate_steps(0, 2, 0, 2, total_time=60, frame_period=1,
+                             n_rows=10, file_name="sampleA"))
+
+
+.. py:function:: omega_fly(file_name: str = 'omeFly', file_path: str = '/home/sector3/s3ida/XRD/2026-2/setup/June17/', p_start: float = -5, p_end: float = 5, exposures_per_egu: float = 2, t_period: float = 1.0, t_acquire: float = None, md: dict = None)
+
+   Continuous fly scan of ``sample_stage.omega`` with the Eiger2.
+
+   Rotates omega from ``p_start`` to ``p_end`` while ``eiger2`` acquires
+   continuously, saving one HDF5 (Capture-mode) file in ``file_path``.
+
+   omega is interlocked against ``laser_optics`` (it will not move
+   unless the optics are OUT), so this plan retracts the laser optics
+   first.
+
+   Defaults reproduce: omega -45 -> +45 deg, 900 steps, ~10 s/degree.
+
+   :param file_name: File name :: Output HDF5 base file name.
+   :type file_name: str
+   :param file_path: File path :: IOC-side directory the HDF5 file is written to.
+   :type file_path: str
+   :param p_start: omega start :: Omega angle at which the continuous rotation begins.
+   :type p_start: float [deg]
+   :param p_end: omega end :: Omega angle at which the rotation ends.
+   :type p_end: float [deg]
+   :param exposures_per_egu: Exposures per degree :: Frames acquired per degree of omega travel.
+   :type exposures_per_egu: float [1/deg]
+   :param t_period: Frame period :: Time between successive frames.
+   :type t_period: float [s]
+   :param t_acquire: Exposure per frame :: Per-frame exposure (<= frame period); blank uses
+                     the frame period.
+   :type t_acquire: float [s]
+   :param Example::: RE(omega_fly())
+                     RE(omega_fly(file_name="sampleA", p_start=0, p_end=180))
+
+
+.. py:function:: omega_fly_at_det_steps(positions, file_name: str = 'omeFly_det', file_path: str = '/home/sector3/s3ida/XRD/2026-2/setup/June17/', p_start: float = -5, p_end: float = 5, exposures_per_egu: float = 2, t_period: float = 1.0, t_acquire: float = None, start_index: int = 1, md: dict = None)
+
+   Run ``omega_fly`` once at each detector ``(det_x, eiger_y, eiger_z)``.
+
+   ``positions`` is a list of ``(det_x, eiger_y, eiger_z)`` triples --
+   always in that fixed axis order.  For each triple (in order): move
+   ``detector_stage`` ``det_x``, ``eiger_y`` and ``eiger_z`` together,
+   then run ``omega_fly`` with identical scan settings.
+
+   File naming uses the **actual detector positions read back from the
+   motor PVs after the move** (not the requested values), each rounded
+   to the nearest integer::
+
+       <file_name>_<X>_<Y>_<Z>_000001
+
+   where ``<X>``/``<Y>``/``<Z>`` are the rounded integer readbacks of
+   ``det_x`` / ``eiger_y`` / ``eiger_z``, and ``_000001`` is the IOC's
+   trailing counter (constant, since the flyscan resets it each run).
+
+   The series index plus the requested and actual positions of all three
+   axes are recorded in each run's metadata, and the full-precision actual
+   positions are also written into the produced HDF5 file under
+   ``/entry/instrument/detector_stage`` (best-effort).
+
+   :param positions: Detector positions :: One (det_x, eiger_y, eiger_z) triple per line;
+                     omega_fly runs once at each, in order.
+   :type positions: positions [mm]
+   :param file_name: File name :: Output HDF5 base file name (per-position suffix appended).
+   :type file_name: str
+   :param file_path: File path :: IOC-side directory the HDF5 files are written to.
+   :type file_path: str
+   :param p_start: omega start :: Omega angle at which each rotation begins.
+   :type p_start: float [deg]
+   :param p_end: omega end :: Omega angle at which each rotation ends.
+   :type p_end: float [deg]
+   :param exposures_per_egu: Exposures per degree :: Frames acquired per degree of omega travel.
+   :type exposures_per_egu: float [1/deg]
+   :param t_period: Frame period :: Time between successive frames.
+   :type t_period: float [s]
+   :param t_acquire: Exposure per frame :: Per-frame exposure (<= frame period); blank uses
+                     the frame period.
+   :type t_acquire: float [s]
+   :param start_index: Start index :: First value of the per-run series index recorded in metadata.
+   :type start_index: int
+   :param Example::: RE(omega_fly_at_det_steps([(100, 0, 50), (150, 0, 50), (200, 0, 50)]))
+                     RE(omega_fly_at_det_steps([(0, 0, 0), (5, 0, 10)], file_name="sampleA",
+                                                 p_start=-45, p_end=45))
+
+
+.. py:function:: omega_fly_at_sam_steps(x_start: float, x_end: float, n_x: int, y_start: float, y_end: float, n_y: int, file_name: str = 'omeFly_sam', file_path: str = '/home/sector3/s3ida/XRD/2026-2/setup/June17/', p_start: float = -5, p_end: float = 5, exposures_per_egu: float = 2, t_period: float = 1.0, t_acquire: float = None, start_index: int = 1, md: dict = None)
+
+   Run an ``omega_fly`` at each sample (samX, samY) grid position.
+
+   Rasters the *sample* over a rectangular grid of ``n_x`` x ``n_y``
+   positions -- ``samX`` is ``sample_stage.xprime`` and ``samY`` is
+   ``sample_stage.base_y`` (the same axes
+   ``sweep_xy_integrate_one``/``sweep_xy_integrate_steps``
+   translate) -- and at every grid point runs a full ``omega_fly``
+   (continuous omega fly with the Eiger2, one HDF5 file per point).
+
+   Grid traversal (NOT serpentine).  Rows are visited from ``y_start`` to
+   ``y_end``; within **every** row ``samX`` always runs from the negative
+   (lower) X to the positive (higher) X.  When ``samY`` steps to the next
+   row, ``samX`` resets back to the negative end -- so the X sweep
+   direction is identical for every row::
+
+       samY = y_rows[0]:  x_lo -> ... -> x_hi
+       samY = y_rows[1]:  x_lo -> ... -> x_hi      (samX restarts at x_lo)
+       ...
+
+   (``x_start``/``x_end`` may be passed in either order; the samX columns
+   are always ordered low->high so the sweep goes negative->positive.)
+
+   File naming.  Each point's HDF5 base name carries that point's
+   *requested* sample coordinates::
+
+       <file_name>_<x>_<y>_000001
+
+   where ``<x>``/``<y>`` are the commanded samX/samY grid values rounded
+   to 2 decimals (decimal point written as ``p``, e.g. ``-0p5_1p25``) and
+   ``_000001`` is the IOC's trailing counter (constant per run), e.g.
+   ``omeFly_sam_-1_0p5_000001``.
+
+   :param x_start: samX start :: samX (sample_stage.xprime) grid limit; ordered
+                   internally so the sweep is always low->high.
+   :type x_start: float [mm]
+   :param x_end: samX end :: samX (sample_stage.xprime) grid limit; ordered internally
+                 so the sweep is always low->high.
+   :type x_end: float [mm]
+   :param n_x: Number of samX columns :: Number of samX grid columns (>= 1).
+   :type n_x: int
+   :param y_start: samY start :: samY (sample_stage.base_y) grid limit; rows are visited
+                   in the order given (y_start -> y_end).
+   :type y_start: float [mm]
+   :param y_end: samY end :: samY (sample_stage.base_y) grid limit; rows are visited in
+                 the order given (y_start -> y_end).
+   :type y_end: float [mm]
+   :param n_y: Number of samY rows :: Number of samY grid rows (>= 1).
+   :type n_y: int
+   :param file_name: File name :: Output HDF5 base name; a _<x>_<y> position suffix is
+                     appended per point.
+   :type file_name: str
+   :param file_path: File path :: IOC-side directory the HDF5 files are written to.
+   :type file_path: str
+   :param p_start: omega start :: Omega angle at which each rotation begins.
+   :type p_start: float [deg]
+   :param p_end: omega end :: Omega angle at which each rotation ends.
+   :type p_end: float [deg]
+   :param exposures_per_egu: Exposures per degree :: Frames acquired per degree of omega travel.
+   :type exposures_per_egu: float [1/deg]
+   :param t_period: Frame period :: Time between successive frames.
+   :type t_period: float [s]
+   :param t_acquire: Exposure per frame :: Per-frame exposure (<= frame period); blank uses
+                     the frame period.
+   :type t_acquire: float [s]
+   :param start_index: Start index :: First value of the per-point series index recorded in metadata.
+   :type start_index: int
+
+   .. note::
+
+      Each ``omega_fly`` retracts ``laser_optics`` (the omega interlock)
+      and opens its own Bluesky run + HDF5 file, exactly as a standalone
+      ``omega_fly`` would.  The detector is forced idle once the whole
+      series finishes -- or is aborted partway through -- best-effort.
+
+      Example::
+
+          # 3 samX columns x 2 samY rows = 6 omega flyscans
+          RE(omega_fly_at_sam_steps(-1, 1, 3, 0, 0.5, 2))
+          RE(omega_fly_at_sam_steps(-2, 2, 5, -1, 1, 3, file_name="sampleA",
+                                p_start=-45, p_end=45))
+
+
+.. py:function:: fixed_exp_at_det_steps(scan_axis: str = 'det_x', start: float = -25, end: float = 100, spacing: float = 5, exposure_time: float = 2.0, det_x: float = None, eiger_y: float = None, eiger_z: float = None, file_name: str = 'fixExp_det', file_path: str = '/home/sector3/s3ida/XRD/2026-2/setup/June17/', open_shutter: bool = True, file_write_mode: str = 'Capture', md: dict = None)
+
+   Step scan of ONE detector_stage axis, built on ``bp.list_scan``.
+
+   Uses ``list_scan`` as the engine -- it opens a Bluesky **run**
+   (documents + Tiled catalog entry) over the list of positions -- but a
+   custom ``per_step`` drives the detector at each point so every position
+   gets its **own** HDF5 file named by *that point's* detector geometry as
+   ``<file_name>_<X>_<Y>_<Z>_NNNNNN`` (X=det_x, Y=eiger_y, Z=eiger_z,
+   rounded to int; ``_NNNNNN`` is the IOC counter), e.g.
+   ``fixExp_det_-25_7_30_000001``.  The
+   detector is therefore NOT passed to ``list_scan`` as a staged detector
+   (``detectors=[]``); instead the per-step opens the cam + HDF plugin,
+   exposes one frame, writes the file, and closes them -- and records the
+   three axis readbacks (and the data file name) into the run's ``primary``
+   stream, so positions are also in the catalog.
+
+   Moves ``detector_stage.<scan_axis>`` from ``start`` to ``end`` in
+   ``spacing``-sized steps (inclusive of ``end`` when divisible; never
+   overshoots); the other two axes are held at the values you pass.
+
+   :param scan_axis: Scan axis :: Which detector_stage axis to step.
+   :type scan_axis: choice{det_x, eiger_y, eiger_z}
+   :param start: Start :: First position of scan_axis.
+   :type start: float [mm]
+   :param end: End :: Last position of scan_axis (inclusive when divisible).
+   :type end: float [mm]
+   :param spacing: Step size :: Step between successive positions (> 0).
+   :type spacing: float [mm]
+   :param exposure_time: Exposure time :: Per-point exposure; sets eiger2.cam.acquire_time.
+   :type exposure_time: float [s]
+   :param det_x: det_x fixed :: Fixed det_x for the non-scanned axis; leave blank when
+                 det_x is the scan axis.
+   :type det_x: float [mm]
+   :param eiger_y: eiger_y fixed :: Fixed eiger_y for the non-scanned axis; leave blank
+                   when eiger_y is the scan axis.
+   :type eiger_y: float [mm]
+   :param eiger_z: eiger_z fixed :: Fixed eiger_z for the non-scanned axis; leave blank
+                   when eiger_z is the scan axis.
+   :type eiger_z: float [mm]
+   :param file_name: File name :: Output HDF5 base name; a _<x>_<y>_<z> position suffix is
+                     appended per point.
+   :type file_name: str
+   :param file_path: File path :: IOC-side directory the HDF5 files are written to.
+   :type file_path: str
+   :param open_shutter: Open shutter :: Open shutterc for the whole scan, then close it (held
+                        open across points; always closed, even on error).
+   :type open_shutter: bool
+   :param file_write_mode: HDF write mode :: Per-point HDF1 plugin file write mode.
+   :type file_write_mode: choice{Capture, Single}
+   :param Example:::
+                     RE(fixed_exp_at_det_steps("det_x", -25, 100, 5, exposure_time=2,
+                                      eiger_y=7, eiger_z=30))
+
+

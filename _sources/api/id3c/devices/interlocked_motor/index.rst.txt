@@ -1,0 +1,151 @@
+id3c.devices.interlocked_motor
+==============================
+
+.. py:module:: id3c.devices.interlocked_motor
+
+.. autoapi-nested-parse::
+
+   EpicsMotor with a Bluesky-session interlock.
+
+   Provides:
+
+   * :class:`MotionInterlock` -- exception raised when a move is blocked.
+   * :class:`InterlockedEpicsMotor` -- ``ophyd.EpicsMotor`` subclass that
+     consults a caller-supplied ``interlock()`` callable both *before*
+     starting a motion (pre-flight) and *during* the motion (mid-flight,
+     via subscriptions on caller-supplied signals).
+
+   Scope and limitations
+   ---------------------
+
+   This interlock lives entirely in the running Bluesky/Python session.
+   It does **not** write to any EPICS protection field (no ``DISP``,
+   no ``SPMG`` Stop, no sequencer record).  If this Python process
+   crashes, exits, or is bypassed (MEDM jog, ``caput``, a different
+   Bluesky session, SPEC, etc.), the underlying EPICS motor is
+   unaffected by anything in this module.
+
+   For session-independent, hardware-grade protection (e.g. preventing
+   collisions regardless of which client commands the move), implement
+   the interlock in the IOC: a CALC/SCALC record, a state-notation
+   sequencer, or a soft record driving the motor's ``DISP`` field.
+
+   Wiring pattern
+   --------------
+
+   ``InterlockedEpicsMotor`` does not know about any particular other
+   device.  The interlock condition is supplied late, typically in
+   ``startup.py`` after all devices have been created, e.g.::
+
+       omega = sample_stage.omega
+       omega.interlock = lambda: laser_optics.is_out
+       omega.interlock_description = "laser_optics OUT"
+       omega.interlock_watch = (
+           laser_optics.us.user_readback,
+           laser_optics.ds.user_readback,
+       )
+
+   This keeps the class reusable and avoids import cycles between
+   mutually-interlocked devices.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   id3c.devices.interlocked_motor.logger
+
+
+Exceptions
+----------
+
+.. autoapisummary::
+
+   id3c.devices.interlocked_motor.MotionInterlock
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   id3c.devices.interlocked_motor.InterlockedEpicsMotor
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:exception:: MotionInterlock
+
+   Bases: :py:obj:`RuntimeError`
+
+
+   Raised when an :class:`InterlockedEpicsMotor` move is blocked.
+
+   The exception message is intended to be self-diagnostic so that the
+   final line of a (typically long) Bluesky traceback identifies both
+   the affected motor and the interlock that blocked it.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:class:: InterlockedEpicsMotor(*args, interlock_description: str = '', **kwargs)
+
+   Bases: :py:obj:`ophyd.EpicsMotor`
+
+
+   EpicsMotor that consults a callable interlock before and during moves.
+
+   :param interlock_description: Short human-readable description of the interlock condition,
+                                 used in :class:`MotionInterlock` messages.  May be supplied via
+                                 YAML (it is popped from kwargs before ``super().__init__``).
+   :type interlock_description: str, optional
+
+   .. rubric:: Notes
+
+   The ``interlock`` callable and ``interlock_watch`` signals are
+   assigned as plain attributes (not Components) and are expected to
+   be wired *after* construction; see the module docstring.
+
+   If ``interlock`` is ``None`` (the default), this class behaves
+   identically to a plain ``EpicsMotor``.
+
+   Initialize; pop ``interlock_description`` before EpicsMotor.
+
+   ``interlock`` and ``interlock_watch`` are initialized to inert
+   defaults and are expected to be assigned post-construction
+   (see the module docstring).
+
+
+   .. py:attribute:: interlock_description
+      :type:  str
+      :value: ''
+
+
+
+   .. py:attribute:: interlock
+      :type:  Optional[Callable[[], bool]]
+      :value: None
+
+
+
+   .. py:attribute:: interlock_watch
+      :type:  Iterable
+      :value: ()
+
+
+
+   .. py:method:: move(position, wait=True, **kwargs)
+
+      Pre-flight interlock check, then EpicsMotor.move.
+
+      :raises MotionInterlock: If ``self.interlock`` is wired and returns ``False`` at
+          the time of the call.  No EPICS write is performed in
+          that case.
+
+
+

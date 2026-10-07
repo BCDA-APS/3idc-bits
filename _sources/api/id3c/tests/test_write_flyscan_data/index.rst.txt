@@ -1,0 +1,49 @@
+id3c.tests.test_write_flyscan_data
+==================================
+
+.. py:module:: id3c.tests.test_write_flyscan_data
+
+.. autoapi-nested-parse::
+
+   Tests for ``id3c.utils.flyscan_3idc_analysis.write_flyscan_data``.
+
+   Verifies the on-disk ``/entry/flyscan_data`` layout, the virtual
+   dataset selection, the provenance attributes, and idempotency.
+   Synthetic AD file + a hand-built paired DataFrame; no IOC, no catalog.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   id3c.tests.test_write_flyscan_data.test_writes_expected_layout
+   id3c.tests.test_write_flyscan_data.test_virtual_dataset_selects_correct_frames
+   id3c.tests.test_write_flyscan_data.test_idempotent_rewrite
+   id3c.tests.test_write_flyscan_data.test_n_frames_expected_omitted_when_none
+
+
+Module Contents
+---------------
+
+.. py:function:: test_writes_expected_layout(tmp_path)
+
+   All datasets and group attributes are present and correct.
+
+
+.. py:function:: test_virtual_dataset_selects_correct_frames(tmp_path)
+
+   The virtual 'data' maps frame_index into the source stack.
+
+
+.. py:function:: test_idempotent_rewrite(tmp_path)
+
+   Writing twice replaces the group without error.
+
+
+.. py:function:: test_n_frames_expected_omitted_when_none(tmp_path)
+
+   No n_frames_expected attribute when the argument is None.
+
+
